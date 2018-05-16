@@ -11,13 +11,21 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Austi
+ * @author Austin
  */
 public enum Actor implements Serializable {
     
  MonsterZombie("Zombie" , new Point(1,1),"A frightful zombie", 2, 2, 2 ),
  PrisonGaurd("Erik" , new Point(2,2), "A tired prison guard", 2, 2, 2 );
  
+
+ private String actorName;
+private Point actorcoordinates;
+private String actorDescription;
+private long actorAttack;
+private long actorDefense;
+private long actorSpeed;
+private ArrayList <Item> actorItems = new ArrayList();
 
     private Actor(String actorName, Point actorcoordinates, String actorDescription, long actorAttack, long actorDefense, long actorSpeed) {
         this.actorName = actorName; 
@@ -27,22 +35,6 @@ public enum Actor implements Serializable {
         this.actorDefense = actorDefense;
         this.actorSpeed = actorSpeed;
  }
- 
-private String actorName;
-private Point actorcoordinates;
-private String actorDescription;
-private long actorAttack;
-private long actorDefense;
-private long actorSpeed;
-private ArrayList <Item> actorItems = new ArrayList();
-
-    public static Actor getMonsterZombie() {
-        return MonsterZombie;
-    }
-
-    public static Actor getPrisonGaurd() {
-        return PrisonGaurd;
-    }
 
     public String getActorName() {
         return actorName;
