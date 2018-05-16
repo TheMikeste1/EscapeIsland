@@ -14,10 +14,10 @@ import java.util.Objects;
  */
 public class Player implements Serializable {
 
+    private String playerName;
+
     public Player() {
     }
-    
-        private String playerName;
 
     public String getPlayerName() {
         return playerName;
@@ -56,8 +56,6 @@ public class Player implements Serializable {
         }
         return true;
     }
-        
-        
-        
-        
+    
+
 }

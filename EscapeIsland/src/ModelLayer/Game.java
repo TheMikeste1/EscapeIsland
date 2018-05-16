@@ -99,4 +99,9 @@ public class Game implements Serializable {
         return true;
     }
 
+    @Override
+    public String toString() {
+        return "Game{" + "item=" + item + ", player=" + player + ", map=" + map + ", actor=" + actor + '}';
+    }
+
 }
