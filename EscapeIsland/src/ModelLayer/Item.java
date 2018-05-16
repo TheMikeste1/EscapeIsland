@@ -6,115 +6,57 @@
 package ModelLayer;
 
 import java.io.Serializable;
-import java.util.Objects;
 
 /**
  *
  * @author collin
  */
-public class Item implements Serializable {
+public enum Item implements Serializable {
 
-    public Item() {
-    }
+    Axe("Axe", "Weapon", "A sharp battle axe", "Swing", 4, 3),
+    Sword("Sword", "Weapon", "An elegant short sword", "Jab", 3, 4),
+    ToolKit("ToolKit", "Tool", "A small collection of every-day tools", "Fix",1,1),
+    Compass("MagicCompass", "Tool", "A glowing, ancient ","locate", 0,0);
     
-    private String itemName;
-    private String itemType;
-    private String itemDescription;
-    private String itemAbility;
-    private int attack;
-    private int defense;
+    private final String itemName;
+    private final String itemType;
+    private final String itemDescription;
+    private final String itemAbility;
+    private final int attack;
+    private final int defense;
+    
+    
+    private Item(String itemName, String itemType, String itemDescription, String itemAbility, int attack, int defense) {
+        this.itemName = itemName;
+        this.itemType = itemType;
+        this.itemDescription = itemDescription;
+        this.itemAbility = itemAbility;
+        this.attack = attack;
+        this.defense = defense;
+    }
 
     public String getItemName() {
         return itemName;
-    }
-
-    public void setItemName(String itemName) {
-        this.itemName = itemName;
     }
 
     public String getItemType() {
         return itemType;
     }
 
-    public void setItemType(String itemType) {
-        this.itemType = itemType;
-    }
-
     public String getItemDescription() {
         return itemDescription;
-    }
-
-    public void setItemDescription(String itemDescription) {
-        this.itemDescription = itemDescription;
     }
 
     public String getItemAbility() {
         return itemAbility;
     }
 
-    public void setItemAbility(String itemAbility) {
-        this.itemAbility = itemAbility;
-    }
-
     public int getAttack() {
         return attack;
     }
 
-    public void setAttack(int attack) {
-        this.attack = attack;
-    }
-
     public int getDefense() {
         return defense;
-    }
-
-    public void setDefense(int defense) {
-        this.defense = defense;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 89 * hash + Objects.hashCode(this.itemName);
-        hash = 89 * hash + Objects.hashCode(this.itemType);
-        hash = 89 * hash + Objects.hashCode(this.itemDescription);
-        hash = 89 * hash + Objects.hashCode(this.itemAbility);
-        hash = 89 * hash + this.attack;
-        hash = 89 * hash + this.defense;
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Item other = (Item) obj;
-        if (this.attack != other.attack) {
-            return false;
-        }
-        if (this.defense != other.defense) {
-            return false;
-        }
-        if (!Objects.equals(this.itemName, other.itemName)) {
-            return false;
-        }
-        if (!Objects.equals(this.itemType, other.itemType)) {
-            return false;
-        }
-        if (!Objects.equals(this.itemDescription, other.itemDescription)) {
-            return false;
-        }
-        if (!Objects.equals(this.itemAbility, other.itemAbility)) {
-            return false;
-        }
-        return true;
     }
 
     @Override
