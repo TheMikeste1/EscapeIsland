@@ -5,8 +5,8 @@
  */
 package ModelLayer;
 
-import java.awt.Point;
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -16,72 +16,72 @@ import java.util.Objects;
 public class Map implements Serializable{
     
     private String mapDescription;
-    private Point rowCount;
-    private Point columnCount;
-    private Point currentRow;
-    private Point currentColumn;
+    private int rowCount;
+    private int columnCount;
+    private int currentRow;
+    private int currentColumn;
+    private Location[][] locations;
 
-    public Map(String mapDescription, Point rowCount, Point columnCount, Point currentRow, Point currentColumn) {
-        this.mapDescription = mapDescription;
-        this.rowCount = rowCount;
-        this.columnCount = columnCount;
-        this.currentRow = currentRow;
-        this.currentColumn = currentColumn;
+    public Map() {
     }
 
     public String getMapDescription() {
         return mapDescription;
     }
 
+    public int getRowCount() {
+        return rowCount;
+    }
+
+    public int getColumnCount() {
+        return columnCount;
+    }
+
+    public int getCurrentRow() {
+        return currentRow;
+    }
+
+    public int getCurrentColumn() {
+        return currentColumn;
+    }
+
+    public Location[][] getLocations() {
+        return locations;
+    }
+
     public void setMapDescription(String mapDescription) {
         this.mapDescription = mapDescription;
     }
 
-    public Point getRowCount() {
-        return rowCount;
-    }
-
-    public void setRowCount(Point rowCount) {
+    public void setRowCount(int rowCount) {
         this.rowCount = rowCount;
     }
 
-    public Point getColumnCount() {
-        return columnCount;
-    }
-
-    public void setColumnCount(Point columnCount) {
+    public void setColumnCount(int columnCount) {
         this.columnCount = columnCount;
     }
 
-    public Point getCurrentRow() {
-        return currentRow;
-    }
-
-    public void setCurrentRow(Point currentRow) {
+    public void setCurrentRow(int currentRow) {
         this.currentRow = currentRow;
     }
 
-    public Point getCurrentColumn() {
-        return currentColumn;
-    }
-
-    public void setCurrentColumn(Point currentColumn) {
+    public void setCurrentColumn(int currentColumn) {
         this.currentColumn = currentColumn;
     }
 
-    @Override
-    public String toString() {
-        return "Map{" + "mapDescription=" + mapDescription + ", rowCount=" + rowCount + ", columnCount=" + columnCount + ", currentRow=" + currentRow + ", currentColumn=" + currentColumn + '}';
+    public void setLocations(Location[][] locations) {
+        this.locations = locations;
     }
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 79 * hash + Objects.hashCode(this.mapDescription);
-        hash = 79 * hash + Objects.hashCode(this.rowCount);
-        hash = 79 * hash + Objects.hashCode(this.columnCount);
-        hash = 79 * hash + Objects.hashCode(this.currentRow);
-        hash = 79 * hash + Objects.hashCode(this.currentColumn);
+        int hash = 3;
+        hash = 23 * hash + Objects.hashCode(this.mapDescription);
+        hash = 23 * hash + this.rowCount;
+        hash = 23 * hash + this.columnCount;
+        hash = 23 * hash + this.currentRow;
+        hash = 23 * hash + this.currentColumn;
+        hash = 23 * hash + Arrays.deepHashCode(this.locations);
         return hash;
     }
 
@@ -97,25 +97,31 @@ public class Map implements Serializable{
             return false;
         }
         final Map other = (Map) obj;
+        if (this.rowCount != other.rowCount) {
+            return false;
+        }
+        if (this.columnCount != other.columnCount) {
+            return false;
+        }
+        if (this.currentRow != other.currentRow) {
+            return false;
+        }
+        if (this.currentColumn != other.currentColumn) {
+            return false;
+        }
         if (!Objects.equals(this.mapDescription, other.mapDescription)) {
             return false;
         }
-        if (!Objects.equals(this.rowCount, other.rowCount)) {
-            return false;
-        }
-        if (!Objects.equals(this.columnCount, other.columnCount)) {
-            return false;
-        }
-        if (!Objects.equals(this.currentRow, other.currentRow)) {
-            return false;
-        }
-        if (!Objects.equals(this.currentColumn, other.currentColumn)) {
+        if (!Arrays.deepEquals(this.locations, other.locations)) {
             return false;
         }
         return true;
     }
-    
-    
-    
-    
+
+    @Override
+    public String toString() {
+        return "Map{" + "mapDescription=" + mapDescription + ", rowCount=" + rowCount + ", columnCount=" + columnCount + ", currentRow=" + currentRow + ", currentColumn=" + currentColumn + ", locations=" + locations + '}';
+    }
+
 }
+   
