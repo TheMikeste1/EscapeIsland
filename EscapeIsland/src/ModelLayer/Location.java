@@ -16,18 +16,19 @@ public class Location implements Serializable{
     
     private int row;
     private int column;
-    private Boolean visited; 
-    private Boolean complete;
+    private boolean visited; 
+    private boolean complete;
     private String description;
     private BackgroundType backgroundType;
-    private Boolean blocked;
-    private String locationType;
-    private String item; 
+    private boolean blocked;
+    private Item item; 
 
     public Location() {
     }
+
     
-    public Location(int row, int column, Boolean visited, Boolean complete, String description, BackgroundType backgroundType, Boolean blocked, String locationType, String item) {
+    
+    public Location(int row, int column, Boolean visited, Boolean complete, String description, BackgroundType backgroundType, Boolean blocked) {
         this.row = row;
         this.column = column;
         this.visited = visited;
@@ -35,8 +36,7 @@ public class Location implements Serializable{
         this.description = description;
         this.backgroundType = backgroundType;
         this.blocked = blocked;
-        this.locationType = locationType;
-        this.item = item;
+        
     }
 
     public int getRow() {
@@ -67,11 +67,7 @@ public class Location implements Serializable{
         return blocked;
     }
 
-    public String getLocationType() {
-        return locationType;
-    }
-
-    public String getItem() {
+    public Item getItem() {
         return item;
     }
 
@@ -103,11 +99,8 @@ public class Location implements Serializable{
         this.blocked = blocked;
     }
 
-    public void setLocationType(String locationType) {
-        this.locationType = locationType;
-    }
 
-    public void setItem(String item) {
+    public void setItem(Item item) {
         this.item = item;
     }
 
@@ -121,7 +114,6 @@ public class Location implements Serializable{
         hash = 67 * hash + Objects.hashCode(this.description);
         hash = 67 * hash + Objects.hashCode(this.backgroundType);
         hash = 67 * hash + Objects.hashCode(this.blocked);
-        hash = 67 * hash + Objects.hashCode(this.locationType);
         hash = 67 * hash + Objects.hashCode(this.item);
         return hash;
     }
@@ -147,9 +139,7 @@ public class Location implements Serializable{
         if (!Objects.equals(this.description, other.description)) {
             return false;
         }
-        if (!Objects.equals(this.locationType, other.locationType)) {
-            return false;
-        }
+
         if (!Objects.equals(this.item, other.item)) {
             return false;
         }
@@ -170,7 +160,7 @@ public class Location implements Serializable{
 
     @Override
     public String toString() {
-        return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", complete=" + complete + ", description=" + description + ", backgroundType=" + backgroundType + ", blocked=" + blocked + ", locationType=" + locationType + ", item=" + item + '}';
+        return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", complete=" + complete + ", description=" + description + ", backgroundType=" + backgroundType + ", blocked=" + blocked + '}';
     }
     
     
