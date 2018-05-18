@@ -25,6 +25,15 @@ public class Map implements Serializable{
     public Map() {
     }
 
+    public Map(String mapDescription, int rowCount, int columnCount, int currentRow, int currentColumn, Location[][] locations) {
+        this.mapDescription = mapDescription;
+        this.rowCount = rowCount;
+        this.columnCount = columnCount;
+        this.currentRow = currentRow;
+        this.currentColumn = currentColumn;
+        this.locations = locations;
+    }
+    
     public String getMapDescription() {
         return mapDescription;
     }

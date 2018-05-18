@@ -7,7 +7,7 @@ package ModelLayer;
 
 /**
  *
- * @author Austi
+ * @author collin
  */
 public class Riddle {
     

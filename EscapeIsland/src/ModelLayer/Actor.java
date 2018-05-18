@@ -19,13 +19,17 @@ public enum Actor implements Serializable {
  PrisonGaurd("Erik" , new Point(2,2), "A tired prison guard", 2, 2, 2 );
  
 
- private String actorName;
+private String actorName;
 private Point actorcoordinates;
 private String actorDescription;
 private long actorAttack;
 private long actorDefense;
 private long actorSpeed;
 private ArrayList <Item> actorItems = new ArrayList();
+
+    private Actor() {
+    }
+
 
     private Actor(String actorName, Point actorcoordinates, String actorDescription, long actorAttack, long actorDefense, long actorSpeed) {
         this.actorName = actorName; 

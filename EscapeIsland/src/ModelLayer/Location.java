@@ -24,6 +24,9 @@ public class Location implements Serializable{
     private String locationType;
     private String item; 
 
+    public Location() {
+    }
+    
     public Location(int row, int column, Boolean visited, Boolean complete, String description, BackgroundType backgroundType, Boolean blocked, String locationType, String item) {
         this.row = row;
         this.column = column;

@@ -24,6 +24,10 @@ public enum BackgroundType implements Serializable {
     private final String printValue;
     private final String special;
 
+  
+    
+    
+    
     private BackgroundType(String name, String printValue, String special) {
         this.name = name;
         this.printValue = printValue;

@@ -24,7 +24,8 @@ public enum Item implements Serializable {
     private final String itemAbility;
     private final int attack;
     private final int defense;
-    
+
+
     
     private Item(String itemName, String itemType, String itemDescription, String itemAbility, int attack, int defense) {
         this.itemName = itemName;
