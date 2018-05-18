@@ -19,7 +19,7 @@ public class PuzzleLocation extends Location{
     
     private String interaction; 
 
-    public PuzzleLocation(String interaction, int row, int column, Boolean visited, Boolean complete, String description, BackgroundType backgroundType, Boolean blocked, String locationType, String item) {
+    public PuzzleLocation(String interaction, int row, int column, Boolean visited, Boolean complete, String description, BackgroundType backgroundType, Boolean blocked) {
         super(row, column, visited, complete, description, backgroundType, blocked, locationType, item);
         this.interaction = interaction;
     }
