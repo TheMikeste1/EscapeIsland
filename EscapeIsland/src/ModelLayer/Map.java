@@ -123,5 +123,15 @@ public class Map implements Serializable{
         return "Map{" + "mapDescription=" + mapDescription + ", rowCount=" + rowCount + ", columnCount=" + columnCount + ", currentRow=" + currentRow + ", currentColumn=" + currentColumn + ", locations=" + locations + '}';
     }
 
+    public Map(String mapDescription, int rowCount, int columnCount, int currentRow, int currentColumn) {
+        this.mapDescription = mapDescription;
+        this.rowCount = rowCount;
+        this.columnCount = columnCount;
+        this.currentRow = currentRow;
+        this.currentColumn = currentColumn;
+    }
+
+    
+    
 }
    

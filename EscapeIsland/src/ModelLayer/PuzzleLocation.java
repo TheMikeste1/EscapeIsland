@@ -13,14 +13,10 @@ import java.util.Objects;
  */
 public class PuzzleLocation extends Location{
 
-    public PuzzleLocation(int row, int column, Boolean visited, Boolean complete, String description, BackgroundType backgroundType, Boolean blocked, String locationType, String item) {
-        super(row, column, visited, complete, description, backgroundType, blocked, locationType, item);
-    }
-    
     private String interaction; 
 
-    public PuzzleLocation(String interaction, int row, int column, Boolean visited, Boolean complete, String description, BackgroundType backgroundType, Boolean blocked, String locationType, String item) {
-        super(row, column, visited, complete, description, backgroundType, blocked, locationType, item);
+    public PuzzleLocation(String interaction, int row, int column, Boolean visited, Boolean complete, String description, BackgroundType backgroundType, Boolean blocked) {
+        super(row, column, visited, complete, description, backgroundType, blocked);
         this.interaction = interaction;
     }
 

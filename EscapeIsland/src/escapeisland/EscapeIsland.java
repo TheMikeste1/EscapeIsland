@@ -8,6 +8,12 @@ package escapeisland;
 import ModelLayer.Actor;
 import ModelLayer.Game;
 import ModelLayer.Player;
+import ModelLayer.BackgroundType;
+import ModelLayer.Item;
+import ModelLayer.Map;
+import ModelLayer.PuzzleLocation;
+import ModelLayer.Riddle;
+import ModelLayer.Location;
 
 /**
  *
@@ -28,13 +34,29 @@ public class EscapeIsland {
         Player[] list = new Player[1];
         list[0] = austin;
             game.setPlayer(list);
-        
         System.out.println(game.toString());
         
         System.out.println(Actor.PrisonGaurd.toString());
-
+        
+        System.out.println(Item.ToolKit.toString());
+        
+        System.out.println(BackgroundType.Beach.toString());
         
         
+        Map map1 = new Map("test map",1,1,1,1);
+        System.out.println(map1.toString());
+        
+        Location location1 = new Location(1,1,true,true,"1",BackgroundType.Beach,true);
+        
+        System.out.println(location1.toString());
+        
+        PuzzleLocation room = new PuzzleLocation("interaction",1,1,true,true,"1",BackgroundType.Beach,true);
+        
+        System.out.println(room.toString());
+        
+        Riddle question1 = new Riddle("favorite color","blue");
+        
+        System.out.println(question1.toString());
         
     }
     
