@@ -44,10 +44,20 @@ public class calcTurnOrderControlTest {
         result = calcTurnOrderControl.calcSpeed(actorEnemySpeed, actorPlayerSpeed, actorItem);
         assertEquals(expResult, result, 0.00);
         
-        System.out.println("Test case 2");
+        System.out.println("Test case 3");
+        
+        actorEnemySpeed = 4;
+        actorPlayerSpeed = 101;
+        actorItem = 2.0;
+        expResult = -1;
+        result = calcTurnOrderControl.calcSpeed(actorEnemySpeed, actorPlayerSpeed, actorItem);
+        assertEquals(expResult, result, 0.00);
+        
+                
+        System.out.println("Test case 4");
         
         actorEnemySpeed = -1;
-        actorPlayerSpeed = 4;
+        actorPlayerSpeed = 6;
         actorItem = 2.0;
         expResult = -1;
         result = calcTurnOrderControl.calcSpeed(actorEnemySpeed, actorPlayerSpeed, actorItem);
@@ -55,11 +65,107 @@ public class calcTurnOrderControlTest {
    
     
     
+         
+        System.out.println("Test case 5");
+        
+        actorEnemySpeed = 101;
+        actorPlayerSpeed = 6;
+        actorItem = 2.0;
+        expResult = -1;
+        result = calcTurnOrderControl.calcSpeed(actorEnemySpeed, actorPlayerSpeed, actorItem);
+        assertEquals(expResult, result, 0.00);
     
     
+            
+        System.out.println("Test case 6");
+        
+        actorEnemySpeed = 4;
+        actorPlayerSpeed = 6;
+        actorItem = -1.0;
+        expResult = -1;
+        result = calcTurnOrderControl.calcSpeed(actorEnemySpeed, actorPlayerSpeed, actorItem);
+        assertEquals(expResult, result, 0.00);
+    
+        
+        
+               
+        System.out.println("Test case 7");
+        
+        actorEnemySpeed = 4;
+        actorPlayerSpeed = 6;
+        actorItem = 101.0;
+        expResult = -1;
+        result = calcTurnOrderControl.calcSpeed(actorEnemySpeed, actorPlayerSpeed, actorItem);
+        assertEquals(expResult, result, 0.00);
+        
+        System.out.println("Test case 8");
+        
+        actorEnemySpeed = 1;
+        actorPlayerSpeed = 1;
+        actorItem = 1.0;
+        expResult = 2;
+        result = calcTurnOrderControl.calcSpeed(actorEnemySpeed, actorPlayerSpeed, actorItem);
+        assertEquals(expResult, result, 0.00);
+        
+                
+        System.out.println("Test case 9");
+        
+        actorEnemySpeed = 1;
+        actorPlayerSpeed = 1;
+        actorItem = 100.0;
+        expResult = 101;
+        result = calcTurnOrderControl.calcSpeed(actorEnemySpeed, actorPlayerSpeed, actorItem);
+        assertEquals(expResult, result, 0.00);
+   
     
     
+         
+        System.out.println("Test case 10");
+        
+        actorEnemySpeed = 100;
+        actorPlayerSpeed = 1;
+        actorItem = 100.0;
+        expResult = 1.01;
+        result = calcTurnOrderControl.calcSpeed(actorEnemySpeed, actorPlayerSpeed, actorItem);
+        assertEquals(expResult, result, 0.00);
     
+    
+            
+        System.out.println("Test case 11");
+        
+        actorEnemySpeed = 100;
+        actorPlayerSpeed = 100;
+        actorItem = 100;
+        expResult = 2;
+        result = calcTurnOrderControl.calcSpeed(actorEnemySpeed, actorPlayerSpeed, actorItem);
+        assertEquals(expResult, result, 0.00);
+        
+        
+               
+        System.out.println("Test case 12");
+        
+        actorEnemySpeed = 100;
+        actorPlayerSpeed = 100;
+        actorItem = 1.0;
+        expResult = 1.01;
+        result = calcTurnOrderControl.calcSpeed(actorEnemySpeed, actorPlayerSpeed, actorItem);
+        assertEquals(expResult, result, 0.00);
+   
+    
+    
+         
+        System.out.println("Test case 13");
+        
+        actorEnemySpeed = 1;
+        actorPlayerSpeed = 100;
+        actorItem = 1.0;
+        expResult = 101;
+        result = calcTurnOrderControl.calcSpeed(actorEnemySpeed, actorPlayerSpeed, actorItem);
+        assertEquals(expResult, result, 0.00);
+    
+    
+            
+
     }
     
 }
