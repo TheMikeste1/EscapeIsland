@@ -11,13 +11,7 @@ package citbyui.cit260.escapeIsland.control;
  */
 public class calcTurnOrderControl {
     
-    /**
-     * why does this exist?
-     * @param actorEnemySpeed
-     * @param actorPlayerSpeed
-     * @param actorItem
-     * @return
-     */
+ 
     public static double calcSpeed(double actorEnemySpeed, double actorPlayerSpeed, double actorItem) {
 
 
