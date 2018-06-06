@@ -9,9 +9,9 @@ package citbyui.cit260.escapeIsland.control;
  *
  * @author Austin
  */
-public class calcTurnOrderControl {
+public class CalcTurnOrderControl {
     
-
+ 
     public static double calcSpeed(double actorEnemySpeed, double actorPlayerSpeed, double actorItem) {
 
 

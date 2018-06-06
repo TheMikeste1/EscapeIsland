@@ -14,6 +14,7 @@ import ModelLayer.Map;
 import ModelLayer.PuzzleLocation;
 import ModelLayer.Riddle;
 import ModelLayer.Location;
+import citbyui.cit260.escapeIsland.control.CalcCritControl;
 
 /**
  *
@@ -25,6 +26,7 @@ public class EscapeIsland {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+  
         // TODO code application logic here
         Player austin = new Player();
             austin.setPlayerName("austin");
