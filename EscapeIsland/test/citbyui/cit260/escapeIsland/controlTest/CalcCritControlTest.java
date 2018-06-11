@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package citbyui.cit260.escapeIsland.control;
+package citbyui.cit260.escapeIsland.controlTest;
 
+import byui.cit260.escapeIsland.control.CombatControl;
 import org.junit.Test;
 import static org.junit.Assert.*;
 /**
@@ -29,7 +30,7 @@ public class CalcCritControlTest {
     double expResult = 2.0;
     double chance = 0.01;
     double result;
-        result = CalcCritControl.calcCrit(actorAttack, actorSpeed, actorItemAttack, actorItemSpeed, chance);
+        result = CombatControl.calcCrit(actorAttack, actorSpeed, actorItemAttack, actorItemSpeed, chance);
     assertEquals(expResult, result, 0.0);
     
     
@@ -42,7 +43,7 @@ public class CalcCritControlTest {
     actorItemAttack = 1.0;
     actorItemSpeed = 1.0;
     expResult = -1;
-    result = CalcCritControl.calcCrit(actorAttack, actorSpeed, actorItemAttack, actorItemSpeed, chance);
+    result = CombatControl.calcCrit(actorAttack, actorSpeed, actorItemAttack, actorItemSpeed, chance);
     assertEquals(expResult, result, 0.0);
     
     
@@ -55,7 +56,7 @@ public class CalcCritControlTest {
     actorItemAttack = 1.0;
     actorItemSpeed = 1.0;
     expResult = -1.0;
-    result = CalcCritControl.calcCrit(actorAttack, actorSpeed, actorItemAttack, actorItemSpeed, chance);
+    result = CombatControl.calcCrit(actorAttack, actorSpeed, actorItemAttack, actorItemSpeed, chance);
     assertEquals(expResult, result, 0.0);
     
     
@@ -69,7 +70,7 @@ public class CalcCritControlTest {
     actorItemAttack = -1.0;
     actorItemSpeed = 1.0;
     expResult = -1.0;
-    result = CalcCritControl.calcCrit(actorAttack, actorSpeed, actorItemAttack, actorItemSpeed, chance);
+    result = CombatControl.calcCrit(actorAttack, actorSpeed, actorItemAttack, actorItemSpeed, chance);
     assertEquals(expResult, result, 0.0);
     
     
@@ -83,7 +84,7 @@ public class CalcCritControlTest {
     actorItemAttack = 1.0;
     actorItemSpeed = 1.0;
     expResult = 198.0;
-    result = CalcCritControl.calcCrit(actorAttack, actorSpeed, actorItemAttack, actorItemSpeed, chance);
+    result = CombatControl.calcCrit(actorAttack, actorSpeed, actorItemAttack, actorItemSpeed, chance);
     assertEquals(expResult, result, 0.0);
     
         
@@ -96,7 +97,7 @@ public class CalcCritControlTest {
     actorItemAttack = 1.0;
     actorItemSpeed = 1.0;
     expResult = 2.0;
-    result = CalcCritControl.calcCrit(actorAttack, actorSpeed, actorItemAttack, actorItemSpeed, chance);
+    result = CombatControl.calcCrit(actorAttack, actorSpeed, actorItemAttack, actorItemSpeed, chance);
     assertEquals(expResult, result, 0.0);
     
         
@@ -109,7 +110,7 @@ public class CalcCritControlTest {
     actorItemAttack = 1.0;
     actorItemSpeed = 0.0;
     expResult = 2.0;
-    result = CalcCritControl.calcCrit(actorAttack, actorSpeed, actorItemAttack, actorItemSpeed, chance);
+    result = CombatControl.calcCrit(actorAttack, actorSpeed, actorItemAttack, actorItemSpeed, chance);
     assertEquals(expResult, result, 0.0);
     
     }

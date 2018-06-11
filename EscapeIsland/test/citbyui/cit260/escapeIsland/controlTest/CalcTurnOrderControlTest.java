@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package citbyui.cit260.escapeIsland.control;
+package citbyui.cit260.escapeIsland.controlTest;
 
+import byui.cit260.escapeIsland.control.CombatControl;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

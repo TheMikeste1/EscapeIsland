@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package escapeisland;
+package byui.cit260.escapeIsland;
 
 import ModelLayer.Actor;
 import ModelLayer.Game;
@@ -14,7 +14,7 @@ import ModelLayer.Map;
 import ModelLayer.PuzzleLocation;
 import ModelLayer.Riddle;
 import ModelLayer.Location;
-import citbyui.cit260.escapeIsland.control.CalcCritControl;
+import byui.cit260.escapeIsland.control.CombatControl;
 import byui.cit260.escapeIsland.view.StartProgramView;
 
 /**
