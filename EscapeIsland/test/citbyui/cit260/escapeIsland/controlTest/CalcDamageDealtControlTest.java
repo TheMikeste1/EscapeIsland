@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package citbyui.cit260.escapeIsland.control;
+package citbyui.cit260.escapeIsland.controlTest;
 
+import byui.cit260.escapeIsland.control.CombatControl;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -30,7 +31,7 @@ public class CalcDamageDealtControlTest {
         double actorWeapon = 3.0;
         double actorEnemyDefense = 3.0;
         double expResult = 5.0;
-        double result = CalcDamageDealtControl.calcDamageDealt(actorPlayerStrength, actorWeapon, actorEnemyDefense);
+        double result = CombatControl.calcDamageDealt(actorPlayerStrength, actorWeapon, actorEnemyDefense);
         assertEquals(expResult, result, 0.0);
         // TODO review the generated test code and remove the default call to fail.
         
@@ -40,7 +41,7 @@ public class CalcDamageDealtControlTest {
         actorWeapon             = 3.0;
         actorEnemyDefense       = 3.0;
         expResult               = -1.0;
-        result = CalcDamageDealtControl.calcDamageDealt(actorPlayerStrength, actorWeapon, actorEnemyDefense);
+        result = CombatControl.calcDamageDealt(actorPlayerStrength, actorWeapon, actorEnemyDefense);
         assertEquals(expResult, result, 0.0);
         
         System.out.println("Test case 3");
@@ -49,7 +50,7 @@ public class CalcDamageDealtControlTest {
         actorWeapon             = 3.0;
         actorEnemyDefense       = 3.0;
         expResult               = -1.0;
-        result = CalcDamageDealtControl.calcDamageDealt(actorPlayerStrength, actorWeapon, actorEnemyDefense);
+        result = CombatControl.calcDamageDealt(actorPlayerStrength, actorWeapon, actorEnemyDefense);
         assertEquals(expResult, result, 0.0);
         
         System.out.println("Test case 4");
@@ -58,7 +59,7 @@ public class CalcDamageDealtControlTest {
         actorWeapon             = -1.0;
         actorEnemyDefense       = 3.0;
         expResult               = -1.0;
-        result = CalcDamageDealtControl.calcDamageDealt(actorPlayerStrength, actorWeapon, actorEnemyDefense);
+        result = CombatControl.calcDamageDealt(actorPlayerStrength, actorWeapon, actorEnemyDefense);
         assertEquals(expResult, result, 0.0);
         
         System.out.println("Test case 5");
@@ -67,7 +68,7 @@ public class CalcDamageDealtControlTest {
         actorWeapon             = 101.0;
         actorEnemyDefense       = 3.0;
         expResult               = -1.0;
-        result = CalcDamageDealtControl.calcDamageDealt(actorPlayerStrength, actorWeapon, actorEnemyDefense);
+        result = CombatControl.calcDamageDealt(actorPlayerStrength, actorWeapon, actorEnemyDefense);
         assertEquals(expResult, result, 0.0);
         
         System.out.println("Test case 6");
@@ -76,7 +77,7 @@ public class CalcDamageDealtControlTest {
         actorWeapon             = 3.0;
         actorEnemyDefense       = -1.0;
         expResult               = -1.0;
-        result = CalcDamageDealtControl.calcDamageDealt(actorPlayerStrength, actorWeapon, actorEnemyDefense);
+        result = CombatControl.calcDamageDealt(actorPlayerStrength, actorWeapon, actorEnemyDefense);
         assertEquals(expResult, result, 0.0);
         
         System.out.println("Test case 7");
@@ -85,7 +86,7 @@ public class CalcDamageDealtControlTest {
         actorWeapon             = 3.0;
         actorEnemyDefense       = 101.0;
         expResult               = -1.0;
-        result = CalcDamageDealtControl.calcDamageDealt(actorPlayerStrength, actorWeapon, actorEnemyDefense);
+        result = CombatControl.calcDamageDealt(actorPlayerStrength, actorWeapon, actorEnemyDefense);
         assertEquals(expResult, result, 0.0);
         
         System.out.println("Test case 8");
@@ -94,7 +95,7 @@ public class CalcDamageDealtControlTest {
         actorWeapon             = 1.0;
         actorEnemyDefense       = 1.0;
         expResult               = 1.0;
-        result = CalcDamageDealtControl.calcDamageDealt(actorPlayerStrength, actorWeapon, actorEnemyDefense);
+        result = CombatControl.calcDamageDealt(actorPlayerStrength, actorWeapon, actorEnemyDefense);
         assertEquals(expResult, result, 0.0);
         
         System.out.println("Test case 9");
@@ -103,7 +104,7 @@ public class CalcDamageDealtControlTest {
         actorWeapon             = 1.0;
         actorEnemyDefense       = 100.0;
         expResult               = -98.0;
-        result = CalcDamageDealtControl.calcDamageDealt(actorPlayerStrength, actorWeapon, actorEnemyDefense);
+        result = CombatControl.calcDamageDealt(actorPlayerStrength, actorWeapon, actorEnemyDefense);
         assertEquals(expResult, result, 0.0);
         
         System.out.println("Test case 10");
@@ -112,7 +113,7 @@ public class CalcDamageDealtControlTest {
         actorWeapon             = 100.0;
         actorEnemyDefense       = 100.0;
         expResult               = 1.0;
-        result = CalcDamageDealtControl.calcDamageDealt(actorPlayerStrength, actorWeapon, actorEnemyDefense);
+        result = CombatControl.calcDamageDealt(actorPlayerStrength, actorWeapon, actorEnemyDefense);
         assertEquals(expResult, result, 0.0);
         
         System.out.println("Test case 11");
@@ -121,7 +122,7 @@ public class CalcDamageDealtControlTest {
         actorWeapon             = 100.0;
         actorEnemyDefense       = 100.0;
         expResult               = 100.0;
-        result = CalcDamageDealtControl.calcDamageDealt(actorPlayerStrength, actorWeapon, actorEnemyDefense);
+        result = CombatControl.calcDamageDealt(actorPlayerStrength, actorWeapon, actorEnemyDefense);
         assertEquals(expResult, result, 0.0);
         
         System.out.println("Test case 12");
@@ -130,7 +131,7 @@ public class CalcDamageDealtControlTest {
         actorWeapon             = 100.0;
         actorEnemyDefense       = 1.0;
         expResult               = 199.0;
-        result = CalcDamageDealtControl.calcDamageDealt(actorPlayerStrength, actorWeapon, actorEnemyDefense);
+        result = CombatControl.calcDamageDealt(actorPlayerStrength, actorWeapon, actorEnemyDefense);
         assertEquals(expResult, result, 0.0);
         
         System.out.println("Test case 13");
@@ -139,7 +140,7 @@ public class CalcDamageDealtControlTest {
         actorWeapon             = 1.0;
         actorEnemyDefense       = 1.0;
         expResult               = 100.0;
-        result = CalcDamageDealtControl.calcDamageDealt(actorPlayerStrength, actorWeapon, actorEnemyDefense);
+        result = CombatControl.calcDamageDealt(actorPlayerStrength, actorWeapon, actorEnemyDefense);
         assertEquals(expResult, result, 0.0);
         
     }
