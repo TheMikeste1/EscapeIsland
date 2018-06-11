@@ -37,6 +37,7 @@ public class StartProgramView {
             }
             valid = true;
             inputs[0] = yourName;
+            inputs[0]=inputs[0].toUpperCase();
         }
 
         return inputs;
@@ -59,16 +60,10 @@ public class StartProgramView {
         do {
             String[] inputs = getInputs();
             System.out.println("input name");
+            
             if (inputs[0].length() < 1 || inputs[0].equals('Q')) {
-                return;
+                endOfView = true;   
             }
-            else if (inputs[0].length() < 1 || inputs[0].equals('q')) {
-                return;
-            
-                
-            }
-            
-               
             endOfView = doAction(inputs);
         } while (endOfView != true);
 
