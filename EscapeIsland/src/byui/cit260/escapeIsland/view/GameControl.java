@@ -11,10 +11,11 @@ import ModelLayer.Player;
  *
  * @author Austi
  */
-class GameControl {
+public class GameControl {
 
-    static Player savePlayer(String playersName) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public static Player savePlayer(String playersName) {
+        System.out.println("*** SavePlayer() called ***");
+        return new Player();
     }
     
 }

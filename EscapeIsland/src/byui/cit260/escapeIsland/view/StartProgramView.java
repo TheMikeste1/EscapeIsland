@@ -5,6 +5,7 @@
  */
 package byui.cit260.escapeIsland.view;
 
+import ModelLayer.Player;
 import java.util.Scanner;
 
 /**
@@ -44,12 +45,29 @@ public class StartProgramView {
     }
 
     private static boolean doAction(String[] inputs) {
-        System.out.println("****doAction called ****");
-        System.out.println("\tinputs = " + inputs[0]);
+        
+String playersName = inputs[0];
+Player player = GameControl.savePlayer(playersName);
 
+if (player == null){
+    System.out.println("Could not create the player. " 
+                        + "Enter a diferent name.");
+    return false;   
+}
+        System.out.println("=================================================" 
+                         + "Welcome to the game " + playersName
+                         + "We hope you have a lot of fun!"
+                         + "=================================================");
+    
+   MainMenuView mainMenuView = new MainMenuView(); 
+   mainMenuView.displayMainMenuView();  
         return true;
     }
-
+    
+    private static Player savePlayer(String playersName) {
+        return null;  
+    }
+    
     public StartProgramView() {
 
     }
