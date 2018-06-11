@@ -5,7 +5,7 @@
  */
 package byui.cit260.escapeIsland.view;
 
-import ModelLayer.Player;
+import byui.cit260.escapeIsland.model.Player;
 
 /**
  *

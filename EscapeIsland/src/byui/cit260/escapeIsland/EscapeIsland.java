@@ -5,15 +5,15 @@
  */
 package byui.cit260.escapeIsland;
 
-import ModelLayer.Actor;
-import ModelLayer.Game;
-import ModelLayer.Player;
-import ModelLayer.BackgroundType;
-import ModelLayer.Item;
-import ModelLayer.Map;
-import ModelLayer.PuzzleLocation;
-import ModelLayer.Riddle;
-import ModelLayer.Location;
+import byui.cit260.escapeIsland.model.Actor;
+import byui.cit260.escapeIsland.model.Game;
+import byui.cit260.escapeIsland.model.Player;
+import byui.cit260.escapeIsland.model.BackgroundType;
+import byui.cit260.escapeIsland.model.Item;
+import byui.cit260.escapeIsland.model.Map;
+import byui.cit260.escapeIsland.model.PuzzleLocation;
+import byui.cit260.escapeIsland.model.Riddle;
+import byui.cit260.escapeIsland.model.Location;
 import byui.cit260.escapeIsland.control.CombatControl;
 import byui.cit260.escapeIsland.view.StartProgramView;
 
