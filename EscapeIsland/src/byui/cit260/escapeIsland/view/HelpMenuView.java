@@ -20,7 +20,7 @@ public class HelpMenuView {
             String[] inputs = getInputs();
             // System.out.println("input name");
 
-            if (inputs[0].length() < 1 || inputs[0].equals('Q')) {
+            if (inputs[0].trim().length() < 1 || inputs[0].equals('Q')) {
                 endOfView = true;
             }
             endOfView = doAction(inputs);
@@ -31,7 +31,7 @@ public class HelpMenuView {
     private String[] getInputs() {
         String[] inputs = new String[1];
 
-        inputs = new String[1];
+        //inputs = new String[1];
 
         System.out.println("***************************"
                 + "\n C - Controls            "
@@ -46,24 +46,12 @@ public class HelpMenuView {
         Scanner sc = new Scanner(System.in);
         menuItem[0] = sc.nextLine();
         
-        while(menuItem[0].toUpperCase().charAt(0) != 'C' 
-                && menuItem[0].toUpperCase().charAt(0) != 'S' 
-                && menuItem[0].toUpperCase().charAt(0) != 'H'
-                && menuItem[0].toUpperCase().charAt(0) != 'B' 
-                && menuItem[0].toUpperCase().charAt(0) !='Q' ){
-                    System.out.println("Enter a valid letter.");
-                    menuItem[0] = sc.nextLine();
-            }
       return menuItem;
-
     }
 
     private boolean doAction(String[] inputs) {
 
         char c = inputs[0].trim().toUpperCase().charAt(0);
-
-        boolean valueOne = false;
-        while (valueOne == false) {
 
             switch (c) {
                 case 'C':
@@ -75,22 +63,31 @@ public class HelpMenuView {
                     displayHelpMenuView();
                     break;
                 case 'H':
-                    System.out.println("Hints");
-                    displayHelpMenuView();
+                    hints();
                     break;
                 case 'B':
-                    System.out.println("The battle system");
-                    displayHelpMenuView();
+                   theBattleSystem();
                     break;
                 case 'Q':
-                    MainMenuView display = new MainMenuView();
-                    display.displayMainMenuView();
-                    valueOne = true;
-                    break;
+                    return true;
+                default: 
+                    System.out.println("Invalid Option");
             }
 
-        }
 
-        return true;
+        return false;
+    }
+    private void theBattleSystem() {
+        System.out.println("The Battle System,"
+                + "\nAttack = Player Attack + Player Item - Enemy Defense"
+                + "\nTurn Order = Player Speed + Player Item / Enemy Speed  +"
+                + "\nCritical Hit Chance = Player Attack + Player Item + Player Speed + Item Speed / 100. "
+                + "\nDefend = Reduce damage by 50% "
+                + "\nItem = Use an Combat Item "
+                + "\nRun = Flee the battle.");
+                return; 
+    }
+    private void hints() {
+        System.out.println("hints, what you should do next. ");
     }
 }
