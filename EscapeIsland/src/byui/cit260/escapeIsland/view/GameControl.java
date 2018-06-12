@@ -9,12 +9,13 @@ import byui.cit260.escapeIsland.model.Player;
 
 /**
  *
- * @author Austi
+ * @author Austin
  */
-class GameControl {
+public class GameControl {
 
-    static Player savePlayer(String playersName) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public static Player savePlayer(String playersName) {
+        // System.out.println("*** SavePlayer() called ***");
+        return new Player();
     }
     
 }
