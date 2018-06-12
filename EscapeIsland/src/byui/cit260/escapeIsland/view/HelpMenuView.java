@@ -33,14 +33,17 @@ public class HelpMenuView {
 
         //inputs = new String[1];
 
-        System.out.println("***************************"
-                + "\n C - Controls            "
-                + "\n S - Story so far        "
-                + "\n H - Hints               "
-                + "\n B - Battle System       "
-                + "\n Q - Quit to Main Menu   "
-                + "\n please select an option "
-                + "\n*************************");
+        System.out.println("***********************************************************"
+                       + "\n***********************************************************"
+                       + "\n*                                                         *"
+                       + "\n* C - Controls                                            *"
+                       + "\n* S - Story so far                                        *"
+                       + "\n* H - Hints                                               *"
+                       + "\n* B - Battle System                                       *"
+                       + "\n* Q - Quit to Main Menu                                   *"
+                       + "\n*                                                         *"
+                       + "\n***********************************************************"
+                       + "\n***********************************************************");
 
         String[] menuItem = new String[1];
         Scanner sc = new Scanner(System.in);
@@ -66,7 +69,7 @@ public class HelpMenuView {
                     hints();
                     break;
                 case 'B':
-                   theBattleSystem();
+                    battleSystem();
                     break;
                 case 'Q':
                     return true;
@@ -77,17 +80,34 @@ public class HelpMenuView {
 
         return false;
     }
-    private void theBattleSystem() {
-        System.out.println("The Battle System,"
-                + "\nAttack = Player Attack + Player Item - Enemy Defense"
-                + "\nTurn Order = Player Speed + Player Item / Enemy Speed  +"
-                + "\nCritical Hit Chance = Player Attack + Player Item + Player Speed + Item Speed / 100. "
-                + "\nDefend = Reduce damage by 50% "
-                + "\nItem = Use an Combat Item "
-                + "\nRun = Flee the battle.");
+    private void battleSystem() {
+        System.out.println("\n***********************************************************"
+                         + "\n***********************************************************"
+                         + "\n*                                                         *"
+                         + "\n*                 The Battle System                       *"
+                         + "\n* Attack     = Player Attack + Player Item - Enemy Defense*"
+                         + "\n* Turn Order = Player Speed + Player Item / Enemy Speed  +*"
+                         + "\n* Critical   = Player Attack + Player Item + Player Speed *"
+                         + "\n* + Item Speed / 100.                                     *"
+                         + "\n* Defend     = Reduce damage by 50%                       *"
+                         + "\n* Item       = Use an Combat Item                         *"
+                         + "\n* Run        = Flee the battle.                           *"
+                         + "\n*                                                         *"
+                         + "\n***********************************************************"
+                         + "\n***********************************************************");
                 return; 
     }
     private void hints() {
-        System.out.println("hints, what you should do next. ");
+        System.out.println("\n***********************************************************"
+                         + "\n***********************************************************"
+                         + "\n*                                                         *"
+                         + "\n*                        Hints                            *"
+                         + "\n* The Tool Kit can be used in many areas.                 *"
+                         + "\n* Sometimes to go forward you must go backwards.          *"
+                         + "\n* Losing Fights? Try exploring the map.                   *"
+                         + "\n*                                                         *"
+                         + "\n***********************************************************"
+                         + "\n***********************************************************");
+                return; 
     }
 }
