@@ -9,12 +9,12 @@ import byui.cit260.escapeIsland.model.Player;
 
 /**
  *
- * @author Austi
+ * @author Austin
  */
 public class GameControl {
 
     public static Player savePlayer(String playersName) {
-        System.out.println("*** SavePlayer() called ***");
+        // System.out.println("*** SavePlayer() called ***");
         return new Player();
     }
     
