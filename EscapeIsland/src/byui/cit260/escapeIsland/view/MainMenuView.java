@@ -20,7 +20,7 @@ public class MainMenuView {
         do {
             String[] inputs = getInputs();
             if (inputs[0].trim().length() < 1) {
-                System.out.println("error");
+                System.out.println("Invalid Option.");
                 continue;
             }
             endOfView = doAction(inputs);
@@ -30,13 +30,16 @@ public class MainMenuView {
     private String[] getInputs() {
        String[] inputs = new String[1];
 
-       System.out.println("*****************"
-                          +"\n N - New Game  "
-                          +"\n L - Load Game "
-                          +"\n H - Help      "
-                          +"\n Q - Quit      "
-                          +"\n please select an option"
-                          +"\n***************");
+       System.out.println("***********************************************************"
+                       +"\n***********************************************************"
+                       +"\n*                                                         *"
+                       +"\n* N - New Game                                            *"
+                       +"\n* L - Load Game                                           *"
+                       +"\n* H - Help                                                *"
+                       +"\n* Q - Quit                                                *"
+                       +"\n*                                                         *"
+                       +"\n***********************************************************"
+                       +"\n***********************************************************");
         
 
         
@@ -67,7 +70,7 @@ public class MainMenuView {
             case 'Q':
                 return true;
             default:
-                System.out.println("Invalid Option");
+                System.out.println("Invalid Option.");
         }
         
         return false;    
@@ -75,11 +78,11 @@ public class MainMenuView {
     }
 
     private void startNewGame() {
-        System.out.println("Start a new game");
+        System.out.println("Start a new game.");
     }
 
     private void loadGame() {
-        System.out.println("Load a game");
+        System.out.println("Load a game.");
     }
 
     private void helpMenu() {
