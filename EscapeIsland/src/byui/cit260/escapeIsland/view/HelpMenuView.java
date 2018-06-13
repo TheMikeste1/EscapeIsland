@@ -67,20 +67,16 @@ public class HelpMenuView {
 
             switch (c) {
                 case 'C':
-                    System.out.println("Open the controls");
-                    displayHelpMenuView();
+                    displayHelpControls();
                     break;
                 case 'S':
-                    System.out.println("The Story so far");
-                    displayHelpMenuView();
+                    displayHelpStory();
                     break;
                 case 'H':
-                    System.out.println("Hints");
-                    displayHelpMenuView();
+                    displayHelpHints();
                     break;
                 case 'B':
-                    System.out.println("The battle system");
-                    displayHelpMenuView();
+                    displayHelpBattleSystem();
                     break;
                 case 'Q':
                     MainMenuView display = new MainMenuView();
@@ -92,5 +88,32 @@ public class HelpMenuView {
         }
 
         return true;
+    }
+
+   
+    private void displayHelpControls() {
+        System.out.println("help controls");
+        HelpMenuView help = new HelpMenuView();
+        help.displayHelpMenuView();
+        return;
+    }
+
+    private void displayHelpStory() {
+        HelpMenuView help = new HelpMenuView();
+        help.displayHelpMenuView();
+        return;
+}
+
+    private void displayHelpHints() {
+        HelpMenuView help = new HelpMenuView();
+        help.displayHelpMenuView();
+        System.out.println("hints");}
+
+    private void displayHelpBattleSystem() {
+        HelpMenuView help = new HelpMenuView();
+        help.displayHelpMenuView();
+        System.out.println("battle system");
+        return;
+    
     }
 }
