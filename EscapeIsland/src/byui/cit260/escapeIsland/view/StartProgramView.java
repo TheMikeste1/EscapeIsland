@@ -13,14 +13,16 @@ public class StartProgramView {
 
         String[] inputs = new String[1];
 
-        inputs = new String[1];
-
-        System.out.println("***********************************"
-                + "\n*This is the game of Escape Island*"
-                + "\n*In this game you will escape from*"
-                + "\n*an island and try to understand  *"
-                + "\n*is happening.                    *"
-                + "\n***********************************");
+        System.out.println("***********************************************************"
+                       + "\n***********************************************************"
+                       + "\n*                                                         *"
+                       + "\n*                       Escape Island                     *"
+                       + "\n* In this game you will escape from an island and try to  *"
+                       + "\n* understand is happening. Your wits and your survival    *"
+                       + "\n* skill will be tested to the limit, will you escape?     *"
+                       + "\n*                                                         *"
+                       + "\n***********************************************************"
+                       + "\n***********************************************************");
         boolean valid = false;
 
         while (valid == false) {
@@ -54,10 +56,14 @@ public class StartProgramView {
                     + "Enter a diferent name.");
             return false;
         }
-        System.out.println("================================================="
-                + " \nWelcome to the game " + playersName
-                + ". \nWe hope you have a lot of fun!"
-                + " \n=================================================");
+        System.out.println("==========================================================="
+                       + "\n==========================================================="
+                       + "\n                                                           "
+                       + "\nWelcome to the game " + playersName + ". "
+                       + "\nWe hope you have a lot of fun!                             "
+                       + "\n                                                           "
+                       + "\n==========================================================="
+                       + "\n===========================================================");
 
         MainMenuView mainMenuView = new MainMenuView();
         mainMenuView.displayMainMenuView();
