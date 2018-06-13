@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package citbyui.cit260.escapeIsland.controlTest;
+package controlTest;
 
 import control.CombatControl;
 import org.junit.Test;
