@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package byui.cit260.escapeIsland.view;
+package view;
 
-import byui.cit260.escapeIsland.model.Player;
+import model.Player;
 
 /**
  *

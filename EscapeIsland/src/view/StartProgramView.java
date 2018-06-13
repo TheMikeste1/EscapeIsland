@@ -1,6 +1,6 @@
-package byui.cit260.escapeIsland.view;
+package view;
 
-import byui.cit260.escapeIsland.model.Player;
+import model.Player;
 import java.util.Scanner;
 
 /**

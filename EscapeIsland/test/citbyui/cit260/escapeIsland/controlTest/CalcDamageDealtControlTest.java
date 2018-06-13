@@ -5,7 +5,7 @@
  */
 package citbyui.cit260.escapeIsland.controlTest;
 
-import byui.cit260.escapeIsland.control.CombatControl;
+import control.CombatControl;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

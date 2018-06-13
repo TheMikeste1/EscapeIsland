@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package byui.cit260.escapeIsland.model;
+package model;
 
 import java.io.Serializable;
 import java.util.Arrays;
