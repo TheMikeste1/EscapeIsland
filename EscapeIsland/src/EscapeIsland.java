@@ -16,6 +16,9 @@ import model.Riddle;
 import model.Location;
 import control.CombatControl;
 import view.StartProgramView;
+import view.GameMenuView;
+// import view.MapView;
+
 
 /**
  *
