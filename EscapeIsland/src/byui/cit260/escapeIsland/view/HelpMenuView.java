@@ -58,12 +58,10 @@ public class HelpMenuView {
 
             switch (c) {
                 case 'C':
-                    System.out.println("Open the controls");
-                    displayHelpMenuView();
+                    displayHelpControls();
                     break;
                 case 'S':
-                    System.out.println("The Story so far");
-                    displayHelpMenuView();
+                    displayHelpStory();
                     break;
                 case 'H':
                     hints();
@@ -110,4 +108,71 @@ public class HelpMenuView {
                          + "\n***********************************************************");
                 return; 
     }
+
+   
+    private void displayHelpControls() {
+        System.out.println("\n***********************************************************"
+                         + "\n***********************************************************"
+                         + "\n*                                                         *"
+                         + "\n*                        Controls                         *"
+                         + "\n* I               - Check items in your inventory         *"
+                         + "\n* U + 'Item name' - Use an item in your inventory         *"
+                         + "\n* E + 'Item name' - Equip and item to your person         *"
+                         + "\n* Row + Column    - Navigate to coordinate                *"
+                         + "\n* A               - Attack                                *"
+                         + "\n* D               - Defend                                *"
+                         + "\n* F               - Flee an opponent                      *"
+                         + "\n* M               - Display map of current area           *"
+                         + "\n* Q               - Quit to main menu                     *"
+                         + "\n* S               - Save current game                     *"
+                         + "\n*                                                         *"
+                         + "\n*                                                         *"
+                         + "\n*                                                         *"
+                         + "\n*                                                         *"
+                         + "\n*                                                         *"
+                         + "\n*                                                         *"
+                         + "\n*                                                         *"
+                         + "\n*                                                         *"
+                         + "\n*                                                         *"
+                         + "\n*                                                         *"
+                         + "\n*                                                         *"
+                         + "\n*                                                         *"
+                         + "\n*                                                         *"
+                         + "\n*                                                         *"
+                         + "\n*                                                         *"
+                         + "\n*                                                         *"
+                         + "\n*                                                         *"
+                         + "\n*                                                         *"
+                         + "\n***********************************************************"
+                         + "\n***********************************************************");
+        return;
+    }
+
+    private void displayHelpStory() {
+        System.out.println("\n***********************************************************"
+                         + "\n***********************************************************"
+                         + "\n*                                                         *"
+                         + "\n*                        Story                            *"
+                         + "\n*      You've woken up on what appears to be a very nice, *"
+                         + "\n*  paradisaical island. You're on the beach, there isn't  *"
+                         + "\n*  much in your view, it's blocked by thick forest.       *"
+                         + "\n*      You should start *"
+                         + "\n*                                                         *"
+                         + "\n*                                                         *"
+                         + "\n*                                                         *"
+                         + "\n*                                                         *"
+                         + "\n*                                                         *"
+                         + "\n*                                                         *"
+                         + "\n*                                                         *"
+                         + "\n*                                                         *"
+                         + "\n*                                                         *"
+                         + "\n*                                                         *"
+                         + "\n*                                                         *"
+                         + "\n*                                                         *"
+                         + "\n*                                                         *"
+                         + "\n*                                                         *"
+                         + "\n***********************************************************"
+                         + "\n***********************************************************");
+        return;
+}
 }
