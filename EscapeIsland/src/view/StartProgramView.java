@@ -1,5 +1,6 @@
 package view;
 
+import control.GameControl;
 import model.Player;
 import java.util.Scanner;
 

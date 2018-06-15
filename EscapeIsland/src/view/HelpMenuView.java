@@ -5,7 +5,10 @@
  */
 package view;
 
+import control.*;
+import java.util.ArrayList;
 import java.util.Scanner;
+import model.*;
 
 /**
  *
@@ -41,6 +44,7 @@ public class HelpMenuView {
                        + "\n* H - Hints                                               *"
                        + "\n* B - Battle System                                       *"
                        + "\n* Q - Quit to Main Menu                                   *"
+                       + "\n* D - test inventory                                      *"
                        + "\n*                                                         *"
                        + "\n***********************************************************"
                        + "\n***********************************************************");
@@ -68,6 +72,10 @@ public class HelpMenuView {
                     break;
                 case 'B':
                     battleSystem();
+                    break;
+                case 'D':
+                    InventoryView test1 = new InventoryView();
+                    test1.displayInventoryView();
                     break;
                 case 'Q':
                     return true;

@@ -26,6 +26,7 @@ private long actorAttack;
 private long actorDefense;
 private long actorSpeed;
 private ArrayList <Item> actorItems = new ArrayList();
+private Item currentItem;
 
     private Actor() {
     }
@@ -73,5 +74,19 @@ private ArrayList <Item> actorItems = new ArrayList();
         return "Actor{" + "actorName=" + actorName + ", actorcoordinates=" + actorcoordinates + ", actorDescription=" + actorDescription + ", actorAttack=" + actorAttack + ", actorDefense=" + actorDefense + ", actorSpeed=" + actorSpeed + ", actorItems=" + actorItems + '}';
     }
 
+    public void setActorItems(ArrayList<Item> actorItems) {
+        this.actorItems = actorItems;
+    }
 
+    public Item getCurrentItem() {
+        return currentItem;
+    }
+
+    public void setCurrentItem(Item currentItem) {
+        this.currentItem = currentItem;
+    }
+
+
+    
+    
 }
