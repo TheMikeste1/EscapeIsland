@@ -1,18 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package model;
 
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Objects;
 
-/**
- *
- * @author collin
- */
 public class Map implements Serializable{
     
     private String mapDescription;
@@ -21,8 +13,47 @@ public class Map implements Serializable{
     private int currentRow;
     private int currentColumn;
     private Location[][] locations;
+    char[][]physicalMapView;
+    char[][]interactionMapView;
 
+    
+    //Constructors
     public Map() {
+            //Legend
+            //M == Mountain
+            //F == Forest
+            //B == Beach
+            //C == Camp
+            //P == Prision
+            //= == Bridge
+                       
+            this.physicalMapView = new char[][]{
+                 {'~','~','~','~','~','~','~','~','~','~'}
+                ,{'~','B','B','B','B','~','B','B','B','~'}
+                ,{'~','B','M','M','F','~','P','P','B','~'}
+                ,{'~','B','M','M','F','~','P','P','B','~'}
+                ,{'~','B','M','M','F','~','P','P','B','~'}
+                ,{'~','F','F','F','F','~','=','=','~','~'}
+                ,{'~','B','C','C','F','F','F','F','B','~'}
+                ,{'~','B','C','C','B','B','B','B','B','~'}
+                ,{'~','B','B','B','B','B','B','B','B','~'}
+                ,{'~','~','~','~','~','~','~','~','~','~'}};
+             
+            //Legend
+            //! = Interaction
+            //X = Nothing
+            
+            this.interactionMapView = new char[][]{
+                 {'X','X','X','X','X','X','X','X','X','X'}
+                ,{'X','X','X','X','X','X','X','X','!','X'}
+                ,{'X','X','!','X','X','X','!','!','X','X'}
+                ,{'X','X','X','X','X','X','!','!','X','X'}
+                ,{'X','X','!','!','X','X','!','!','X','X'}
+                ,{'X','X','X','X','!','X','!','!','X','X'}
+                ,{'X','X','!','!','X','X','X','X','!','X'}
+                ,{'X','X','!','!','X','!','X','X','X','X'}
+                ,{'X','X','X','X','X','X','X','!','X','X'}
+                ,{'X','X','X','X','X','X','X','X','X','X'}}; 
     }
 
     public Map(String mapDescription, int rowCount, int columnCount, int currentRow, int currentColumn, Location[][] locations) {
@@ -32,8 +63,45 @@ public class Map implements Serializable{
         this.currentRow = currentRow;
         this.currentColumn = currentColumn;
         this.locations = locations;
+        
+            //Legend
+            //M == Mountain
+            //F == Forest
+            //B == Beach
+            //C == Camp
+            //P == Prision
+            //= == Bridge
+                       
+            this.physicalMapView = new char[][]{
+                 {'~','~','~','~','~','~','~','~','~','~'}
+                ,{'~','B','B','B','B','~','B','B','B','~'}
+                ,{'~','B','M','M','F','~','P','P','B','~'}
+                ,{'~','B','M','M','F','~','P','P','B','~'}
+                ,{'~','B','M','M','F','~','P','P','B','~'}
+                ,{'~','F','F','F','F','~','=','=','~','~'}
+                ,{'~','B','C','C','F','F','F','F','B','~'}
+                ,{'~','B','C','C','B','B','B','B','B','~'}
+                ,{'~','B','B','B','B','B','B','B','B','~'}
+                ,{'~','~','~','~','~','~','~','~','~','~'}};
+             
+            //Legend
+            //! = Interaction
+            //X = Nothing
+            
+            this.interactionMapView = new char[][]{
+                 {'X','X','X','X','X','X','X','X','X','X'}
+                ,{'X','X','X','X','X','X','X','X','!','X'}
+                ,{'X','X','!','X','X','X','!','!','X','X'}
+                ,{'X','X','X','X','X','X','!','!','X','X'}
+                ,{'X','X','!','!','X','X','!','!','X','X'}
+                ,{'X','X','X','X','!','X','!','!','X','X'}
+                ,{'X','X','!','!','X','X','X','X','!','X'}
+                ,{'X','X','!','!','X','!','X','X','X','X'}
+                ,{'X','X','X','X','X','X','X','!','X','X'}
+                ,{'X','X','X','X','X','X','X','X','X','X'}}; 
     }
     
+    //Getters
     public String getMapDescription() {
         return mapDescription;
     }
@@ -58,6 +126,15 @@ public class Map implements Serializable{
         return locations;
     }
 
+    public char[][] getPhysicalMapView() {
+        return physicalMapView;
+    }
+
+    public char[][] getInteractionMapView() {
+        return interactionMapView;
+    }
+    
+    //Setters
     public void setMapDescription(String mapDescription) {
         this.mapDescription = mapDescription;
     }
@@ -81,16 +158,26 @@ public class Map implements Serializable{
     public void setLocations(Location[][] locations) {
         this.locations = locations;
     }
+    
+    public void setPhysicalMapView(char[][] physicalMapView) {
+        this.physicalMapView = physicalMapView;
+    }
+    
+     public void setInteractionMapView(char[][] interactionMapView) {
+        this.interactionMapView = interactionMapView;
+    }
 
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 23 * hash + Objects.hashCode(this.mapDescription);
-        hash = 23 * hash + this.rowCount;
-        hash = 23 * hash + this.columnCount;
-        hash = 23 * hash + this.currentRow;
-        hash = 23 * hash + this.currentColumn;
-        hash = 23 * hash + Arrays.deepHashCode(this.locations);
+        hash = 79 * hash + Objects.hashCode(this.mapDescription);
+        hash = 79 * hash + this.rowCount;
+        hash = 79 * hash + this.columnCount;
+        hash = 79 * hash + this.currentRow;
+        hash = 79 * hash + this.currentColumn;
+        hash = 79 * hash + Arrays.deepHashCode(this.locations);
+        hash = 79 * hash + Arrays.deepHashCode(this.physicalMapView);
+        hash = 79 * hash + Arrays.deepHashCode(this.interactionMapView);
         return hash;
     }
 
@@ -124,23 +211,46 @@ public class Map implements Serializable{
         if (!Arrays.deepEquals(this.locations, other.locations)) {
             return false;
         }
+        if (!Arrays.deepEquals(this.physicalMapView, other.physicalMapView)) {
+            return false;
+        }
+        if (!Arrays.deepEquals(this.interactionMapView, other.interactionMapView)) {
+            return false;
+        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Map{" + "mapDescription=" + mapDescription + ", rowCount=" + rowCount + ", columnCount=" + columnCount + ", currentRow=" + currentRow + ", currentColumn=" + currentColumn + ", locations=" + locations + '}';
+        return "Map{" + "mapDescription=" + mapDescription + ", rowCount=" + rowCount + ", columnCount=" + columnCount + ", currentRow=" + currentRow + ", currentColumn=" + currentColumn + ", locations=" + locations + ", physicalMapView=" + physicalMapView + ", interactionMapView=" + interactionMapView + '}';
     }
 
-    public Map(String mapDescription, int rowCount, int columnCount, int currentRow, int currentColumn) {
-        this.mapDescription = mapDescription;
-        this.rowCount = rowCount;
-        this.columnCount = columnCount;
-        this.currentRow = currentRow;
-        this.currentColumn = currentColumn;
+    @Override
+    protected void finalize() throws Throwable {
+        super.finalize(); //To change body of generated methods, choose Tools | Templates.
     }
 
-    
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+//TO DO:
+//Fog:
+//Character Location:
+//Character Vision:
+//Interact with Enviroment:
+//    Scenes:
+//        Explored Scene
+//        Unexplored Scene
+//        Completed Scene
+//        Uncompleted Scene
+//            Combat Scene
+//            Item Pickup Scene
+//            Item Required Scene        
+//            NPC Scene
+//            Puzzle / Riddle Scene
+
     
 }
    

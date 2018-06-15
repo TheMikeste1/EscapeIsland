@@ -2,6 +2,8 @@ package view;
 
 import model.Player;
 import java.util.Scanner;
+import model.Map;
+
 
 /**
  *
@@ -9,17 +11,21 @@ import java.util.Scanner;
  */
 public class GameMenuView {
  
-    public void displayGameMenuView(){
-        
+    public void displayGameMenuView(Player player, Map map){
+    String[] inputs = new String[0];
+              
         boolean endOfView = false;
-        do {
-            String[] inputs = getInputs();
+        
+        do {           
                 if (inputs[0].trim().length() < 1){
                     System.out.println("Invald Option.");
                     continue;
-                }
-                endOfView = doAction(inputs);
+                    }
+                
+                endOfView = doAction(inputs, player, map);
+                
         } while (endOfView != true);
+        
     }
     
     private String[] getInputs() {
@@ -48,24 +54,25 @@ public class GameMenuView {
                 return menuItem;
             }
  
-    private boolean doAction(String[] inputs) {
+    private boolean doAction(String[] inputs, Player player, Map map) {
 
         char c = inputs[0].trim().toUpperCase().charAt(0);
+       
         switch(c){
             case 'W':
-                moveNorth();
+                moveNorth(player);
                 break;
             case 'A':
-                moveEast();
+                moveEast(player);
                 break;
             case 'S':
-                moveSouth();
+                moveSouth(player);
                 break;
             case 'D':
-                moveWest();
+                moveWest(player);
                 break;
             case 'M':
-                openMap();
+                openMap(map);
                 break;
             case 'I':
                 openInventory();
@@ -77,96 +84,53 @@ public class GameMenuView {
                 return true;
             default:
                 System.out.println("Invalid Option.");
+                
         }
         
         return false;    
     }
 
-    private void moveNorth() {
-         
+    private void moveNorth(Player player) {
+        int newPosition = player.getPositionY();
+        newPosition++;
+        player.setPositionY(newPosition);
+        System.out.println("Move North One Tile");
+        
     }
-
-    private void moveEast() {
+        
+    private void moveEast(Player player){
+        int newPosition = player.getPositionX();
+        newPosition++;
+        player.setPositionX(newPosition);
+        System.out.println("Move East One Tile");
         
     }
 
-    private void moveSouth() {
+    private void moveSouth(Player player) {
+        int newPosition = player.getPositionY();
+        newPosition--;
+        player.setPositionY(newPosition);
+        System.out.println("Move South One Tile");
         
     }
 
-    private void moveWest() {
-    
+    private void moveWest(Player player) {
+        int newPosition = player.getPositionX();
+        newPosition--;
+        player.setPositionX(newPosition);
+        System.out.println("Move West One Tile");
+        
     }
 
-    private void openMap() {
-        
+    private void openMap(Map map) {
+
     }
 
     private void openInventory() {
+        System.out.println("Collins Inventory");
         
     }
 
     private void interactWithEnviroment() {
-        
     }
-   
-    public static class player{
-        int positionX;
-        int positionY;
-
-        public player(int positionX, int positionY) {
-            this.positionX = positionX;
-            this.positionY = positionY;
-        }
-
-        public int getPositionX() {
-            return positionX;
-        }
-
-        public int getPositionY() {
-            return positionY;
-        }
-
-        public void setPositionX(int positionX) {
-            this.positionX = positionX;
-        }
-
-        public void setPositionY(int positionY) {
-            this.positionY = positionY;
-        }
-
-        @Override
-        public int hashCode() {
-            int hash = 7;
-            hash = 97 * hash + this.positionX;
-            hash = 97 * hash + this.positionY;
-            return hash;
-        }
-
-        @Override
-        public boolean equals(Object obj) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null) {
-                return false;
-            }
-            if (getClass() != obj.getClass()) {
-                return false;
-            }
-            final player other = (player) obj;
-            if (this.positionX != other.positionX) {
-                return false;
-            }
-            if (this.positionY != other.positionY) {
-                return false;
-            }
-            return true;
-        }        
-    }
-    
-    public void displayMap() {
-        MapView map = new MapView();
-        map.displayMapView();
-}
-}
+}    
