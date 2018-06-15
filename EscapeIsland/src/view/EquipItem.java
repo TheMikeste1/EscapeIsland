@@ -14,9 +14,9 @@ import model.*;
  *
  * @author Collin
  */
-public class InventoryView {
+public class EquipItem {
 
-    public void displayInventoryView() {
+    public void displayEquipItemView() {
 
         boolean endOfView = false;
         do {
@@ -39,9 +39,9 @@ public class InventoryView {
         System.out.println("***********************************************************"
                        + "\n***********************************************************"
                        + "\n*                                                         *"
-                       + "\n*                    Inventory Menu                       *");
-        displayInventory();
-                       System.out.println("\n* E - Equip Item                                          *"
+                       + "\n*                    Inventory Menu                       *"
+                       + "\n* P - Display Inventory                                   *"
+                       + "\n* E - Equip Item                                          *"
                        + "\n* Q - Quit to Game Menu                                   *"
                        + "\n*                                                         *"
                        + "\n***********************************************************"
@@ -89,27 +89,6 @@ public class InventoryView {
         inventory.add(Item.Sword);
         ralph.setActorItems(inventory);
         
-        System.out.println("* ");
-        for (int i = 0; i < inventory.size(); i++){
-            int num = i +1; 
-            
-            
-        System.out.print(num + " " +  inventory.get(i).getItemName() + " - " );
-        //5 is number of genenteed taken spaces by 2 * and 2 spaces and one number
-        int numberOfTakenSpaces = 5 + inventory.get(i).getItemName().length();
-        // if number is two didget it will take two spaces
-        if(i >=9){
-            numberOfTakenSpaces++;
-        }
-//        //print spaces to the end
-//        //59 spaces to the menu
-//        for(int j = 50; j > numberOfTakenSpaces; j--)
-//                System.out.print(" ");
-//        }
-//        //print closing *
-//        System.out.println("*");
-        
-        }
         inventorycontrol.displayInventory(ralph);
      }
     
