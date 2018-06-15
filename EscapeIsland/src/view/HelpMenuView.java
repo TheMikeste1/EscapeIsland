@@ -83,9 +83,9 @@ public class HelpMenuView {
                     System.out.println("Invalid Option");
             }
 
-
         return false;
     }
+    
     private void battleSystem() {
         System.out.println("\n***********************************************************"
                          + "\n***********************************************************"
