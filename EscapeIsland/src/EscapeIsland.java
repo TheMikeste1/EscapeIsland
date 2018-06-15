@@ -31,8 +31,16 @@ public class EscapeIsland {
      */
     public static void main(String[] args) {
   
-        StartProgramView startProgramView = new StartProgramView();
-        startProgramView.displayStartProgramView();
+        //StartProgramView startProgramView = new StartProgramView();
+        //startProgramView.displayStartProgramView();
+        
+        Player player = new Player();
+        Map map = new Map();
+        
+        GameMenuView gameMenuView = new GameMenuView();
+        gameMenuView.displayGameMenuView(player, map);
+        gameMenuView.openMap(map);
+        
         
    
 //        // TODO code application logic here

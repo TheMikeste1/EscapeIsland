@@ -122,15 +122,17 @@ public class GameMenuView {
         
     }
 
-    private void openMap(Map map) {
-
+    public void openMap(Map map) {
+        System.out.println(map.getPhysicalMapView());
+            
     }
 
-    private void openInventory() {
+    public void openInventory() {
         System.out.println("Collins Inventory");
         
     }
 
     private void interactWithEnviroment() {
+    
     }
 }    
