@@ -10,14 +10,18 @@ import model.Map;
  * @author Austin
  */
 public class GameMenuView {
+
+    public GameMenuView() {
+    }
  
     public void displayGameMenuView(Player player, Map map){
-    String[] inputs = new String[0];
+    //String[] inputs = new String[1];
               
         boolean endOfView = false;
         
         do {           
-                if (inputs[0].trim().length() < 1){
+            String[] inputs = this.getInputs();
+            if (inputs[0].trim().length() < 1){
                     System.out.println("Invald Option.");
                     continue;
                     }
@@ -78,7 +82,7 @@ public class GameMenuView {
                 openInventory();
                 break;
             case 'E':
-                interactWithEnviroment();
+                interactWithEnvironment();
                 break;
             case 'Q':
                 return true;
@@ -123,16 +127,28 @@ public class GameMenuView {
     }
 
     public void openMap(Map map) {
-        System.out.println(map.getPhysicalMapView());
+        //System.out.println(map.getPhysicalMapView());
+        for(int mapR = 0; mapR < map.getRowSize(); mapR ++){
+            for(int mapC = 0; mapC < map.getColumnSize(); mapC ++){
+                System.out.print(map.physicalMapView[mapR][mapC]);
+            }
+            System.out.print("\n");
+        }
             
     }
 
     public void openInventory() {
-        System.out.println("Collins Inventory");
+        InventoryView openInventory = new InventoryView();
+        openInventory.displayInventoryView();
         
     }
 
-    private void interactWithEnviroment() {
-    
+    private void interactWithEnvironment() {
+        InteractWithEnviromentView interactWithEnvironment = new InteractWithEnviromentView(); 
+        interactWithEnvironment.displayInteractWithEnviromentView();
+    }
+
+    public void displayGameMenuView() {
+        MainMenuView displayGameMenu = new MainMenuView();
     }
 }    

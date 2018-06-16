@@ -13,9 +13,10 @@ public class Map implements Serializable{
     private int currentRow;
     private int currentColumn;
     private Location[][] locations;
-    char[][]physicalMapView;
-    char[][]interactionMapView;
-
+    public char[][]physicalMapView;
+    public char[][]interactionMapView;
+    int rowSize;
+    int columnSize; 
     
     //Constructors
     public Map() {
@@ -26,6 +27,8 @@ public class Map implements Serializable{
             //C == Camp
             //P == Prision
             //= == Bridge
+            this.rowSize = 10;
+            this.columnSize = 10;
                        
             this.physicalMapView = new char[][]{
                  {'~','~','~','~','~','~','~','~','~','~'}
@@ -63,6 +66,8 @@ public class Map implements Serializable{
         this.currentRow = currentRow;
         this.currentColumn = currentColumn;
         this.locations = locations;
+        this.rowSize = 10;
+        this.columnSize = 10;
         
             //Legend
             //M == Mountain
@@ -133,6 +138,15 @@ public class Map implements Serializable{
     public char[][] getInteractionMapView() {
         return interactionMapView;
     }
+
+    public int getRowSize() {
+        return rowSize;
+    }
+
+    public int getColumnSize() {
+        return columnSize;
+    }
+    
     
     //Setters
     public void setMapDescription(String mapDescription) {
