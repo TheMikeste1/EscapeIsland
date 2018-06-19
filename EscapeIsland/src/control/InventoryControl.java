@@ -13,7 +13,8 @@ import model.*;
  */
 public class InventoryControl {
     
-    public void displayInventory(Actor player) {
+    
+    public static void displayInventory(Actor player) {
         
         for(int i=0;i<player.getActorItems().size();i++)  {
             System.out.println(player.getActorItems().get(i).getItemName());
@@ -23,8 +24,19 @@ public class InventoryControl {
     
     
     
-    public void equipItem(Actor player, Item thing) {
+    public static int equipItem(Actor player, Item thing) {
+        // check for invalid inpuits
+        // if player is null then
+            // return -1
+        // end if 
+        // if thing is null then
+            // return -2
+        // endif 
+        
+        // set selected item to current item in the player actor
         player.setCurrentItem(thing);
+        return 1;
+        
     }
 
 

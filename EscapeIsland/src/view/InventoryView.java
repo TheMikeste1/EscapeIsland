@@ -9,12 +9,15 @@ import control.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 import model.*;
+import control.InventoryControl;
 
 /**
  *
  * @author Collin
  */
 public class InventoryView {
+    
+    private static Actor player;
 
     public void displayInventoryView() {
 
@@ -34,99 +37,71 @@ public class InventoryView {
     private String[] getInputs() {
         String[] inputs = new String[1];
 
-        //inputs = new String[1];
-
-        System.out.println("***********************************************************"
-                       + "\n***********************************************************"
-                       + "\n*                                                         *"
-                       + "\n*                    Inventory Menu                       *");
         displayInventory();
-                       System.out.println("\n* E - Equip Item                                          *"
-                       + "\n* Q - Quit to Game Menu                                   *"
-                       + "\n*                                                         *"
-                       + "\n***********************************************************"
-                       + "\n***********************************************************");
 
         String[] menuItem = new String[1];
         Scanner sc = new Scanner(System.in);
-        menuItem[0] = sc.nextLine();
-        
-      return menuItem;
+        menuItem[0] = sc.nextLine().trim();
+
+        return inputs;
     }
 
     private boolean doAction(String[] inputs) {
 
-        char c = inputs[0].trim().toUpperCase().charAt(0);
+        String c = inputs[0].trim().toUpperCase();
+        int selection = Integer.parseInt(c);
+        
+        Item item = InventoryView.player.getActorItems().get(selection);
+        if (item == null) {
+            System.out.println("Item does not exist in inventory");
+            return false;
+        }
+        
+        int result = InventoryControl.equipItem(InventoryView.player, item);
+        // if result < 0 then
+            // display "player or item does not exist
+            // return false
+        // end if 
+        
+        // display "Your player now has the " + item.getName() + in his hands
 
-            switch (c) {
-                case 'P':
-                    displayInventory();
-                    break;
-                case 'E':
-                    equipItem();
-                    break;
-                case 'Q':
-                    return true;
-                default: 
-                    System.out.println("Invalid Option");
-            }
-
-
-        return false;
+        return true;
     }
-   
-
 
     private void displayInventory() {
-        
-        
-        InventoryControl inventorycontrol = new InventoryControl();
-        Actor ralph = Actor.PrisonGaurd;
-        ArrayList<Item> inventory = new ArrayList();
+
+        // Temporary until we create the Actor for the player
+        InventoryView.player = Actor.PrisonGaurd;
+        ArrayList<Item> inventory = InventoryView.player.getActorItems();
+
         inventory.add(Item.ToolKit);
         inventory.add(Item.Axe);
         inventory.add(Item.Axe);
         inventory.add(Item.Sword);
-        ralph.setActorItems(inventory);
+        
+
+        // --- End of to do later
+        System.out.println(
+                       "***********************************************************"
+                    + "\n***********************************************************"
+                    + "\n*                                                         *"
+                    + "\n*                    Inventory Menu                       *");
+       
         
         System.out.println("* ");
-        for (int i = 0; i < inventory.size(); i++){
-            int num = i +1; 
-            
-            
-        System.out.print(num + " " +  inventory.get(i).getItemName() + " - " );
-        //5 is number of genenteed taken spaces by 2 * and 2 spaces and one number
-        int numberOfTakenSpaces = 5 + inventory.get(i).getItemName().length();
-        // if number is two didget it will take two spaces
-        if(i >=9){
-            numberOfTakenSpaces++;
+        int num = 0;
+        for (Item item : inventory) {
+
+            num++; // add one to item number
+            System.out.println(num + " - " + item.getItemName());
         }
-//        //print spaces to the end
-//        //59 spaces to the menu
-//        for(int j = 50; j > numberOfTakenSpaces; j--)
-//                System.out.print(" ");
-//        }
-//        //print closing *
-//        System.out.println("*");
         
-        }
-        inventorycontrol.displayInventory(ralph);
-     }
-    
-    private void equipItem() {
-        
-        InventoryControl inventorycontrol = new InventoryControl();
-        Actor max = Actor.MonsterZombie;
-        
-        ArrayList<Item> inventory = new ArrayList();
-        inventory.add(Item.Axe);
-        inventory.add(Item.Compass);
-        inventory.add(Item.ToolKit);
-        max.setActorItems(inventory);
-        inventorycontrol.displayInventory(max);
-        inventorycontrol.equipItem(max, Item.ToolKit);
-        
-        System.out.println("Item Currently Equipped:");
-        System.out.println(max.getCurrentItem().getItemName());
-}
+        System.out.println(
+                         "\n* Q - Quit to Game Menu                                   *"
+                       + "\n*                                                         *"
+                       + "\n***********************************************************"
+                       + "\n***********************************************************");
+    }
+
+
 }
