@@ -15,7 +15,7 @@ import model.*;
 public class InteractWithEnviromentView {
         Actor max = Actor.MonsterZombie;
     
-    public void displayInteractWithEnviromentVie() {
+    public void displayInteractWithEnviromentView() {
 
         boolean endOfView = false;
         do {
@@ -112,8 +112,9 @@ public class InteractWithEnviromentView {
                 System.out.println("\n***********************************************************"
                                  + "\n***********************************************************"
                                  + "\n*                                                         *"
-                                 + "\n*The " + Item.ToolKit + " is required to progress.        *"
-                                 + "\n*                                                         *"
+                                 + "\n*The " + Item.ToolKit.getItemName() + "                   *"
+                                 + "\n*is required to progress                                  *"
+                                 + "\n                                                          *"
                                  + "\n***********************************************************"
                                  + "\n***********************************************************");
                 return; 
@@ -121,7 +122,8 @@ public class InteractWithEnviromentView {
             System.out.println("\n***********************************************************"
                              + "\n***********************************************************"
                              + "\n*                                                         *"
-                             + "\n*The " + Item.ToolKit + " allowed you to progress.        *"
+                             + "\n*The " + Item.ToolKit.getItemName() + "                   *"
+                             + "\n* allowed you to progress.                                *"
                              + "\n*                                                         *"
                              + "\n***********************************************************"
                              + "\n***********************************************************");
@@ -131,7 +133,7 @@ public class InteractWithEnviromentView {
                 System.out.println("\n***********************************************************"
                                  + "\n***********************************************************"
                                  + "\n*                                                         *"
-                                 + "\n*Congradulations you have obtained " + Item.Axe +"        *"
+                                 + "\n*Congradulations you have obtained " + Item.Axe.getItemName() +"        *"
                                  + "\n*                                                         *"
                                  + "\n***********************************************************"
                                  + "\n***********************************************************");
@@ -139,9 +141,18 @@ public class InteractWithEnviromentView {
     }
 
     private boolean talkToNPC() {
-            String[] inputs = getInputs();
-            char chatOptions = inputs[0].trim().toUpperCase().charAt(0);
-                
+       boolean javaIsDumb = true;
+        while(javaIsDumb){
+        System.out.println("A - Hello");
+        System.out.println("B - How are you");
+        System.out.println("C - Thats good");
+        System.out.println("D - Good bye");
+            
+            Scanner sc = new Scanner(System.in);
+            String talkToNPC = sc.nextLine();            
+            
+            char chatOptions = talkToNPC.trim().toUpperCase().charAt(0);        
+                        
                 switch (chatOptions) {
                     
                     case 'A':
@@ -158,7 +169,7 @@ public class InteractWithEnviromentView {
                     
                     case 'D':
                         optionDChat();
-                        break;
+                        return true;
                     
                     case 'Q':
                         return true;
@@ -167,16 +178,17 @@ public class InteractWithEnviromentView {
                         System.out.println("Invalid Option");
                     
                 }
-                    
-                return false; 
+        }
+        return false;        
     }
 
+     
     private void puzzle() {
                 System.out.println("\n***********************************************************"
                                  + "\n***********************************************************"
                                  + "\n*                                                         *"
                                  + "\n*                                                         *"
-                                 + "\n*                                                         *"
+                                 + "\n*Puzzle Text                                              *"
                                  + "\n*                                                         *"
                                  + "\n*                                                         *"
                                  + "\n*                                                         *"
@@ -190,7 +202,7 @@ public class InteractWithEnviromentView {
                                  + "\n***********************************************************"
                                  + "\n*                                                         *"
                                  + "\n*                                                         *"
-                                 + "\n*                                                         *"
+                                 + "\n*Riddle Text                                              *"
                                  + "\n*                                                         *"
                                  + "\n*                                                         *"
                                  + "\n*                                                         *"
@@ -200,19 +212,26 @@ public class InteractWithEnviromentView {
     }
 
     private void optionAChat() {
-        System.out.println("");
+        System.out.println("Hello");
+        System.out.println("NPC says \"hello\"");
 
     }
 
     private void optionBChat() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("How are you");
+        System.out.println("NPC says \"Good\"");
+        
+        
     }
 
     private void optionCChat() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("Thats good");
+        System.out.println("NPC says \"Yup\"");
     }
 
     private void optionDChat() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("Good bye");
+        System.out.println("NPC says \"Bye!\"");
+        
     }
 }

@@ -33,6 +33,7 @@ public class HelpMenuView {
 
     private String[] getInputs() {
         String[] inputs = new String[1];
+        
 
         //inputs = new String[1];
 
@@ -45,6 +46,7 @@ public class HelpMenuView {
                        + "\n* B - Battle System                                       *"
                        + "\n* Q - Quit to Main Menu                                   *"
                        + "\n* D - test inventory                                      *"
+                       + "\n* G - test game menu                                                        *"
                        + "\n*                                                         *"
                        + "\n***********************************************************"
                        + "\n***********************************************************");
@@ -59,6 +61,8 @@ public class HelpMenuView {
     private boolean doAction(String[] inputs) {
 
         char c = inputs[0].trim().toUpperCase().charAt(0);
+        Player player = new Player();
+        Map map = new Map();
 
             switch (c) {
                 case 'C':
@@ -76,6 +80,10 @@ public class HelpMenuView {
                 case 'D':
                     InventoryView test1 = new InventoryView();
                     test1.displayInventoryView();
+                    break;
+                case 'G':
+                    GameMenuView test2 = new GameMenuView();
+                    test2.displayGameMenuView(player, map);
                     break;
                 case 'Q':
                     return true;

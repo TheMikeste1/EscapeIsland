@@ -17,8 +17,6 @@ import model.Location;
 import control.CombatControl;
 import view.StartProgramView;
 import view.GameMenuView;
-// import view.MapView;
-
 
 /**
  *
@@ -33,6 +31,14 @@ public class EscapeIsland {
   
         StartProgramView startProgramView = new StartProgramView();
         startProgramView.displayStartProgramView();
+        
+        Player player = new Player();
+        Map map = new Map();
+        
+        //GameMenuView gameMenuView = new GameMenuView();
+        //gameMenuView.displayGameMenuView(player, map);
+        //gameMenuView.openMap(map);
+        
         
    
 //        // TODO code application logic here
