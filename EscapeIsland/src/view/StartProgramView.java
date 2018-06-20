@@ -24,25 +24,8 @@ public class StartProgramView {
                        + "\n*                                                         *"
                        + "\n***********************************************************"
                        + "\n***********************************************************");
-        boolean valid = false;
-
-        while (valid == false) {
-            System.out.println("Enter the player's name below:");
-            String[] getName = new String[1];
-            Scanner sc = new Scanner(System.in);
-            getName[0] = sc.nextLine();
-
-            String yourName = getName[0].trim();
-            System.out.println("");
-            if (yourName.length() < 1) {
-                System.out.println("You must enter a non-blank value");
-
-                continue;
-            }
-            valid = true;
-            inputs[0] = yourName;
-            inputs[0] = inputs[0].toUpperCase();
-        }
+        
+        inputs[0] = this.getInput("Please enter you name");
 
         return inputs;
     }
