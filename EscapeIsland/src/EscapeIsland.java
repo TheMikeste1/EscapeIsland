@@ -5,18 +5,9 @@
  */
 
 
-import model.Actor;
-import model.Game;
-import model.Player;
-import model.BackgroundType;
-import model.Item;
-import model.Map;
-import model.PuzzleLocation;
-import model.Riddle;
-import model.Location;
-import control.CombatControl;
-import view.StartProgramView;
-import view.GameMenuView;
+import model.*;
+import control.*;
+import view.*;
 
 /**
  *
@@ -30,7 +21,7 @@ public class EscapeIsland {
     public static void main(String[] args) {
   
         StartProgramView startProgramView = new StartProgramView();
-        startProgramView.displayStartProgramView();
+        startProgramView.display();
         
         Player player = new Player();
         Map map = new Map();

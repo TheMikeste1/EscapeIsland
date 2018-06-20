@@ -15,7 +15,7 @@ import control.InventoryControl;
  *
  * @author Collin
  */
-public class InventoryView {
+public class InventoryView extends View {
     
     private static Actor player;
 
@@ -34,7 +34,7 @@ public class InventoryView {
 
     }
 
-    private String[] getInputs() {
+    public String[] getInputs() {
         String[] inputs = new String[1];
 
         displayInventory();
@@ -45,8 +45,8 @@ public class InventoryView {
 
         return inputs;
     }
-
-    private boolean doAction(String[] inputs) {
+    @Override
+    public boolean doAction(String[] inputs) {
 
         String c = inputs[0].trim().toUpperCase();
         int selection = Integer.parseInt(c);
