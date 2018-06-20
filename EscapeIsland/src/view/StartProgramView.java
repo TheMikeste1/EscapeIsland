@@ -14,6 +14,8 @@ public class StartProgramView {
 
         String[] inputs = new String[1];
 
+        displayStartProgramView();
+        
         System.out.println("***********************************************************"
                        + "\n***********************************************************"
                        + "\n*                                                         *"
@@ -94,5 +96,8 @@ public class StartProgramView {
         } while (endOfView != true);
 
     }
+    
+    
 
+    
 }
