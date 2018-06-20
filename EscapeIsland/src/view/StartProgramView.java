@@ -8,13 +8,12 @@ import java.util.Scanner;
  *
  * @author collin
  */
-public class StartProgramView {
-
-    private static String[] getInputs() {
+public class StartProgramView extends View {
+    @Override
+    public String[] getInputs() {
 
         String[] inputs = new String[1];
 
-        displayStartProgramView();
         
         System.out.println("***********************************************************"
                        + "\n***********************************************************"
@@ -32,7 +31,7 @@ public class StartProgramView {
         return inputs;
     }
 
-    private static boolean doAction(String[] inputs) {
+    public boolean doAction(String[] inputs) {
 
         String playersName = inputs[0];
         Player player = GameControl.savePlayer(playersName);
@@ -64,23 +63,5 @@ public class StartProgramView {
    public StartProgramView() {
 
     }
-
-    public static void displayStartProgramView() {
-
-        boolean endOfView = false;
-        do {
-            String[] inputs = getInputs();
-            // System.out.println("input name");
-
-            if (inputs[0].length() < 1 || inputs[0].equals('Q')) {
-                endOfView = true;
-            }
-            endOfView = doAction(inputs);
-        } while (endOfView != true);
-
-    }
-    
-    
-
-    
+   
 }
