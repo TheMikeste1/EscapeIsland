@@ -52,7 +52,7 @@ public class EscapeIsland {
     public static void main(String[] args) {
   
         StartProgramView startProgramView = new StartProgramView();
-        startProgramView.displayStartProgramView();
+        startProgramView.display();
         
         Player player = new Player();
         Map map = new Map();
