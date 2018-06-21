@@ -1,3 +1,5 @@
+package escapeIsland;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -27,6 +29,26 @@ public class EscapeIsland {
     /**
      * @param args the command line arguments
      */
+    
+    private static Game game = null;
+    private static Player player = null;
+
+    public static Game getGame() {
+        return game;
+    }
+
+    public static void setGame(Game game) {
+        EscapeIsland.game = game;
+    }
+
+    public static Player getPlayer() {
+        return player;
+    }
+
+    public static void setPlayer(Player player) {
+        EscapeIsland.player = player;
+    }
+    
     public static void main(String[] args) {
   
         StartProgramView startProgramView = new StartProgramView();

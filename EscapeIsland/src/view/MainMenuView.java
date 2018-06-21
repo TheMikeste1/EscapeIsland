@@ -12,9 +12,10 @@ import java.util.Scanner;
  *
  * @author Austin
  */
-public class MainMenuView {
+public class MainMenuView extends View {
 
-    public void displayMainMenuView() {
+    @Override
+    public void display() {
 
         boolean endOfView = false;
         do {
@@ -27,7 +28,8 @@ public class MainMenuView {
         } while (endOfView != true);
     }
 
-    private String[] getInputs() {
+    @Override
+    public String[] getInputs() {
        String[] inputs = new String[1];
 
        System.out.println("***********************************************************"
@@ -54,7 +56,8 @@ public class MainMenuView {
 
      
 
-    private boolean doAction(String[] inputs) {
+    @Override
+    public boolean doAction(String[] inputs) {
         
     char c = inputs[0].trim().toUpperCase().charAt(0);
         switch(c){
