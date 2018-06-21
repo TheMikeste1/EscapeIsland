@@ -12,30 +12,12 @@ import model.*;
  *
  * @author Austi
  */
-public class InteractWithEnviromentView {
-        Actor max = Actor.MonsterZombie;
+public class InteractWithEnviromentView extends View{
     
-    public void displayInteractWithEnviromentView() {
-
-        boolean endOfView = false;
-        do {
-            String[] inputs = getInputs();
-            // System.out.println("input name");
-
-            if (inputs[0].trim().length() < 1 || inputs[0].equals('Q')) {
-                endOfView = true;
-            }
-            endOfView = doAction(inputs);
-        } while (endOfView != true);
-
-    }
+    Actor max = Actor.MonsterZombie;
     
-    private String[] getInputs() {
-        String[] inputs = new String[1];
-
-        //inputs = new String[1];
-
-        System.out.println("***********************************************************"
+    public InteractWithEnviromentView() {
+        this.options =     "***********************************************************"
                        + "\n***********************************************************"
                        + "\n*                                                         *"
                        + "\n* Interactions                                            *"
@@ -49,18 +31,13 @@ public class InteractWithEnviromentView {
                        + "\n* Q - Quit to Game Menu                                   *"
                        + "\n*                                                         *"
                        + "\n***********************************************************"
-                       + "\n***********************************************************");
-
-        String[] menuItem = new String[1];
-        Scanner sc = new Scanner(System.in);
-        menuItem[0] = sc.nextLine();
-        
-      return menuItem;
+                       + "\n***********************************************************";
     }
-    
-    private boolean doAction(String[] inputs) {
+ 
+    @Override
+    public boolean doAction(String inputs) {
 
-        char interactionsMenu = inputs[0].trim().toUpperCase().charAt(0);
+        char interactionsMenu = inputs.trim().toUpperCase().charAt(0);
 
             switch (interactionsMenu) {
                 case 'C':
@@ -90,6 +67,67 @@ public class InteractWithEnviromentView {
 
         return false;
     }
+//    @Override
+//    public String[] getInputs() {
+//        String[] inputs = new String[1];
+//
+//        //inputs = new String[1];
+//
+//        System.out.println("***********************************************************"
+//                       + "\n***********************************************************"
+//                       + "\n*                                                         *"
+//                       + "\n* Interactions                                            *"
+//                       + "\n*                                                         *"
+//                       + "\n* C - Combat                                              *"
+//                       + "\n* I - Item Required                                       *"
+//                       + "\n* L - Loot                                                *"
+//                       + "\n* T - Talk                                                *"
+//                       + "\n* P - Puzzle                                              *"
+//                       + "\n* R - Riddle                                              *"       
+//                       + "\n* Q - Quit to Game Menu                                   *"
+//                       + "\n*                                                         *"
+//                       + "\n***********************************************************"
+//                       + "\n***********************************************************");
+//
+//        String[] menuItem = new String[1];
+//        Scanner sc = new Scanner(System.in);
+//        menuItem[0] = sc.nextLine();
+//        
+//      return menuItem;
+//    }
+    
+//    public boolean doAction(String[] inputs) {
+//
+//        char interactionsMenu = inputs[0].trim().toUpperCase().charAt(0);
+//
+//            switch (interactionsMenu) {
+//                case 'C':
+//                    combatControls();
+//                    break;
+//                case 'I':
+//                    itemRequired();
+//                    break;
+//                case 'L':
+//                    getLoot();
+//                    break;
+//                case 'T':
+//                    talkToNPC();
+//                    break;
+//                case 'P':
+//                    puzzle();
+//                    break;
+//                case 'R':
+//                    riddle();
+//                    break;
+//                case 'Q':
+//                    return true;
+//                default: 
+//                    System.out.println("Invalid Option");
+//            }
+//
+//
+//        return false;
+//    }
 
     private void combatControls() {
                 System.out.println("\n***********************************************************"

@@ -9,13 +9,13 @@ package view;
  *
  * @author Austin
  */
-public interface ViewInterface {
-    public String[] getInputs();
+public abstract interface ViewInterface {
+    abstract String[] getInputs();
    
-    public boolean doAction(String[] inputs);
+    abstract boolean doAction(String inputs);
 
-    public void display();
+    abstract void display();
     
-    public String getInput(String promptMessage);
+    abstract String getInput(String promptMessage);
     
 }   

@@ -14,30 +14,11 @@ import model.*;
  *
  * @author Austin
  */
-public class HelpMenuView {
+public class HelpMenuView extends View{
+    
 
-    public void displayHelpMenuView() {
-
-        boolean endOfView = false;
-        do {
-            String[] inputs = getInputs();
-            // System.out.println("input name");
-
-            if (inputs[0].trim().length() < 1 || inputs[0].equals('Q')) {
-                endOfView = true;
-            }
-            endOfView = doAction(inputs);
-        } while (endOfView != true);
-
-    }
-
-    private String[] getInputs() {
-        String[] inputs = new String[1];
-        
-
-        //inputs = new String[1];
-
-        System.out.println("***********************************************************"
+    public HelpMenuView() {
+        this.options =     "***********************************************************"
                        + "\n***********************************************************"
                        + "\n*                                                         *"
                        + "\n* C - Controls                                            *"
@@ -46,21 +27,32 @@ public class HelpMenuView {
                        + "\n* B - Battle System                                       *"
                        + "\n* Q - Quit to Main Menu                                   *"
                        + "\n* D - test inventory                                      *"
-                       + "\n* G - test game menu                                                        *"
+                       + "\n* G - test game menu                                      *"
                        + "\n*                                                         *"
                        + "\n***********************************************************"
-                       + "\n***********************************************************");
-
-        String[] menuItem = new String[1];
-        Scanner sc = new Scanner(System.in);
-        menuItem[0] = sc.nextLine();
-        
-      return menuItem;
+                       + "\n***********************************************************";
     }
+    
+//    @Override
+//    public void display() {
+//
+//        boolean endOfView = false;
+//        do {
+//            String[] inputs = getInputs();
+//            // System.out.println("input name");
+//
+//            if (inputs[0].trim().length() < 1 || inputs[0].equals('Q')) {
+//                endOfView = true;
+//            }
+//            endOfView = doAction(inputs);
+//        } while (endOfView != true);
+//
+//    }
+    
+    @Override
+    public boolean doAction(String inputs) {
 
-    private boolean doAction(String[] inputs) {
-
-        char c = inputs[0].trim().toUpperCase().charAt(0);
+        char c = inputs.trim().toUpperCase().charAt(0);
         Player player = new Player();
         Map map = new Map();
 
@@ -83,7 +75,8 @@ public class HelpMenuView {
                     break;
                 case 'G':
                     GameMenuView test2 = new GameMenuView();
-                    test2.displayGameMenuView(player, map);
+                    test2.display();
+                    //test2.displayGameMenuView(player, map);
                     break;
                 case 'Q':
                     return true;
@@ -93,7 +86,58 @@ public class HelpMenuView {
 
         return false;
     }
-    
+
+//    @Override
+//    public String[] getInputs() {
+//        String[] inputs = new String[1];
+//        
+
+        //inputs = new String[1];
+
+
+//        String[] menuItem = new String[1];
+//        Scanner sc = new Scanner(System.in);
+//        menuItem[0] = sc.nextLine();
+//        
+//      return menuItem;
+//    }
+
+//    public boolean doAction(String[] inputs) {
+//
+//        char c = inputs[0].trim().toUpperCase().charAt(0);
+//        Player player = new Player();
+//        Map map = new Map();
+//
+//            switch (c) {
+//                case 'C':
+//                    displayHelpControls();
+//                    break;
+//                case 'S':
+//                    displayHelpStory();
+//                    break;
+//                case 'H':
+//                    hints();
+//                    break;
+//                case 'B':
+//                    battleSystem();
+//                    break;
+//                case 'D':
+//                    InventoryView test1 = new InventoryView();
+//                    test1.displayInventoryView();
+//                    break;
+//                case 'G':
+//                    GameMenuView test2 = new GameMenuView();
+//                    test2.displayGameMenuView(player, map);
+//                    break;
+//                case 'Q':
+//                    return true;
+//                default: 
+//                    System.out.println("Invalid Option");
+//            }
+//
+//        return false;
+//    }
+
     private void battleSystem() {
         System.out.println("\n***********************************************************"
                          + "\n***********************************************************"

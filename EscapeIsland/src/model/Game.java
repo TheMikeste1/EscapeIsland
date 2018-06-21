@@ -14,14 +14,16 @@ import java.util.Objects;
  * @author collin
  */
 public class Game implements Serializable {
-
-    public Game() {
-    }
     
     private Item[] item;
     private Player[] player;
     private Map map;
     private Actor actor;
+    
+      public Game() {
+          this.player = new Player[0];
+          this.map = new Map();
+    }
 
     public Game(Item[] item, Player[] player, Map map, Actor actor) {
         this.item = item;

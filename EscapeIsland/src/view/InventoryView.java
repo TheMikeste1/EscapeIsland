@@ -71,7 +71,7 @@ public class InventoryView extends View {
     private void displayInventory() {
 
         // Temporary until we create the Actor for the player
-        InventoryView.player = Actor.PrisonGaurd;
+        InventoryView.player = Actor.PrisonGuard;
         ArrayList<Item> inventory = InventoryView.player.getActorItems();
 
         inventory.add(Item.ToolKit);

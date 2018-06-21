@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public enum Actor implements Serializable {
     
  MonsterZombie("Zombie" , new Point(1,1),"A frightful zombie", 2, 2, 2 ),
- PrisonGaurd("Erik" , new Point(2,2), "A tired prison guard", 2, 2, 2 );
+ PrisonGuard("Erik" , new Point(2,2), "A tired prison guard", 2, 2, 2 );
  
 
 private String actorName;

@@ -12,28 +12,21 @@ import java.util.Scanner;
  * @author Austin
  */
 public abstract class View implements ViewInterface {
+   
+    protected String options;
     
     public View(){ 
     }
     
     @Override
-    public void display() {
-
-        boolean endOfView = false;
-        do {
-            String[] inputs = getInputs();
-            // System.out.println("input name");
-
-            if (inputs[0].length() < 1 || inputs[0].equals('Q')) {
-                endOfView = true;
-            }
-            endOfView = doAction(inputs);
-        } while (endOfView != true);
-
-    }
+   public String[] getInputs(){
+       String[] thing = {"Herp", "Derp"};
+       return thing;
+   }
     
     @Override
     public String getInput(String promptMessage) {
+
         Scanner sc = new Scanner(System.in);
         boolean valid = false;
         String value = "";
@@ -53,5 +46,24 @@ public abstract class View implements ViewInterface {
             
         }
         return value;
+    }
+    
+    
+    
+    @Override
+    public void display() {
+
+        boolean endOfView = false;
+        do {
+            
+            String inputs = getInput(options);
+            // System.out.println("input name");
+
+            if (inputs.length() < 1 || inputs.equals("Q")) {
+                endOfView = true;
+            }
+            endOfView = doAction(inputs);
+        } while (endOfView != true);
+
     }
 }

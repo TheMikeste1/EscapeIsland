@@ -10,35 +10,10 @@ import escapeIsland.EscapeIsland;
  * @author Austin
  */
 public class GameMenuView extends View {
+    
 
     public GameMenuView() {
-    }
-
-    public void displayGameMenuView(Player player, Map map) {
-        //String[] inputs = new String[1];
-
-        boolean endOfView = false;
-
-        do {
-            String[] inputs = this.getInputs();
-            if (inputs[0].trim().length() < 1) {
-                System.out.println("Invald Option.");
-                continue;
-            }
-
-            endOfView = doAction(inputs);
-
-        } while (endOfView != true);
-
-    }
-
-    @Override
-    public String[] getInputs() {
-        {
-
-            String[] inputs = new String[1];
-
-            System.out.println("***********************************************************"
+        this.options =  "***********************************************************"
                     + "\n***********************************************************"
                     + "\n*                                                         *"
                     + "\n* W - Move North                                          *"
@@ -51,25 +26,16 @@ public class GameMenuView extends View {
                     + "\n* Q - Quit to Main Menu                                   *"
                     + "\n*                                                         *"
                     + "\n***********************************************************"
-                    + "\n***********************************************************");
-
-            String[] menuItem = new String[1];
-            Scanner sc = new Scanner(System.in);
-            menuItem[0] = sc.nextLine();
-
-            return menuItem;
-        }
+                    + "\n***********************************************************";
     }
-        @Override
-        public boolean doAction
-        (String[] inputs
-        
-            ){
+    
+    @Override
+    public boolean doAction(String inputs){
 
         Player player = EscapeIsland.getPlayer();
-            Map map = EscapeIsland.getGame().getMap();
+        Map map = EscapeIsland.getGame().getMap();
 
-            char c = inputs[0].trim().toUpperCase().charAt(0);
+            char c = inputs.trim().toUpperCase().charAt(0);
 
             switch (c) {
                 case 'W':
@@ -102,6 +68,78 @@ public class GameMenuView extends View {
 
             return false;
         }
+    
+//    public void displayGameMenuView() {
+//        String[] inputs = new String[1];
+//
+//        boolean endOfView = false;
+//
+//        do {
+//            String[] inputs = this.getInputs();
+//            if (inputs[0].trim().length() < 1) {
+//                System.out.println("Invald Option.");
+//                continue;
+//            }
+//
+//            endOfView = doAction(inputs);
+//
+//        } while (endOfView != true);
+//
+//    }
+
+//    @Override
+//    public String[] getInputs() {
+//        {
+//
+//            String[] inputs = new String[1];
+//
+//            String[] menuItem = new String[1];
+//            Scanner sc = new Scanner(System.in);
+//            menuItem[0] = sc.nextLine();
+//
+//            return menuItem;
+//        }
+//    }
+//    
+////        public boolean doAction
+//        (String[] inputs){
+//
+//        Player player = EscapeIsland.getPlayer();
+//        Map map = EscapeIsland.getGame().getMap();
+//
+//            char c = inputs[0].trim().toUpperCase().charAt(0);
+//
+//            switch (c) {
+//                case 'W':
+//                    moveNorth(player);
+//                    break;
+//                case 'A':
+//                    moveEast(player);
+//                    break;
+//                case 'S':
+//                    moveSouth(player);
+//                    break;
+//                case 'D':
+//                    moveWest(player);
+//                    break;
+//                case 'M':
+//                    openMap(map);
+//                    break;
+//                case 'I':
+//                    openInventory();
+//                    break;
+//                case 'E':
+//                    interactWithEnvironment();
+//                    break;
+//                case 'Q':
+//                    return true;
+//                default:
+//                    System.out.println("Invalid Option.");
+//
+//            }
+//
+//            return false;
+//        }
 
     
 
@@ -145,7 +183,6 @@ public class GameMenuView extends View {
             }
             System.out.print("\n");
         }
-
     }
 
     public void openInventory() {
@@ -156,7 +193,8 @@ public class GameMenuView extends View {
 
     private void interactWithEnvironment() {
         InteractWithEnviromentView interactWithEnvironment = new InteractWithEnviromentView();
-        interactWithEnvironment.displayInteractWithEnviromentView();
+        interactWithEnvironment.display();
+        //interactWithEnvironment.displayInteractWithEnviromentView();
     }
 
     public void displayGameMenuView() {

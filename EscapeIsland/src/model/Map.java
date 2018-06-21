@@ -15,8 +15,8 @@ public class Map implements Serializable{
     private Location[][] locations;
     public char[][]physicalMapView;
     public char[][]interactionMapView;
-    int rowSize;
-    int columnSize; 
+    private int rowSize;
+    private int columnSize; 
     
     //Constructors
     public Map() {

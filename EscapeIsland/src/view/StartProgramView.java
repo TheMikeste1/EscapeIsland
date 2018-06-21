@@ -9,13 +9,10 @@ import java.util.Scanner;
  * @author collin
  */
 public class StartProgramView extends View {
-    @Override
-    public String[] getInputs() {
-
-        String[] inputs = new String[1];
-
-        
-        System.out.println("***********************************************************"
+    
+    
+    public StartProgramView() {
+        this.options =     "***********************************************************"
                        + "\n***********************************************************"
                        + "\n*                                                         *"
                        + "\n*                       Escape Island                     *"
@@ -23,17 +20,37 @@ public class StartProgramView extends View {
                        + "\n* understand is happening. Your wits and your survival    *"
                        + "\n* skill will be tested to the limit, will you escape?     *"
                        + "\n*                                                         *"
+                       + "\n*                                                         *"
+                       + "\n* Please enter your name.                                 *"
+                       + "\n*                                                         *"
                        + "\n***********************************************************"
-                       + "\n***********************************************************");
-        
-        inputs[0] = this.getInput("Please enter you name");
-
-        return inputs;
+                       + "\n***********************************************************";
     }
+//    @Override
+//    public String[] getInputs() {
+//
+//        String[] inputs = new String[1];
+//
+//        
+//        System.out.println("***********************************************************"
+//                       + "\n***********************************************************"
+//                       + "\n*                                                         *"
+//                       + "\n*                       Escape Island                     *"
+//                       + "\n* In this game you will escape from an island and try to  *"
+//                       + "\n* understand is happening. Your wits and your survival    *"
+//                       + "\n* skill will be tested to the limit, will you escape?     *"
+//                       + "\n*                                                         *"
+//                       + "\n***********************************************************"
+//                       + "\n***********************************************************");
+//        
+//        inputs[0] = this.getInput("Please enter you name");
+//
+//        return inputs;
+//    }
 
-    public boolean doAction(String[] inputs) {
+    public boolean doAction(String inputs) {
 
-        String playersName = inputs[0];
+        String playersName = inputs;
         Player player = GameControl.savePlayer(playersName);
 
         if (player == null) {
@@ -51,7 +68,7 @@ public class StartProgramView extends View {
                        + "\n===========================================================");
 
         MainMenuView mainMenuView = new MainMenuView();
-        /* here */ mainMenuView.display();
+        mainMenuView.display();
         return true;
     }
 
@@ -60,8 +77,8 @@ public class StartProgramView extends View {
          return null;
     }
 
-   public StartProgramView() {
-
-    }
-   
+//   public StartProgramView() {
+//
+//    }
+//   
 }

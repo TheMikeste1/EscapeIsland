@@ -81,7 +81,7 @@ public class EquipItem {
         
         
         InventoryControl inventorycontrol = new InventoryControl();
-        Actor ralph = Actor.PrisonGaurd;
+        Actor ralph = Actor.PrisonGuard;
         ArrayList<Item> inventory = new ArrayList();
         inventory.add(Item.ToolKit);
         inventory.add(Item.Axe);

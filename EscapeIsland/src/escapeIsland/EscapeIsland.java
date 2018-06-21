@@ -32,7 +32,7 @@ public class EscapeIsland {
     
     private static Game game = null;
     private static Player player = null;
-
+    
     public static Game getGame() {
         return game;
     }
@@ -51,11 +51,16 @@ public class EscapeIsland {
     
     public static void main(String[] args) {
   
+        Game newGame = new Game();
+        
+        setGame(newGame);
+        setPlayer(new Player());
+        
+
+        
         StartProgramView startProgramView = new StartProgramView();
         startProgramView.display();
         
-        Player player = new Player();
-        Map map = new Map();
         
         //GameMenuView gameMenuView = new GameMenuView();
         //gameMenuView.displayGameMenuView(player, map);

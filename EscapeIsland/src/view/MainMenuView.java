@@ -14,25 +14,9 @@ import java.util.Scanner;
  */
 public class MainMenuView extends View {
 
-    @Override
-    public void display() {
-
-        boolean endOfView = false;
-        do {
-            String[] inputs = getInputs();
-            if (inputs[0].trim().length() < 1) {
-                System.out.println("Invalid Option.");
-                continue;
-            }
-            endOfView = doAction(inputs);
-        } while (endOfView != true);
-    }
-
-    @Override
-    public String[] getInputs() {
-       String[] inputs = new String[1];
-
-       System.out.println("***********************************************************"
+    
+    public MainMenuView() {
+        this.options =    "***********************************************************"
                        +"\n***********************************************************"
                        +"\n*                                                         *"
                        +"\n* N - New Game                                            *"
@@ -41,25 +25,55 @@ public class MainMenuView extends View {
                        +"\n* Q - Quit                                                *"
                        +"\n*                                                         *"
                        +"\n***********************************************************"
-                       +"\n***********************************************************");
-        
-
-        
-            String[] menuItem = new String[1];
-            Scanner sc = new Scanner(System.in);
-            menuItem[0] = sc.nextLine();
-           
-            
-             return menuItem;  
-            }
+                       +"\n***********************************************************";
+    }
+    
+//    @Override
+//    public void display() {
+//
+//        boolean endOfView = false;
+//        do {
+//            String[] inputs = getInputs();
+//            if (inputs[0].trim().length() < 1) {
+//                System.out.println("Invalid Option.");
+//                continue;
+//            }
+//            endOfView = doAction(inputs);
+//        } while (endOfView != true);
+//    }
+//
+//    @Override
+//    public String[] getInputs() {
+//       String[] inputs = new String[1];
+//
+//       System.out.println("***********************************************************"
+//                       +"\n***********************************************************"
+//                       +"\n*                                                         *"
+//                       +"\n* N - New Game                                            *"
+//                       +"\n* L - Load Game                                           *"
+//                       +"\n* H - Help                                                *"
+//                       +"\n* Q - Quit                                                *"
+//                       +"\n*                                                         *"
+//                       +"\n***********************************************************"
+//                       +"\n***********************************************************");
+//        
+//
+//        
+//            String[] menuItem = new String[1];
+//            Scanner sc = new Scanner(System.in);
+//            menuItem[0] = sc.nextLine();
+//           
+//            
+//             return menuItem;  
+//            }
 
 
      
 
     @Override
-    public boolean doAction(String[] inputs) {
+    public boolean doAction(String inputs) {
         
-    char c = inputs[0].trim().toUpperCase().charAt(0);
+    char c = inputs.trim().toUpperCase().charAt(0);
         switch(c){
             case 'N':
                 startNewGame();
@@ -90,7 +104,8 @@ public class MainMenuView extends View {
 
     private void helpMenu() {
         HelpMenuView help = new HelpMenuView();
-        help.displayHelpMenuView();
+        help.display();
+        //help.displayHelpMenuView();
     }
     
 }
