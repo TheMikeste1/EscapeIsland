@@ -18,19 +18,6 @@ public class HelpMenuView extends View{
     
 
     public HelpMenuView() {
-        this.options =     "***********************************************************"
-                       + "\n***********************************************************"
-                       + "\n*                                                         *"
-                       + "\n* C - Controls                                            *"
-                       + "\n* S - Story so far                                        *"
-                       + "\n* H - Hints                                               *"
-                       + "\n* B - Battle System                                       *"
-                       + "\n* Q - Quit to Main Menu                                   *"
-                       + "\n* D - test inventory                                      *"
-                       + "\n* G - test game menu                                      *"
-                       + "\n*                                                         *"
-                       + "\n***********************************************************"
-                       + "\n***********************************************************";
     }
     
 //    @Override
@@ -50,9 +37,9 @@ public class HelpMenuView extends View{
 //    }
     
    
-    public boolean doAction(String inputs) {
+    public boolean doAction(String[] inputs) {
 
-        char c = inputs.trim().toUpperCase().charAt(0);
+        char c = inputs[0].trim().toUpperCase().charAt(0);
         Player player = new Player();
         Map map = new Map();
 
@@ -87,20 +74,30 @@ public class HelpMenuView extends View{
         return false;
     }
 
-//    @Override
-//    public String[] getInputs() {
-//        String[] inputs = new String[1];
-//        
+    
+    public String[] getInputs() {
+        String[] inputs = new String[1];
+        
 
-        //inputs = new String[1];
+        inputs = new String[1];
 
-
-//        String[] menuItem = new String[1];
-//        Scanner sc = new Scanner(System.in);
-//        menuItem[0] = sc.nextLine();
-//        
-//      return menuItem;
-//    }
+        inputs[0] = getInput("***********************************************************"
+                       + "\n***********************************************************"
+                       + "\n*                                                         *"
+                       + "\n* C - Controls                                            *"
+                       + "\n* S - Story so far                                        *"
+                       + "\n* H - Hints                                               *"
+                       + "\n* B - Battle System                                       *"
+                       + "\n* Q - Quit to Main Menu                                   *"
+                       + "\n* D - test inventory                                      *"
+                       + "\n* G - test game menu                                      *"
+                       + "\n*                                                         *"
+                       + "\n***********************************************************"
+                       + "\n***********************************************************");
+        
+        
+      return inputs;
+    }
 
 //    public boolean doAction(String[] inputs) {
 //

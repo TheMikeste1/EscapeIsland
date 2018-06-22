@@ -16,16 +16,7 @@ public class MainMenuView extends View {
 
     
     public MainMenuView() {
-        this.options =    "***********************************************************"
-                       +"\n***********************************************************"
-                       +"\n*                                                         *"
-                       +"\n* N - New Game                                            *"
-                       +"\n* L - Load Game                                           *"
-                       +"\n* H - Help                                                *"
-                       +"\n* Q - Quit                                                *"
-                       +"\n*                                                         *"
-                       +"\n***********************************************************"
-                       +"\n***********************************************************";
+        
     }
     
 //    @Override
@@ -42,38 +33,38 @@ public class MainMenuView extends View {
 //        } while (endOfView != true);
 //    }
 //
-//    @Override
-//    public String[] getInputs() {
-//       String[] inputs = new String[1];
-//
-//       System.out.println("***********************************************************"
-//                       +"\n***********************************************************"
-//                       +"\n*                                                         *"
-//                       +"\n* N - New Game                                            *"
-//                       +"\n* L - Load Game                                           *"
-//                       +"\n* H - Help                                                *"
-//                       +"\n* Q - Quit                                                *"
-//                       +"\n*                                                         *"
-//                       +"\n***********************************************************"
-//                       +"\n***********************************************************");
-//        
-//
-//        
-//            String[] menuItem = new String[1];
-//            Scanner sc = new Scanner(System.in);
-//            menuItem[0] = sc.nextLine();
-//           
-//            
-//             return menuItem;  
-//            }
+
+    public String[] getInputs() {
+       String[] inputs = new String[1];
+
+       System.out.println("***********************************************************"
+                       +"\n***********************************************************"
+                       +"\n*                                                         *"
+                       +"\n* N - New Game                                            *"
+                       +"\n* L - Load Game                                           *"
+                       +"\n* H - Help                                                *"
+                       +"\n* Q - Quit                                                *"
+                       +"\n*                                                         *"
+                       +"\n***********************************************************"
+                       +"\n***********************************************************");
+        
+
+        
+            String[] menuItem = new String[1];
+            Scanner sc = new Scanner(System.in);
+            menuItem[0] = sc.nextLine();
+           
+            
+             return menuItem;  
+            }
 
 
      
 
     @Override
-    public boolean doAction(String inputs) {
+    public boolean doAction(String[] inputs) {
         
-    char c = inputs.trim().toUpperCase().charAt(0);
+    char c = inputs[0].trim().toUpperCase().charAt(0);
         switch(c){
             case 'N':
                 startNewGame();

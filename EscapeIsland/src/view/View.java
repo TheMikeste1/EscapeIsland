@@ -19,12 +19,6 @@ public abstract class View implements ViewInterface {
     }
     
     
-   public String[] getInputs(){
-       String[] thing = {"Herp", "Derp"};
-       return thing;
-   }
-    
-    
     public String getInput(String promptMessage) {
 
         Scanner sc = new Scanner(System.in);
@@ -56,10 +50,10 @@ public abstract class View implements ViewInterface {
         boolean endOfView = false;
         do {
             
-            String inputs = getInput(options);
+            String[] inputs = getInputs();
             // System.out.println("input name");
 
-            if (inputs.length() < 1 || inputs.equals("Q")) {
+            if (inputs[0].length() < 1 || inputs.equals("Q")) {
                 endOfView = true;
             }
             endOfView = doAction(inputs);

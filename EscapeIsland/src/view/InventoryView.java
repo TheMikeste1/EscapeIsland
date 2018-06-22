@@ -17,41 +17,39 @@ import control.InventoryControl;
  */
 public class InventoryView extends View {
     
-    private static Actor player;
+    
     
     public InventoryView() {
-        getInputs();
-        displayInventory();
 }
     
-    public boolean doAction(String inputs) {
+    public boolean doAction(String[] inputs) {
 
-        String c = inputs.trim().toUpperCase();
+        String c = inputs[0].trim().toUpperCase();
         int selection = Integer.parseInt(c);
         
-        Item item = InventoryView.player.getActorItems().get(selection);
+        Item item = Actor.PrisonGuard.getActorItems().get(selection);
         if (item == null) {
             System.out.println("Item does not exist in inventory");
             return false;
         }
         
-        int result = InventoryControl.equipItem(InventoryView.player, item);
+        int result = InventoryControl.equipItem(Actor.PrisonGuard, item);
          if (result < 0) {
              System.out.println("player or item does not exist");
              return false;
                 }
           
         
-         else System.out.println("Your player now has the " + item.getItemName() + " in his hands");
+         else System.out.println("You now have the " + item.getItemName() + " in your hands");
 
         return true;
     }
 
-    private void displayInventory() {
+    public String[] getInputs() {
 
         // Temporary until we create the Actor for the player
-        InventoryView.player = Actor.PrisonGuard;
-        ArrayList<Item> inventory = InventoryView.player.getActorItems();
+        Actor player = Actor.PrisonGuard;
+        ArrayList<Item> inventory = player.getActorItems();
 
         inventory.add(Item.ToolKit);
         inventory.add(Item.Axe);
@@ -68,7 +66,7 @@ public class InventoryView extends View {
        
         
         System.out.println("* ");
-        int num = 0;
+        int num = -1;
         for (Item item : inventory) {
 
             num++; // add one to item number
@@ -80,7 +78,12 @@ public class InventoryView extends View {
                        + "\n*                                                         *"
                        + "\n***********************************************************"
                        + "\n***********************************************************");
+        String[] inputs = new String[1];
+        inputs[0] = getInput("");
+        return inputs;
     }
+
+
 
 
 }

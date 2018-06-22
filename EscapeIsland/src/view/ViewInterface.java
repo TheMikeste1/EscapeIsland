@@ -12,7 +12,7 @@ package view;
 public abstract interface ViewInterface {
     abstract String[] getInputs();
    
-    abstract boolean doAction(String inputs);
+    abstract boolean doAction(String[] inputs);
 
     abstract void display();
     

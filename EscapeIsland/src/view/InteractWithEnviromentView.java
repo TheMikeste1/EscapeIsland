@@ -17,27 +17,27 @@ public class InteractWithEnviromentView extends View{
     Actor max = Actor.MonsterZombie;
     
     public InteractWithEnviromentView() {
-        this.options =     "***********************************************************"
-                       + "\n***********************************************************"
-                       + "\n*                                                         *"
-                       + "\n* Interactions                                            *"
-                       + "\n*                                                         *"
-                       + "\n* C - Combat                                              *"
-                       + "\n* I - Item Required                                       *"
-                       + "\n* L - Loot                                                *"
-                       + "\n* T - Talk                                                *"
-                       + "\n* P - Puzzle                                              *"
-                       + "\n* R - Riddle                                              *"       
-                       + "\n* Q - Quit to Game Menu                                   *"
-                       + "\n*                                                         *"
-                       + "\n***********************************************************"
-                       + "\n***********************************************************";
+//        this.options =     "***********************************************************"
+//                       + "\n***********************************************************"
+//                       + "\n*                                                         *"
+//                       + "\n* Interactions                                            *"
+//                       + "\n*                                                         *"
+//                       + "\n* C - Combat                                              *"
+//                       + "\n* I - Item Required                                       *"
+//                       + "\n* L - Loot                                                *"
+//                       + "\n* T - Talk                                                *"
+//                       + "\n* P - Puzzle                                              *"
+//                       + "\n* R - Riddle                                              *"       
+//                       + "\n* Q - Quit to Game Menu                                   *"
+//                       + "\n*                                                         *"
+//                       + "\n***********************************************************"
+//                       + "\n***********************************************************";
     }
  
-    @Override
-    public boolean doAction(String inputs) {
 
-        char interactionsMenu = inputs.trim().toUpperCase().charAt(0);
+    public boolean doAction(String[] inputs) {
+
+        char interactionsMenu = inputs[0].trim().toUpperCase().charAt(0);
 
             switch (interactionsMenu) {
                 case 'C':
@@ -67,34 +67,34 @@ public class InteractWithEnviromentView extends View{
 
         return false;
     }
-//    @Override
-//    public String[] getInputs() {
-//        String[] inputs = new String[1];
-//
-//        //inputs = new String[1];
-//
-//        System.out.println("***********************************************************"
-//                       + "\n***********************************************************"
-//                       + "\n*                                                         *"
-//                       + "\n* Interactions                                            *"
-//                       + "\n*                                                         *"
-//                       + "\n* C - Combat                                              *"
-//                       + "\n* I - Item Required                                       *"
-//                       + "\n* L - Loot                                                *"
-//                       + "\n* T - Talk                                                *"
-//                       + "\n* P - Puzzle                                              *"
-//                       + "\n* R - Riddle                                              *"       
-//                       + "\n* Q - Quit to Game Menu                                   *"
-//                       + "\n*                                                         *"
-//                       + "\n***********************************************************"
-//                       + "\n***********************************************************");
-//
-//        String[] menuItem = new String[1];
-//        Scanner sc = new Scanner(System.in);
-//        menuItem[0] = sc.nextLine();
-//        
-//      return menuItem;
-//    }
+    
+    public String[] getInputs() {
+        String[] inputs = new String[1];
+
+        //inputs = new String[1];
+
+        System.out.println("***********************************************************"
+                       + "\n***********************************************************"
+                       + "\n*                                                         *"
+                       + "\n* Interactions                                            *"
+                       + "\n*                                                         *"
+                       + "\n* C - Combat                                              *"
+                       + "\n* I - Item Required                                       *"
+                       + "\n* L - Loot                                                *"
+                       + "\n* T - Talk                                                *"
+                       + "\n* P - Puzzle                                              *"
+                       + "\n* R - Riddle                                              *"       
+                       + "\n* Q - Quit to Game Menu                                   *"
+                       + "\n*                                                         *"
+                       + "\n***********************************************************"
+                       + "\n***********************************************************");
+
+        String[] menuItem = new String[1];
+        Scanner sc = new Scanner(System.in);
+        menuItem[0] = sc.nextLine();
+        
+      return menuItem;
+    }
     
 //    public boolean doAction(String[] inputs) {
 //

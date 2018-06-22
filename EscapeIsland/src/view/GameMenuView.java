@@ -13,29 +13,15 @@ public class GameMenuView extends View {
     
 
     public GameMenuView() {
-        this.options =  "***********************************************************"
-                    + "\n***********************************************************"
-                    + "\n*                                                         *"
-                    + "\n* W - Move North                                          *"
-                    + "\n* A - Move West                                           *"
-                    + "\n* S - Move South                                          *"
-                    + "\n* D - Move East                                           *"
-                    + "\n* M - Map                                                 *"
-                    + "\n* I - Inventory                                           *"
-                    + "\n* E - Interact With Enviroment                            *"
-                    + "\n* Q - Quit to Main Menu                                   *"
-                    + "\n*                                                         *"
-                    + "\n***********************************************************"
-                    + "\n***********************************************************";
     }
     
-    @Override
-    public boolean doAction(String inputs){
+
+    public boolean doAction(String[] inputs){
 
         Player player = EscapeIsland.getPlayer();
         Map map = EscapeIsland.getGame().getMap();
 
-            char c = inputs.trim().toUpperCase().charAt(0);
+            char c = inputs[0].trim().toUpperCase().charAt(0);
 
             switch (c) {
                 case 'W':
@@ -87,19 +73,29 @@ public class GameMenuView extends View {
 //
 //    }
 
-//    @Override
-//    public String[] getInputs() {
-//        {
-//
-//            String[] inputs = new String[1];
-//
-//            String[] menuItem = new String[1];
-//            Scanner sc = new Scanner(System.in);
-//            menuItem[0] = sc.nextLine();
-//
-//            return menuItem;
-//        }
-//    }
+ 
+    public String[] getInputs() {
+        {
+
+            String[] inputs = new String[1];
+            inputs[0] = getInput("***********************************************************"
+                    + "\n***********************************************************"
+                    + "\n*                                                         *"
+                    + "\n* W - Move North                                          *"
+                    + "\n* A - Move West                                           *"
+                    + "\n* S - Move South                                          *"
+                    + "\n* D - Move East                                           *"
+                    + "\n* M - Map                                                 *"
+                    + "\n* I - Inventory                                           *"
+                    + "\n* E - Interact With Enviroment                            *"
+                    + "\n* Q - Quit to Main Menu                                   *"
+                    + "\n*                                                         *"
+                    + "\n***********************************************************"
+                    + "\n***********************************************************");
+
+            return inputs;
+        }
+    }
 //    
 ////        public boolean doAction
 //        (String[] inputs){
