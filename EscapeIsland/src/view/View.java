@@ -18,13 +18,13 @@ public abstract class View implements ViewInterface {
     public View(){ 
     }
     
-    @Override
+    
    public String[] getInputs(){
        String[] thing = {"Herp", "Derp"};
        return thing;
    }
     
-    @Override
+    
     public String getInput(String promptMessage) {
 
         Scanner sc = new Scanner(System.in);
@@ -50,7 +50,7 @@ public abstract class View implements ViewInterface {
     
     
     
-    @Override
+    
     public void display() {
 
         boolean endOfView = false;

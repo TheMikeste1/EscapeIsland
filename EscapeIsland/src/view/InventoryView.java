@@ -18,7 +18,12 @@ import control.InventoryControl;
 public class InventoryView extends View {
     
     private static Actor player;
+    
+    public InventoryView() {
+        getInputs();
+}
 
+@Override
     public String[] getInputs() {
         String[] inputs = new String[1];
 
