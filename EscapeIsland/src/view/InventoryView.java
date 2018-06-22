@@ -21,20 +21,8 @@ public class InventoryView extends View {
     
     public InventoryView() {
         getInputs();
-}
-
-@Override
-    public String[] getInputs() {
-        String[] inputs = new String[1];
-
         displayInventory();
-
-        String[] menuItem = new String[1];
-        Scanner sc = new Scanner(System.in);
-        menuItem[0] = sc.nextLine().trim();
-
-        return inputs;
-    }
+}
     
     public boolean doAction(String inputs) {
 
@@ -54,7 +42,7 @@ public class InventoryView extends View {
                 }
           
         
-         else System.out.println("Your player now has the " + item.getItemName() + "in his hands");
+         else System.out.println("Your player now has the " + item.getItemName() + " in his hands");
 
         return true;
     }
