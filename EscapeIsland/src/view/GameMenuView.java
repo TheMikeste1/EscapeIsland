@@ -187,7 +187,7 @@ public class GameMenuView extends View {
 
     public void openInventory() {
         InventoryView openInventory = new InventoryView();
-        openInventory.displayInventoryView();
+        openInventory.display();
 
     }
 

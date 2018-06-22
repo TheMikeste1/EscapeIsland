@@ -16,21 +16,6 @@ import model.*;
  */
 public class EquipItem {
 
-    public void displayEquipItemView() {
-
-        boolean endOfView = false;
-        do {
-            String[] inputs = getInputs();
-            // System.out.println("input name");
-
-            if (inputs[0].trim().length() < 1 || inputs[0].equals('Q')) {
-                endOfView = true;
-            }
-            endOfView = doAction(inputs);
-        } while (endOfView != true);
-
-    }
-
     private String[] getInputs() {
         String[] inputs = new String[1];
 

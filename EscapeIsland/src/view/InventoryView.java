@@ -19,21 +19,6 @@ public class InventoryView extends View {
     
     private static Actor player;
 
-    public void displayInventoryView() {
-
-        boolean endOfView = false;
-        do {
-            String[] inputs = getInputs();
-            // System.out.println("input name");
-
-            if (inputs[0].trim().length() < 1 || inputs[0].equals('Q')) {
-                endOfView = true;
-            }
-            endOfView = doAction(inputs);
-        } while (endOfView != true);
-
-    }
-
     public String[] getInputs() {
         String[] inputs = new String[1];
 
@@ -45,10 +30,10 @@ public class InventoryView extends View {
 
         return inputs;
     }
-    @Override
-    public boolean doAction(String[] inputs) {
+    
+    public boolean doAction(String inputs) {
 
-        String c = inputs[0].trim().toUpperCase();
+        String c = inputs.trim().toUpperCase();
         int selection = Integer.parseInt(c);
         
         Item item = InventoryView.player.getActorItems().get(selection);
@@ -58,12 +43,13 @@ public class InventoryView extends View {
         }
         
         int result = InventoryControl.equipItem(InventoryView.player, item);
-        // if result < 0 then
-            // display "player or item does not exist
-            // return false
-        // end if 
+         if (result < 0) {
+             System.out.println("player or item does not exist");
+             return false;
+                }
+          
         
-        // display "Your player now has the " + item.getName() + in his hands
+         else System.out.println("Your player now has the " + item.getItemName() + "in his hands");
 
         return true;
     }

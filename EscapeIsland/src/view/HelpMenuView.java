@@ -49,7 +49,7 @@ public class HelpMenuView extends View{
 //
 //    }
     
-    @Override
+   
     public boolean doAction(String inputs) {
 
         char c = inputs.trim().toUpperCase().charAt(0);
@@ -71,7 +71,7 @@ public class HelpMenuView extends View{
                     break;
                 case 'D':
                     InventoryView test1 = new InventoryView();
-                    test1.displayInventoryView();
+                    test1.display();
                     break;
                 case 'G':
                     GameMenuView test2 = new GameMenuView();
