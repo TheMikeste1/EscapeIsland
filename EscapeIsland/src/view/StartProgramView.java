@@ -9,42 +9,28 @@ import java.util.Scanner;
  * @author collin
  */
 public class StartProgramView extends View {
-    
-    
+
     public StartProgramView() {
-//        this.options =     "***********************************************************"
-//                       + "\n***********************************************************"
-//                       + "\n*                                                         *"
-//                       + "\n*                       Escape Island                     *"
-//                       + "\n* In this game you will escape from an island and try to  *"
-//                       + "\n* understand is happening. Your wits and your survival    *"
-//                       + "\n* skill will be tested to the limit, will you escape?     *"
-//                       + "\n*                                                         *"
-//                       + "\n*                                                         *"
-//                       + "\n* Please enter your name.                                 *"
-//                       + "\n*                                                         *"
-//                       + "\n***********************************************************"
-//                       + "\n***********************************************************";
-   }
+
+    }
+
     public String[] getInputs() {
 
         String[] inputs = new String[1];
 
-        
         inputs[0] = this.getInput("***********************************************************"
-                       + "\n***********************************************************"
-                       + "\n*                                                         *"
-                       + "\n*                       Escape Island                     *"
-                       + "\n* In this game you will escape from an island and try to  *"
-                       + "\n* understand is happening. Your wits and your survival    *"
-                       + "\n* skill will be tested to the limit, will you escape?     *"
-                       + "\n*                                                         *"
-                       + "\n*                                                         *"
-                       + "\n*                                                         *"
-                       + "\n*   Please enter your name                                *"
-                       + "\n***********************************************************"
-                       + "\n***********************************************************");
-        
+                + "\n***********************************************************"
+                + "\n*                                                         *"
+                + "\n*                       Escape Island                     *"
+                + "\n* In this game you will escape from an island and try to  *"
+                + "\n* understand is happening. Your wits and your survival    *"
+                + "\n* skill will be tested to the limit, will you escape?     *"
+                + "\n*                                                         *"
+                + "\n*                                                         *"
+                + "\n*                                                         *"
+                + "\n*   Please enter your name                                *"
+                + "\n***********************************************************"
+                + "\n***********************************************************");
 
         return inputs;
     }
@@ -60,13 +46,13 @@ public class StartProgramView extends View {
             return false;
         }
         System.out.println("==========================================================="
-                       + "\n==========================================================="
-                       + "\n                                                           "
-                       + "\nWelcome to the game " + playersName + ". "
-                       + "\nWe hope you have a lot of fun!                             "
-                       + "\n                                                           "
-                       + "\n==========================================================="
-                       + "\n===========================================================");
+                + "\n==========================================================="
+                + "\n                                                           "
+                + "\nWelcome to the game " + playersName + ". "
+                + "\nWe hope you have a lot of fun!                             "
+                + "\n                                                           "
+                + "\n==========================================================="
+                + "\n===========================================================");
 
         MainMenuView mainMenuView = new MainMenuView();
         mainMenuView.display();
@@ -75,11 +61,7 @@ public class StartProgramView extends View {
 
     private static Player savePlayer(String playersName) {
         System.out.println("*** calling savePlayer ***");
-         return null;
+        return null;
     }
 
-//   public StartProgramView() {
-//
-//    }
-//   
 }
