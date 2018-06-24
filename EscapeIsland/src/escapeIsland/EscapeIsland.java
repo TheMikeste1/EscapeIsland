@@ -59,7 +59,7 @@ public class EscapeIsland {
 
         
         StartProgramView startProgramView = new StartProgramView();
-        startProgramView.display();
+        startProgramView.display(player);
         
         
         //GameMenuView gameMenuView = new GameMenuView();

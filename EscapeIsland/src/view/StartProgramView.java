@@ -29,16 +29,18 @@ public class StartProgramView extends View {
                 + "\n*                                                         *"
                 + "\n*                                                         *"
                 + "\n*   Please enter your name                                *"
+                + "\n*                                                         *"
+                + "\n*                                                         *"
                 + "\n***********************************************************"
                 + "\n***********************************************************");
 
         return inputs;
     }
 
-    public boolean doAction(String[] inputs) {
-
-        String[] playersName = inputs;
-        Player player = GameControl.savePlayer(playersName[0]);
+    public boolean doAction(String[] string) 
+    {return false;}
+    
+    public boolean doAction(Player player) {
 
         if (player == null) {
             System.out.println("Could not create the player. "
@@ -48,7 +50,7 @@ public class StartProgramView extends View {
         System.out.println("==========================================================="
                 + "\n==========================================================="
                 + "\n                                                           "
-                + "\nWelcome to the game " + playersName + ". "
+                + "\nWelcome to the game " + player.getPlayerName() + ". "
                 + "\nWe hope you have a lot of fun!                             "
                 + "\n                                                           "
                 + "\n==========================================================="
@@ -62,6 +64,20 @@ public class StartProgramView extends View {
     private static Player savePlayer(String playersName) {
         System.out.println("*** calling savePlayer ***");
         return null;
+    }
+
+    public void display(Player player) {
+
+        boolean endOfView = false;
+
+        do {
+            String[] playerName = getInputs();
+            player.setPlayerName(playerName[0]);
+            System.out.println(player.getPlayerName());
+            endOfView = doAction(player);
+
+        } while (endOfView != true);
+
     }
 
 }

@@ -16,24 +16,24 @@ public class GameMenuView extends View {
 
     public boolean doAction(String[] inputs) {
 
-        Player player = EscapeIsland.getPlayer();
+//        Player player = EscapeIsland.getPlayer();
         Map map = EscapeIsland.getGame().getMap();
-
+//
         char c = inputs[0].trim().toUpperCase().charAt(0);
-
+//
         switch (c) {
-            case 'W':
-                moveNorth(player);
-                break;
-            case 'A':
-                moveEast(player);
-                break;
-            case 'S':
-                moveSouth(player);
-                break;
-            case 'D':
-                moveWest(player);
-                break;
+//            case 'W':
+//                moveNorth(player);
+//                break;
+//            case 'A':
+//                moveEast(player);
+//                break;
+//            case 'S':
+//                moveSouth(player);
+//                break;
+//            case 'D':
+//                moveWest(player);
+//                break;
             case 'M':
                 openMap(map);
                 break;
@@ -60,10 +60,10 @@ public class GameMenuView extends View {
             inputs[0] = getInput("***********************************************************"
                     + "\n***********************************************************"
                     + "\n*                                                         *"
-                    + "\n* W - Move North                                          *"
-                    + "\n* A - Move West                                           *"
-                    + "\n* S - Move South                                          *"
-                    + "\n* D - Move East                                           *"
+//                    + "\n* W - Move North                                          *"
+//                    + "\n* A - Move West                                           *"
+//                    + "\n* S - Move South                                          *"
+//                    + "\n* D - Move East                                           *"
                     + "\n* M - Map                                                 *"
                     + "\n* I - Inventory                                           *"
                     + "\n* E - Interact With Enviroment                            *"
@@ -76,46 +76,41 @@ public class GameMenuView extends View {
         }
     }
 
-    private void moveNorth(Player player) {
-        int newPosition = player.getPositionY();
-        newPosition++;
-        player.setPositionY(newPosition);
-        System.out.println("Move North One Tile");
-
-    }
-
-    private void moveEast(Player player) {
-        int newPosition = player.getPositionX();
-        newPosition++;
-        player.setPositionX(newPosition);
-        System.out.println("Move East One Tile");
-
-    }
-
-    private void moveSouth(Player player) {
-        int newPosition = player.getPositionY();
-        newPosition--;
-        player.setPositionY(newPosition);
-        System.out.println("Move South One Tile");
-
-    }
-
-    private void moveWest(Player player) {
-        int newPosition = player.getPositionX();
-        newPosition--;
-        player.setPositionX(newPosition);
-        System.out.println("Move West One Tile");
-
-    }
-
+//    private void moveNorth(Player player) {
+//        int newPosition = player.getPositionY();
+//        newPosition++;
+//        player.setPositionY(newPosition);
+//        System.out.println("Move North One Tile");
+//
+//    }
+//
+//    private void moveEast(Player player) {
+//        int newPosition = player.getPositionX();
+//        newPosition++;
+//        player.setPositionX(newPosition);
+//        System.out.println("Move East One Tile");
+//
+//    }
+//
+//    private void moveSouth(Player player) {
+//        int newPosition = player.getPositionY();
+//        newPosition--;
+//        player.setPositionY(newPosition);
+//        System.out.println("Move South One Tile");
+//
+//    }
+//
+//    private void moveWest(Player player) {
+//        int newPosition = player.getPositionX();
+//        newPosition--;
+//        player.setPositionX(newPosition);
+//        System.out.println("Move West One Tile");
+//
+//    }
+//
     public void openMap(Map map) {
-
-        for (int mapR = 0; mapR < map.getRowSize(); mapR++) {
-            for (int mapC = 0; mapC < map.getColumnSize(); mapC++) {
-                System.out.print(map.physicalMapView[mapR][mapC]);
-            }
-            System.out.print("\n");
-        }
+        MapView mapView = new MapView();
+        mapView.display();
     }
 
     public void openInventory() {
