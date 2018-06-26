@@ -5,6 +5,7 @@
  */
 package control;
 
+
 import model.Game;
 import model.Player;
 
@@ -29,7 +30,7 @@ public class GameControl {
         Game game = new Game();
             
             game.setPlayer(player);
-
+            game.setPlayer(Actor.Hero);
 
 //call setter to save Player object in the game object
 //call setter to save the game in the main class of program
