@@ -50,7 +50,7 @@ public class StartProgramView extends View {
         System.out.println("==========================================================="
                 + "\n==========================================================="
                 + "\n                                                           "
-                + "\nWelcome to the game " + player.getPlayerName() + ". "
+                + "\nWelcome to the game " + player.getPlayersName() + ". "
                 + "\nWe hope you have a lot of fun!                             "
                 + "\n                                                           "
                 + "\n==========================================================="
@@ -72,8 +72,8 @@ public class StartProgramView extends View {
 
         do {
             String[] playerName = getInputs();
-            player.setPlayerName(playerName[0]);
-            System.out.println(player.getPlayerName());
+            player.setPlayersName(playerName[0]);
+            System.out.println(playerName);
             endOfView = doAction(player);
 
         } while (endOfView != true);

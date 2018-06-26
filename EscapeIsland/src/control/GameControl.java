@@ -18,4 +18,14 @@ public class GameControl {
         return new Player();
     }
     
+    public static int createNewGame (Player player) {
+        System.out.println("*** createNewGame called");
+        
+        
+        return 1;
+        
+    }
+    
+    
+    
 }

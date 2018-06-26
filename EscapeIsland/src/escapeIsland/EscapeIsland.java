@@ -31,7 +31,7 @@ public class EscapeIsland {
      */
     
     private static Game game = null;
-    private static Player player = null;
+    private static Player player;
     
     public static Game getGame() {
         return game;
