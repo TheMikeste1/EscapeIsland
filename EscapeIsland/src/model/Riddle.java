@@ -17,6 +17,9 @@ public class Riddle implements Serializable {
     private String riddle;
     private String answer;
 
+    public Riddle() {
+    }
+
     public Riddle(String riddle, String answer) {
         this.riddle = riddle;
         this.answer = answer;

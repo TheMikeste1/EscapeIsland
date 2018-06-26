@@ -15,7 +15,7 @@ import java.util.Objects;
  */
 public class Game implements Serializable {
     
-    private Player player;
+    public Player player;
     private Map map;
     private Riddle[] riddle;
     
