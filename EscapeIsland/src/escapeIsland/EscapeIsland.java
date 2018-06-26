@@ -5,8 +5,6 @@ package escapeIsland;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-
 import model.Actor;
 import model.Game;
 import model.Player;
@@ -29,10 +27,18 @@ public class EscapeIsland {
     /**
      * @param args the command line arguments
      */
-    
     private static Game game = null;
+    private static Game currentGame = null;
     private static Player player = null;
-    
+
+    public static Game getCurrentGame() {
+        return currentGame;
+    }
+
+    public static void setCurrentGame(Game currentGame) {
+        EscapeIsland.currentGame = currentGame;
+    }
+
     public static Game getGame() {
         return game;
     }
@@ -48,26 +54,20 @@ public class EscapeIsland {
     public static void setPlayer(Player player) {
         EscapeIsland.player = player;
     }
-    
+
     public static void main(String[] args) {
-  
+
         Game newGame = new Game();
-        
+
         setGame(newGame);
         setPlayer(new Player());
-        
 
-        
         StartProgramView startProgramView = new StartProgramView();
         startProgramView.display(player);
-        
-        
+
         //GameMenuView gameMenuView = new GameMenuView();
         //gameMenuView.displayGameMenuView(player, map);
         //gameMenuView.openMap(map);
-        
-        
-   
 //        // TODO code application logic here
 //        Player austin = new Player();
 //            austin.setPlayerName("austin");
@@ -100,7 +100,6 @@ public class EscapeIsland {
 //        Riddle question1 = new Riddle("favorite color","blue");
 //        
 //        System.out.println(question1.toString());
-        
     }
-    
+
 }
