@@ -5,6 +5,7 @@
  */
 package model;
 
+import java.awt.Point;
 import java.io.Serializable;
 
 /**
@@ -13,10 +14,27 @@ import java.io.Serializable;
  */
 public enum Item implements Serializable {
 
-    Axe("Axe", "Weapon", "A sharp battle axe", "Swing", 4, 3),
-    Sword("Sword", "Weapon", "An elegant short sword", "Jab", 3, 4),
-    ToolKit("ToolKit", "Tool", "A small collection of every-day tools", "Fix",1,1),
-    Compass("MagicCompass", "Tool", "A glowing, ancient ","locate", 0,0);
+    // combat items
+    Stick("Stick", "Weapon", "A study peice of oak", "Attack", 1, 0 ),
+    LeadPipe("Lead Pipe", "Weapon", "A decaying peice of construction", "Attack", 2,0 ),
+    Bat("Bat", "Weapon", "A standard baseball bat", "Attack", 3,0 ),
+    Sword("Sword", "Weapon", "A medieval longsword", "Attack", 4,0 ),
+    
+    CrockpotLid("Crock-pot Lid", "Shield", "A old crock-pot lid", "Defense", 0,1 ),
+    PantryDoor("Pantry Door", "Shield", "Half of a pantry door", "Defense", 0,2 ),
+    Buckler("Buckler", "Shield", "A small wooden shield", "Defense", 0,3 ),
+    KiteShield("Kite Shield", "Shield", "A full metal kite shield", "Defense", 0,4 ),
+   
+    
+    // tools
+    ToolKit("ToolKit", "Tool", "A small collection of every-day tools", "Fix",0,0),
+    Compass("MagicCompass", "Tool", "A glowing, ancient ","locate", 0,0),
+    Lantern("Lantern","Tool","Lights dark places","Light",  0,0 ),
+    Key("Key","Tool","Unlocks the prison","Unlock",  0,0 ),
+    HamRadioManual("Ham Radio Manual","Tool", "Teaches you how to use the radio","Learn",  0,0 ),
+    Microphone("Microphone","Tool","Allows your voice to reach far places","RadioPartOne",  0,0 ),
+    solderingIron("Smoldering Iron","Tool","Allows you to weld items together","RadioPartTwo",  0,0 );
+    
     
     private final String itemName;
     private final String itemType;
@@ -24,6 +42,7 @@ public enum Item implements Serializable {
     private final String itemAbility;
     private final int attack;
     private final int defense;
+    private Point actorcoordinates;
 
 
     

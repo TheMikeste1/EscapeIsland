@@ -52,8 +52,8 @@ public class InventoryView extends View {
         ArrayList<Item> inventory = player.getActorItems();
 
         inventory.add(Item.ToolKit);
-        inventory.add(Item.Axe);
-        inventory.add(Item.Axe);
+        inventory.add(Item.LeadPipe);
+        inventory.add(Item.KiteShield);
         inventory.add(Item.Sword);
         
 

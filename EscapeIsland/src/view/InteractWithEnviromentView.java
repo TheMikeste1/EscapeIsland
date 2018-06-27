@@ -115,7 +115,7 @@ public class InteractWithEnviromentView extends View {
         System.out.println("\n***********************************************************"
                 + "\n***********************************************************"
                 + "\n*                                                         *"
-                + "\n*Congradulations you have obtained " + Item.Axe.getItemName() + "        *"
+                + "\n*Congradulations you have obtained " + Item.Sword.getItemName() + "        *"
                 + "\n*                                                         *"
                 + "\n***********************************************************"
                 + "\n***********************************************************");

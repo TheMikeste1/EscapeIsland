@@ -69,8 +69,8 @@ public class EquipItem {
         Actor ralph = Actor.PrisonGuard;
         ArrayList<Item> inventory = new ArrayList();
         inventory.add(Item.ToolKit);
-        inventory.add(Item.Axe);
-        inventory.add(Item.Axe);
+        inventory.add(Item.Stick);
+        inventory.add(Item.LeadPipe);
         inventory.add(Item.Sword);
         ralph.setActorItems(inventory);
         
@@ -83,7 +83,7 @@ public class EquipItem {
         Actor max = Actor.MonsterZombie;
         
         ArrayList<Item> inventory = new ArrayList();
-        inventory.add(Item.Axe);
+        inventory.add(Item.Sword);
         inventory.add(Item.Compass);
         inventory.add(Item.ToolKit);
         max.setActorItems(inventory);
