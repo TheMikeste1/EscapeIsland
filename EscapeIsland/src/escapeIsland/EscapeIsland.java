@@ -28,17 +28,8 @@ public class EscapeIsland {
      * @param args the command line arguments
      */
     private static Game game = null;
-    private static Game currentGame = null;
-    private static Player player = null;
-
-    public static Game getCurrentGame() {
-        return currentGame;
-    }
-
-    public static void setCurrentGame(Game currentGame) {
-        EscapeIsland.currentGame = currentGame;
-    }
-
+    private static Player player;
+    
     public static Game getGame() {
         return game;
     }

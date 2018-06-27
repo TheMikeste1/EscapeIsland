@@ -82,33 +82,35 @@ public class MapView extends View {
     }
 
     private void moveNorth(Player player, Map map) {
-        int newPosition = player.getPositionY();
+        
+        int newPosition = player.getActor().getActorcoordinates().y;
         newPosition--;
-        player.setPositionY(newPosition, map);
+        player.getActor().getActorcoordinates().y = newPosition;
         System.out.println("Move North One Tile");
 
     }
 
     private void moveEast(Player player, Map map) {
-        int newPosition = player.getPositionX();
+        int newPosition = player.getActor().getActorcoordinates().x;
         newPosition++;
-        player.setPositionX(newPosition, map);
+        player.getActor().getActorcoordinates().x = newPosition;
         System.out.println("Move East One Tile");
 
     }
 
     private void moveSouth(Player player, Map map) {
-        int newPosition = player.getPositionY();
+        int newPosition = player.getActor().getActorcoordinates().y;
         newPosition++;
-        player.setPositionY(newPosition, map);
+        player.getActor().getActorcoordinates().y = newPosition;
+
         System.out.println("Move South One Tile");
 
     }
 
     private void moveWest(Player player, Map map) {
-        int newPosition = player.getPositionX();
+        int newPosition = player.getActor().getActorcoordinates().x;
         newPosition--;
-        player.setPositionX(newPosition, map);
+        player.getActor().getActorcoordinates().x = newPosition;
         System.out.println("Move West One Tile");
 
     }
@@ -122,7 +124,7 @@ public class MapView extends View {
 
         for (int mapR = 0; mapR < map.getRowSize(); mapR++) {
             for (int mapC = 0; mapC < map.getColumnSize(); mapC++) {
-                if (player.getPositionY() == mapR && player.getPositionX() == mapC) {
+                if (player.getActor().getActorcoordinates().x == mapR && player.getActor().getActorcoordinates().y == mapC) {
                     System.out.print("H");
                 }
                 System.out.print(map.physicalMapView[mapR][mapC]);

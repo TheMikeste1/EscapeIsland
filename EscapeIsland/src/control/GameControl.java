@@ -20,18 +20,16 @@ public class GameControl {
         return new Player();
     }
     
-    public static int createNewGame(Player[] player) {
+    public static int createNewGame (Player player) {
+        System.out.println("*** createNewGame called");
         
-        if(player == null){
-            System.out.println("Indicates invalid input");
-            return -1;
-        }
+        if
        
-        Game game = new Game();
-            
-            game.setPlayer(player);
-            game.setPlayer(Actor.Hero);
-
+//// Check for invalid inputs
+//if (player == null)
+//return -1 // indicates invalid input
+//endif
+//game = new Game object
 //call setter to save Player object in the game object
 //call setter to save the game in the main class of program
 //call setter to assign an actor to the player
@@ -44,9 +42,13 @@ public class GameControl {
 //if map == null
 // return -2 // indicates create map failed
 //endif
-//call setter to save the map in the game object 
+//call setter to save the map in the game object
+//RETURN 1 // indicates success
         
         return 1;
+        
     }
+    
+    
     
 }

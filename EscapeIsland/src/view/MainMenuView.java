@@ -1,5 +1,7 @@
 package view;
 
+import control.GameControl;
+import escapeIsland.EscapeIsland;
 import model.Player;
 import java.util.Scanner;
 
@@ -59,7 +61,10 @@ public class MainMenuView extends View {
     }
 
     private void startNewGame() {
-        System.out.println("Start a new game.");
+        int returnValue = GameControl.createNewGame(EscapeIsland.getPlayer());
+        if (returnValue < 0) {
+            System.out.println("ERROR - Failed to create new game");
+        }
     }
 
     private void loadGame() {
