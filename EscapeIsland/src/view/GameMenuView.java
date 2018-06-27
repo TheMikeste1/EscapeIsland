@@ -17,7 +17,7 @@ public class GameMenuView extends View {
     public boolean doAction(String[] inputs) {
 
 //        Player player = EscapeIsland.getPlayer();
-        Map map = EscapeIsland.getGame().getMap();
+        Map map = EscapeIsland.getCurGame().getMap();
 //
         char c = inputs[0].trim().toUpperCase().charAt(0);
 //

@@ -18,7 +18,7 @@ public class MapView extends View {
 
         Scanner sc = new Scanner(System.in);
         Player player = EscapeIsland.getPlayer();
-        Map map = EscapeIsland.getGame().getMap();
+        Map map = EscapeIsland.getCurGame().getMap();
 
         while (true) {
 

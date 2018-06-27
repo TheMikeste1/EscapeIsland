@@ -5,9 +5,8 @@
  */
 package control;
 
-
-import model.Game;
-import model.Player;
+import escapeIsland.*;
+import model.*;
 
 /**
  *
@@ -22,33 +21,54 @@ public class GameControl {
     
     public static int createNewGame (Player player) {
         System.out.println("*** createNewGame called");
+        if (player == null) {
+            return -1;
+        }
         
-        if
-       
-//// Check for invalid inputs
-//if (player == null)
-//return -1 // indicates invalid input
-//endif
-//game = new Game object
-//call setter to save Player object in the game object
-//call setter to save the game in the main class of program
-//call setter to assign an actor to the player
-//// Create the lists of used in the game
-//items = createItems()
-//call setter to save items list in the game object
-//// Create all other list (e.g., questions, weapons, spells) and save in the game
-//…
-//map = createMap(game, noOfRows, noOfColumns)
-//if map == null
-// return -2 // indicates create map failed
-//endif
-//call setter to save the map in the game object
-//RETURN 1 // indicates success
-        
+        Game game = new Game();
+        game.setPlayer(player);
+        EscapeIsland adidas = new EscapeIsland();
+        adidas.setGame(game);
+        player.setActor(Actor.PrisonGuard);
+        Riddle[] riddles = createRiddles();
+        Map cheeseburger = createMap(adidas.getCurGame(), 5,10);
+        if (cheeseburger == null){
+            return -2;
+        }
+        game.setMap(cheeseburger);
         return 1;
         
     }
     
+    public static Riddle[] createRiddles() {
     
+        Riddle[] riddles = new Riddle[5];
+        
+        for(int i=0;i<riddles.length;i++){
+        riddles[i] = new Riddle();
+        
+        }
+        riddles[0].setRiddle("What is the airspeed velocity of a north african swallow");
+        riddles[0].setAnswer("");
+        
+        riddles[1].setRiddle("What always ends everything?");
+        riddles[1].setAnswer("g");
+        
+        riddles[2].setRiddle("What has four fingers and a thumb, but is not living");
+        riddles[2].setAnswer("A glove");
+        
+        riddles[3].setRiddle("I have keys but no lock. I have a space but no room. You can enter, but can't go outside. What am I?");
+        riddles[3].setAnswer("A keyboard");
+        
+        riddles[4].setRiddle("What gets bigger the more you take away.");
+        riddles[4].setAnswer("A hole");
+        
+        return riddles;
+    }
+
+    private static Map createMap(Game game, int numOfRows, int numOfColumns) {
+    
+    return new Map();
+    }
     
 }

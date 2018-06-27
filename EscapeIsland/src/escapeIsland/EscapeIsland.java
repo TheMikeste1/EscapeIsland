@@ -27,23 +27,24 @@ public class EscapeIsland {
     /**
      * @param args the command line arguments
      */
-    private static Game game = null;
-    private static Player player;
     
-    public static Game getGame() {
-        return game;
+    private static Game curGame = null;
+    private static Player curPlayer;
+    
+    public static Game getCurGame() {
+        return curGame;
     }
 
     public static void setGame(Game game) {
-        EscapeIsland.game = game;
+        EscapeIsland.curGame = game;
     }
 
     public static Player getPlayer() {
-        return player;
+        return curPlayer;
     }
 
     public static void setPlayer(Player player) {
-        EscapeIsland.player = player;
+        EscapeIsland.curPlayer = player;
     }
 
     public static void main(String[] args) {
@@ -54,8 +55,9 @@ public class EscapeIsland {
         setPlayer(new Player());
 
         StartProgramView startProgramView = new StartProgramView();
-        startProgramView.display(player);
-
+        startProgramView.display(curPlayer);
+        
+        
         //GameMenuView gameMenuView = new GameMenuView();
         //gameMenuView.displayGameMenuView(player, map);
         //gameMenuView.openMap(map);
