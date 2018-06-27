@@ -15,9 +15,15 @@ import java.util.ArrayList;
  */
 public enum Actor implements Serializable {
     
- MonsterZombie("Zombie" , new Point(1,1),"A frightful zombie", 2, 2, 2 ),
- PrisonGuard("Erik" , new Point(2,2), "A tired prison guard", 2, 2, 2 ),
- Hero("Hero" , new Point(3,4), "The hero", 3, 3, 3);
+ MonsterZombie("Zombie" , new Point(1,1),"a frightful zombie", 3, 2, 2 ),
+ MonsterSkeleton("Skeleton" , new Point(1,1),"a terrifying skeleton", 2, 3, 2 ),
+ MonsterGoblin("Goblin" , new Point(1,1),"a spooky goblin", 2, 2, 3 ),
+ PrisonGuard("Erik" , new Point(2,2), "a tired prison guard", 2, 2, 1 ),
+ Inmate02("Inmate02" , new Point(2,2), "an enraged prison inmate", 3, 3, 1 ),
+ Inmate09("Inmate09" , new Point(2,2), "an enraged prison inmate", 2, 3, 1 ),
+ Inmate08("Inmate08" , new Point(2,2), "an enraged prison inmate", 4, 1, 1 ),
+ OldMan("Thomas" , new Point(1,1),"a lonesome old man trapped on the island", 0, 0, 0 ),
+ Hero("Hero" , new Point(3,4), "The hero", 1, 1, 1);
 
 private String actorName;
 private Point actorcoordinates;
