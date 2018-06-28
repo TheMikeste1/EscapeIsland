@@ -26,12 +26,14 @@ public class InventoryControl {
     
     public static int equipItem(Actor player, Item thing) {
         // check for invalid inpuits
-        // if player is null then
-            // return -1
-        // end if 
-        // if thing is null then
-            // return -2
-        // endif 
+         if (player == null){
+             System.out.println("player does not exist");
+             return -1;}
+         
+         if (thing == null) {
+             System.out.println("item does not exist");
+             return -2;}
+         
         
         // set selected item to current item in the player actor
         player.setCurrentItem(thing);
