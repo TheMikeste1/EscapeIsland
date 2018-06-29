@@ -30,18 +30,19 @@ public class GameControl {
         game.setPlayer(player);
         EscapeIsland adidas = new EscapeIsland();
         adidas.setGame(game);
-        player.setActor(Actor.PrisonGuard);
+        player.setActor(Actor.Hero);
         Riddle[] riddles = createRiddles();
-        Map cheeseburger = createMap(adidas.getCurGame(), 5,10);
+        Map cheeseburger = createMap(adidas.getCurGame(), 10,10);
         if (cheeseburger == null){
             return -2;
         }
+        
         game.setMap(cheeseburger);
-        Location[][] hank = createLocations(5,5);
-        assignActorsToLocations(hank);
+        game.getMap().setLocations(createLocations(10,10));
+        assignActorsToLocations(game.getMap().getLocations());
         
         
-        assignItemsToLocations(hank, Item.Bat);
+        assignItemsToLocations(game.getMap().getLocations());
         
         return 1;
         
@@ -83,8 +84,8 @@ public class GameControl {
         
         //adidas.setGame(game);
         game.getMap().setMapDescription("This is the map.");
-        game.getMap().setRowCount(5);
-        game.getMap().setColumnCount(5);
+        game.getMap().setRowCount(numOfRows);
+        game.getMap().setColumnCount(numOfColumns);
         game.setMap(map);
         
         
@@ -99,11 +100,102 @@ public class GameControl {
     public static Location[][] createLocations(int rows, int columns){
         System.out.println("*** createLocations called ***");
 
-        Location[][] bob = new Location[5][5];
+        Location[][] bob = new Location[rows][columns];
+        
+        
+        for (int k=0; k<bob.length;k++) {
+            for (int j=0; j<bob[0].length;j++) {
+                bob[k][j] = new Location();
+            }
+        }
+        
         
         if( rows < 0 || columns < 0){
         return null;
         }
+        
+        bob[0][0].setBackgroundType(BackgroundType.Ocean);
+        bob[0][0].setColumn(0);
+        bob[0][0].setRow(0);
+        bob[0][0].setBlocked(Boolean.TRUE);
+        // top row
+        bob[0][1].setBackgroundType(bob[0][0].getBackgroundType());
+        bob[0][2].setBackgroundType(bob[0][0].getBackgroundType());
+        bob[0][3].setBackgroundType(bob[0][0].getBackgroundType());
+        bob[0][4].setBackgroundType(bob[0][0].getBackgroundType());
+        bob[0][5].setBackgroundType(bob[0][0].getBackgroundType());
+        bob[0][6].setBackgroundType(bob[0][0].getBackgroundType());
+        bob[1][5].setBackgroundType(bob[0][0].getBackgroundType());
+        bob[2][5].setBackgroundType(bob[0][0].getBackgroundType());
+        bob[3][5].setBackgroundType(bob[0][0].getBackgroundType());
+        bob[4][5].setBackgroundType(bob[0][0].getBackgroundType());
+        bob[5][5].setBackgroundType(bob[0][0].getBackgroundType());
+        bob[6][6].setBackgroundType(bob[0][0].getBackgroundType());
+        bob[0][7].setBackgroundType(bob[0][0].getBackgroundType());
+        bob[0][8].setBackgroundType(bob[0][0].getBackgroundType());
+        bob[0][9].setBackgroundType(bob[0][0].getBackgroundType());
+        //left column
+        bob[1][0].setBackgroundType(bob[0][0].getBackgroundType());
+        bob[2][0].setBackgroundType(bob[0][0].getBackgroundType());
+        bob[3][0].setBackgroundType(bob[0][0].getBackgroundType());
+        bob[4][0].setBackgroundType(bob[0][0].getBackgroundType());
+        bob[5][0].setBackgroundType(bob[0][0].getBackgroundType());
+        bob[6][0].setBackgroundType(bob[0][0].getBackgroundType());
+        bob[6][5].setBackgroundType(bob[0][0].getBackgroundType());
+        bob[8][5].setBackgroundType(bob[0][0].getBackgroundType());
+        bob[7][0].setBackgroundType(bob[0][0].getBackgroundType());
+        bob[8][0].setBackgroundType(bob[0][0].getBackgroundType());
+        bob[9][0].setBackgroundType(bob[0][0].getBackgroundType());
+        // bottom row
+        bob[9][1].setBackgroundType(bob[0][0].getBackgroundType());
+        bob[9][2].setBackgroundType(bob[0][0].getBackgroundType());
+        bob[9][3].setBackgroundType(bob[0][0].getBackgroundType());
+        bob[9][4].setBackgroundType(bob[0][0].getBackgroundType());
+        bob[9][5].setBackgroundType(bob[0][0].getBackgroundType());
+        bob[9][6].setBackgroundType(bob[0][0].getBackgroundType());
+        bob[9][7].setBackgroundType(bob[0][0].getBackgroundType());
+        bob[9][8].setBackgroundType(bob[0][0].getBackgroundType());
+        bob[9][9].setBackgroundType(bob[0][0].getBackgroundType());
+        //right column
+        
+        bob[1][9].setBackgroundType(bob[0][0].getBackgroundType());
+        bob[2][9].setBackgroundType(bob[0][0].getBackgroundType());
+        bob[3][9].setBackgroundType(bob[0][0].getBackgroundType());
+        bob[4][9].setBackgroundType(bob[0][0].getBackgroundType());
+        bob[5][9].setBackgroundType(bob[0][0].getBackgroundType());
+        bob[6][9].setBackgroundType(bob[0][0].getBackgroundType());
+        bob[7][9].setBackgroundType(bob[0][0].getBackgroundType());
+        bob[8][9].setBackgroundType(bob[0][0].getBackgroundType());
+        bob[9][9].setBackgroundType(bob[0][0].getBackgroundType());
+        
+        
+          for(int i = 0; i < bob.length; i++){
+            for(int k = 0; k < bob[0].length;){
+                bob[i][k].setBlocked(true);
+            }
+        }
+          
+          for(Location[] la: bob) {
+              for(Location l : bob[0]){
+                  if(l.getBackgroundType() == BackgroundType.Ocean){
+                      l.setBlocked(Boolean.TRUE);
+                  }
+              }
+          }
+          
+          for(Location[] la: bob) {
+              for(Location l : bob[0]){
+                  if(l.getBackgroundType() == BackgroundType.Ocean){
+                      l.setVisited(Boolean.FALSE);
+                  }
+              }
+          }
+        
+        
+        
+        
+        
+        
         
         // change to locations[][] when made
         return bob;
@@ -118,7 +210,7 @@ public class GameControl {
         return 1;
     } 
         
-    private static int assignItemsToLocations(Location[][] locations, enum Item){
+    private static int assignItemsToLocations(Location[][] locations){
         System.out.println(" *** assignItemToLocations called ***");
         
         if( locations == null){
@@ -153,4 +245,3 @@ public class GameControl {
 // Assign all other types objects to locations (e.g., questions, spells) 
  //   return new Map();
     }
-}

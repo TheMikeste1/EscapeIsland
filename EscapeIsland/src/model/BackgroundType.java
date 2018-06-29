@@ -13,25 +13,27 @@ import java.io.Serializable;
  */
 public enum BackgroundType implements Serializable {
     
-    Beach("Shore", "B", "0"),
-    Forest("Forest", "F", "0"),
-    Mountain ("Mountain", "M", "0"),
-    Wall ("Wall","W","0"),
-    Prison ("Prison","P","0");
+    Beach("Shore", "B", false),
+    Forest("Forest", "F", false),
+    Mountain ("Mountain", "M", false),
+    Wall ("Wall","W",false),
+    Prison ("Prison","P",false),
+    Bridge ("Bridge","=",true),
+    Ocean("Ocean", "~", false);
     
         
     private final String name;
     private final String printValue;
-    private final String special;
+    private final Boolean special;
 
   
     
     
     
-    private BackgroundType(String name, String printValue, String special) {
+    private BackgroundType(String name, String printValue, boolean special) {
         this.name = name;
         this.printValue = printValue;
-        this.special = special;
+        this.special = true;
         
     
     }
@@ -44,8 +46,8 @@ public enum BackgroundType implements Serializable {
         return printValue;
     }
 
-    public String getSpecial() {
-        return special;
+    public Boolean getSpecial() {
+        return true;
     }
 
     @Override

@@ -5,16 +5,8 @@ package escapeIsland;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import model.Actor;
-import model.Game;
-import model.Player;
-import model.BackgroundType;
-import model.Item;
-import model.Map;
-import model.PuzzleLocation;
-import model.Riddle;
-import model.Location;
-import control.CombatControl;
+import model.*;
+import control.*;
 import view.StartProgramView;
 import view.GameMenuView;
 
@@ -48,14 +40,33 @@ public class EscapeIsland {
     }
 
     public static void main(String[] args) {
-
-        Game newGame = new Game();
-
-        setGame(newGame);
-        setPlayer(new Player());
-
-        StartProgramView startProgramView = new StartProgramView();
-        startProgramView.display(curPlayer);
+        GameControl camelNips = new GameControl();
+        
+        Location[][] derp = camelNips.createLocations(10,10);
+        
+            if(derp[0][0] != null){
+                System.out.println(-1);
+            }
+                
+        System.out.println(derp[0][0].getBackgroundType());
+       // System.out.println(derp[0][1].getBackgroundType());
+//        for(Location[] la: derp) {
+//              for(Location l : derp[0]){
+//                  if (l.getBackgroundType() != null){
+//                    System.out.println(l.getBackgroundType());
+//                }
+//              }
+//          }
+        
+        
+//
+//        Game newGame = new Game();
+//
+//        setGame(newGame);
+//        setPlayer(new Player());
+//
+//        StartProgramView startProgramView = new StartProgramView();
+//        startProgramView.display(curPlayer);
         
         
         //GameMenuView gameMenuView = new GameMenuView();
@@ -94,5 +105,6 @@ public class EscapeIsland {
 //        
 //        System.out.println(question1.toString());
     }
-
 }
+
+

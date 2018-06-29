@@ -12,7 +12,7 @@ public class Map implements Serializable{
     private int columnCount;
     private int currentRow;
     private int currentColumn;
-    private Location[][] locations;
+    public Location[][] locations;
     public char[][]physicalMapView;
     public char[][]interactionMapView;
     private int rowSize;
@@ -83,7 +83,7 @@ public class Map implements Serializable{
                 ,{'~','B','M','M','F','~','P','P','B','~'}
                 ,{'~','B','M','M','F','~','P','P','B','~'}
                 ,{'~','B','M','M','F','~','P','P','B','~'}
-                ,{'~','F','F','F','F','~','=','=','~','~'}
+                ,{'~','F','F','F','F','~','~','=','~','~'}
                 ,{'~','B','C','C','F','F','F','F','B','~'}
                 ,{'~','B','C','C','B','B','B','B','B','~'}
                 ,{'~','B','B','B','B','B','B','B','B','~'}
