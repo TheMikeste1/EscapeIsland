@@ -1,9 +1,11 @@
 package view;
 
+import control.MapControl;
 import model.Player;
 import java.util.Scanner;
 import model.Map;
 import escapeIsland.EscapeIsland;
+import model.Location;
 
 /**
  *
@@ -17,31 +19,25 @@ public class GameMenuView extends View {
     public boolean doAction(String[] inputs) {
 
 //        Player player = EscapeIsland.getPlayer();
-        Map map = EscapeIsland.getCurGame().getMap();
+        Map map = mainGame.getCurrentGame().getMapControl().getMap();
 //
         char c = inputs[0].trim().toUpperCase().charAt(0);
 //
         switch (c) {
-//            case 'W':
-//                moveNorth(player);
-//                break;
-//            case 'A':
-//                moveEast(player);
-//                break;
-//            case 'S':
-//                moveSouth(player);
-//                break;
-//            case 'D':
-//                moveWest(player);
-//                break;
-            case 'M':
-                openMap(map);
+            case 'V':
+                this.displayMap(map);
                 break;
             case 'I':
                 openInventory();
                 break;
             case 'E':
                 interactWithEnvironment();
+                break;
+            case 'M':
+                moveToNewLocation();
+                break;
+            case 'H':
+                hints();
                 break;
             case 'Q':
                 return true;
@@ -60,13 +56,15 @@ public class GameMenuView extends View {
             inputs[0] = getInput("***********************************************************"
                     + "\n***********************************************************"
                     + "\n*                                                         *"
-//                    + "\n* W - Move North                                          *"
-//                    + "\n* A - Move West                                           *"
-//                    + "\n* S - Move South                                          *"
-//                    + "\n* D - Move East                                           *"
-                    + "\n* M - Map                                                 *"
+                    //                    + "\n* W - Move North                                          *"
+                    //                    + "\n* A - Move West                                           *"
+                    //                    + "\n* S - Move South                                          *"
+                    //                    + "\n* D - Move East                                           *"
+                    + "\n* V - View Map                                            *"
                     + "\n* I - Inventory                                           *"
                     + "\n* E - Interact With Enviroment                            *"
+                    + "\n* M - Move to new location                                *"
+                    + "\n* H - Help                                                *"
                     + "\n* Q - Quit to Main Menu                                   *"
                     + "\n*                                                         *"
                     + "\n***********************************************************"
@@ -108,7 +106,40 @@ public class GameMenuView extends View {
 //
 //    }
 //
-    public void openMap(Map map) {
+    public void displayMap(Map map) {
+        Location[][] locations = map.getLocations();
+
+        System.out.println("*** displayMap called ***");
+
+        map.getLocations();
+
+        System.out.println("     Mysterious Island");
+
+        System.out.print(" ");
+        for (int i = 0; i < map.getColumnSize(); i++) {
+            System.out.print((i + 1) + "    ");
+        }
+
+        System.out.println("\n -------------------------------");
+
+        for (int i = 0; i < map.getRowSize(); i++) {
+            System.out.print(i + 1);
+
+            for (int j = 0; j < map.getColumnSize(); j++) {
+                if (locations[0][0].isVisited()) {
+                    System.out.print("| " + locations[0][0].getBackgroundType() + " ");
+                } else {
+                    System.out.print("| ?? ");
+                }
+            }
+                System.out.println("|\n -------------------------------");
+
+            }
+
+        }
+     
+
+    public void viewMap(Map map) {
         MapView mapView = new MapView();
         mapView.display();
     }
@@ -128,4 +159,24 @@ public class GameMenuView extends View {
     public void displayGameMenuView() {
         MainMenuView displayGameMenu = new MainMenuView();
     }
+
+    private void moveToNewLocation() {
+        MapView mapView = new MapView();
+        mapView.display();
+    }
+
+    private void hints() {
+        System.out.println("\n***********************************************************"
+                + "\n***********************************************************"
+                + "\n*                                                         *"
+                + "\n*                        Hints                            *"
+                + "\n* The Tool Kit can be used in many areas.                 *"
+                + "\n* Sometimes to go forward you must go backwards.          *"
+                + "\n* Losing Fights? Try exploring the map.                   *"
+                + "\n*                                                         *"
+                + "\n***********************************************************"
+                + "\n***********************************************************");
+        return;
+    }
+
 }
