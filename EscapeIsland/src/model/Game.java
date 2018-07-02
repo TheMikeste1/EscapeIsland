@@ -5,6 +5,7 @@
  */
 package model;
 
+import control.MapControl;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Objects;
@@ -14,13 +15,21 @@ import java.util.Objects;
  * @author collin
  */
 public class Game implements Serializable {
-    
+
     public Player player;
-    private Map map;
     private Riddle[] riddle;
-    
-      public Game() {
-          
+    private MapControl mapControl;
+
+    public Game() {
+
+    }
+
+    public MapControl getMapControl() {
+        return mapControl;
+    }
+
+    public void setMapControl(MapControl mapControl) {
+        this.mapControl = mapControl;
     }
 
     public Riddle[] getRiddle() {
@@ -31,8 +40,6 @@ public class Game implements Serializable {
         this.riddle = riddle;
     }
 
-
-
     public Player getPlayer() {
         return player;
     }
@@ -41,21 +48,6 @@ public class Game implements Serializable {
         this.player = player;
     }
 
-    public Map getMap() {
-        return map;
-    }
-
-    public void setMap(Map map) {
-        this.map = map;
-    }
-
-
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 61 * hash + Objects.hashCode(this.map);
-        return hash;
-    }
 
     @Override
     public boolean equals(Object obj) {
@@ -70,16 +62,7 @@ public class Game implements Serializable {
         }
         final Game other = (Game) obj;
 
-        if (!Objects.equals(this.map, other.map)) {
-            return false;
-        }
-
         return true;
-    }
-
-    @Override
-    public String toString() {
-        return "Game{" + ", player=" + player + ", map=" + map + '}';
     }
 
 }

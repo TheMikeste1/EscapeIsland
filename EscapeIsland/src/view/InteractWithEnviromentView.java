@@ -23,7 +23,7 @@ public class InteractWithEnviromentView extends View {
                 combatControls();
                 break;
             case 'I':
-                itemRequired();
+                itemRequiredScene();
                 break;
             case 'L':
                 getLoot();
@@ -88,7 +88,7 @@ public class InteractWithEnviromentView extends View {
         return;
     }
 
-    private void itemRequired() {
+    private void itemRequiredScene() {
         if (max.getCurrentItem() != Item.ToolKit) {
             System.out.println("\n***********************************************************"
                     + "\n***********************************************************"

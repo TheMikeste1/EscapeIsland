@@ -3,6 +3,7 @@ package view;
 import control.GameControl;
 import model.Player;
 import java.util.Scanner;
+import escapeIsland.EscapeIsland;
 
 /**
  *
@@ -10,8 +11,8 @@ import java.util.Scanner;
  */
 public class StartProgramView extends View {
 
-    public StartProgramView() {
-
+    public StartProgramView(EscapeIsland mainGame) {
+        super(mainGame);
     }
 
     public String[] getInputs() {
@@ -73,7 +74,6 @@ public class StartProgramView extends View {
         do {
             String[] playerName = getInputs();
             player.setPlayersName(playerName[0]);
-            System.out.println(playerName);
             endOfView = doAction(player);
 
         } while (endOfView != true);
