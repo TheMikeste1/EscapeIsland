@@ -5,6 +5,7 @@ import model.Player;
 import java.util.Scanner;
 import model.Map;
 import escapeIsland.EscapeIsland;
+import model.Game;
 import model.Location;
 
 /**
