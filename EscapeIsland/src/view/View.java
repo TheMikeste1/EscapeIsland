@@ -1,7 +1,7 @@
 package view;
 
 import java.util.Scanner;
-
+import escapeIsland.EscapeIsland;
 /**
  *
  * @author Austin
@@ -9,9 +9,14 @@ import java.util.Scanner;
 public abstract class View implements ViewInterface {
 
     protected String options;
+    protected EscapeIsland mainGame;
 
     public View() {
     }
+    
+    public View( EscapeIsland mainGame) {
+        this.mainGame = mainGame;
+    } 
 
     public String getInput(String promptMessage) {
 

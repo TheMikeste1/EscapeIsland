@@ -1,12 +1,8 @@
 package escapeIsland;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 import model.*;
 import control.*;
+import static control.GameControl.createRiddles;
 import view.StartProgramView;
 import view.GameMenuView;
 
@@ -16,40 +12,40 @@ import view.GameMenuView;
  */
 public class EscapeIsland {
 
-    /**
-     * @param args the command line arguments
-     */
-    
-    private static Game curGame = null;
-    private static Player curPlayer;
-    
-    public static Game getCurGame() {
-        return curGame;
+    private static Game currentGame = null;
+    private static Player currentPlayer;
+
+    public static Game getCurrentGame() {
+        return currentGame;
     }
 
-    public static void setGame(Game game) {
-        EscapeIsland.curGame = game;
+    public static void setCurrentGame(Game currentGame) {
+        EscapeIsland.currentGame = currentGame;
     }
 
-    public static Player getPlayer() {
-        return curPlayer;
+    public static Player getCurrentPlayer() {
+        return currentPlayer;
     }
 
-    public static void setPlayer(Player player) {
-        EscapeIsland.curPlayer = player;
+    public static void setCurrentPlayer(Player currentPlayer) {
+        EscapeIsland.currentPlayer = currentPlayer;
     }
 
     public static void main(String[] args) {
-        GameControl camelNips = new GameControl();
+        EscapeIsland adidas = new EscapeIsland();
+        GameControl gameControl = new GameControl();
         
-        Location[][] derp = camelNips.createLocations(10,10);
-        
-            if(derp[0][0] != null){
-                System.out.println(-1);
-            }
-                
-        System.out.println(derp[0][0].getBackgroundType());
-       // System.out.println(derp[0][1].getBackgroundType());
+//Riddle[] riddle = createRiddles();
+
+//        Location[][] location = gameControl.createLocations(6, 6, riddle);
+
+//        if (location[0][0] != null) {
+//            System.out.println(-1);
+//        }
+//
+//        System.out.println(location[0][0].getBackgroundType());
+
+// System.out.println(derp[0][1].getBackgroundType());
 //        for(Location[] la: derp) {
 //              for(Location l : derp[0]){
 //                  if (l.getBackgroundType() != null){
@@ -57,21 +53,20 @@ public class EscapeIsland {
 //                }
 //              }
 //          }
+
+
+        Game newGame = new Game();
+
+        setCurrentGame(newGame);
+        setCurrentPlayer(new Player());
+
+        StartProgramView startProgramView = new StartProgramView(adidas);
+        startProgramView.display(currentPlayer);
         
-        
-//
-//        Game newGame = new Game();
-//
-//        setGame(newGame);
-//        setPlayer(new Player());
-//
-//        StartProgramView startProgramView = new StartProgramView();
-//        startProgramView.display(curPlayer);
-        
-        
-        //GameMenuView gameMenuView = new GameMenuView();
-        //gameMenuView.displayGameMenuView(player, map);
-        //gameMenuView.openMap(map);
+
+//        GameMenuView gameMenuView = new GameMenuView();
+//        gameMenuView.displayGameMenuView(player, map);
+//        gameMenuView.openMap(map);
 //        // TODO code application logic here
 //        Player austin = new Player();
 //            austin.setPlayerName("austin");
@@ -106,5 +101,3 @@ public class EscapeIsland {
 //        System.out.println(question1.toString());
     }
 }
-
-

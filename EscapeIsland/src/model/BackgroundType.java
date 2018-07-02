@@ -19,7 +19,8 @@ public enum BackgroundType implements Serializable {
     Wall ("Wall","W",false),
     Prison ("Prison","P",false),
     Bridge ("Bridge","=",true),
-    Ocean("Ocean", "~", false);
+    Ocean("Ocean", "~", false),
+    Camp("Camp", "C", false);
     
         
     private final String name;

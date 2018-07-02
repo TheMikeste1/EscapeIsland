@@ -17,8 +17,8 @@ public class MapView extends View {
     public boolean doAction(String[] inputs) {
 
         Scanner sc = new Scanner(System.in);
-        Player player = EscapeIsland.getPlayer();
-        Map map = EscapeIsland.getCurGame().getMap();
+        Player player = EscapeIsland.getCurrentPlayer();
+        Map map = EscapeIsland.getCurrentGame().getMapControl().getMap();
 
         while (true) {
 
