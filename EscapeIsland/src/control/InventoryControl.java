@@ -5,6 +5,7 @@
  */
 package control;
 
+import java.util.ArrayList;
 import model.*;
 
 /**
@@ -38,6 +39,23 @@ public class InventoryControl {
         // set selected item to current item in the player actor
         player.setCurrentItem(thing);
         return 1;
+        
+    }
+    
+    public static Item checkBestItem(Actor mark) {
+        ArrayList<Item> items = mark.getActorItems();
+        Item bestItem = items.get(0);
+        for(int i = 0; i<items.size(); i++) {
+            int power = items.get(i).getAttack() + items.get(i).getDefense();
+            if(power > (bestItem.getAttack() + bestItem.getDefense())) {
+                bestItem = items.get(i);
+            }
+        }
+        
+        System.out.println(bestItem.getItemName());
+        
+        return bestItem;
+        
         
     }
 
