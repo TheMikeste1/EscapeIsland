@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import model.*;
 import control.InventoryControl;
+import escapeIsland.EscapeIsland;
 
 /**
  *
@@ -41,6 +42,19 @@ public class InventoryView extends View {
           
         
          else System.out.println("You now have the " + item.getItemName() + " in your hands");
+         
+         
+         switch (getInput("pick an option").trim().toUpperCase()) {
+            case "G":
+                InventoryControl.equipItem(EscapeIsland.getCurrentGame().getPlayer().getActor(),InventoryControl.checkBestItem(EscapeIsland.getCurrentGame().getPlayer().getActor()));
+                System.out.println("penis");
+                break;
+            case "Q":
+                GameMenuView gv = new GameMenuView();
+                gv.display();
+                break;
+                
+        }
 
         return true;
     }
@@ -73,11 +87,17 @@ public class InventoryView extends View {
             System.out.println(num + " - " + item.getItemName());
         }
         
+        System.out.println("\n* G - Equip Best Item");
+        
         System.out.println(
                          "\n* Q - Quit to Game Menu                                   *"
                        + "\n*                                                         *"
                        + "\n***********************************************************"
                        + "\n***********************************************************");
+        
+
+        
+        
         String[] inputs = new String[1];
         inputs[0] = getInput("");
         return inputs;
