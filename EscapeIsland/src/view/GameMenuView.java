@@ -13,7 +13,8 @@ import model.Location;
  */
 public class GameMenuView extends View {
 
-    public GameMenuView() {
+    public GameMenuView (EscapeIsland mainGame) {
+        super(mainGame);
     }
 
     public boolean doAction(String[] inputs) {
@@ -35,6 +36,9 @@ public class GameMenuView extends View {
                 break;
             case 'M':
                 moveToNewLocation();
+                break;
+            case 'R':
+                riddleHints();
                 break;
             case 'H':
                 hints();
@@ -64,6 +68,7 @@ public class GameMenuView extends View {
                     + "\n* I - Inventory                                           *"
                     + "\n* E - Interact With Enviroment                            *"
                     + "\n* M - Move to new location                                *"
+                    + "\n* R - Riddle Hints                                        *"
                     + "\n* H - Help                                                *"
                     + "\n* Q - Quit to Main Menu                                   *"
                     + "\n*                                                         *"
@@ -151,13 +156,13 @@ public class GameMenuView extends View {
     }
 
     private void interactWithEnvironment() {
-        InteractWithEnviromentView interactWithEnvironment = new InteractWithEnviromentView();
+        InteractWithEnviromentView interactWithEnvironment = new InteractWithEnviromentView(mainGame);
         interactWithEnvironment.display();
 
     }
 
     public void displayGameMenuView() {
-        MainMenuView displayGameMenu = new MainMenuView();
+        MainMenuView displayGameMenu = new MainMenuView(mainGame);
     }
 
     private void moveToNewLocation() {
@@ -177,6 +182,11 @@ public class GameMenuView extends View {
                 + "\n***********************************************************"
                 + "\n***********************************************************");
         return;
+    }
+
+    private void riddleHints() {
+        // display a list of all the riddles, and the answers.
+        mainGame.getCurrentGame().getGameControl().riddleArrayList();
     }
 
 }
