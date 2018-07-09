@@ -57,7 +57,7 @@ public class StartProgramView extends View {
                 + "\n==========================================================="
                 + "\n===========================================================");
 
-        MainMenuView mainMenuView = new MainMenuView();
+        MainMenuView mainMenuView = new MainMenuView(mainGame);
         mainMenuView.display();
         return true;
     }

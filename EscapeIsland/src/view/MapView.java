@@ -116,7 +116,7 @@ public class MapView extends View {
     }
 
     private void exploreScene() {
-        InteractWithEnviromentView interactWithEnvironment = new InteractWithEnviromentView();
+        InteractWithEnviromentView interactWithEnvironment = new InteractWithEnviromentView(mainGame);
         interactWithEnvironment.display();
     }
 

@@ -83,7 +83,5 @@ public enum Item implements Serializable {
     public String toString() {
         return "Item{" + "itemName=" + itemName + ", itemType=" + itemType + ", itemDescription=" + itemDescription + ", itemAbility=" + itemAbility + ", attack=" + attack + ", defense=" + defense + '}';
     }
-    
-    
-    
+
 }

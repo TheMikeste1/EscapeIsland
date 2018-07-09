@@ -50,7 +50,7 @@ public class InventoryView extends View {
                 System.out.println("penis");
                 break;
             case "Q":
-                GameMenuView gv = new GameMenuView();
+                GameMenuView gv = new GameMenuView(mainGame);
                 gv.display();
                 break;
                 

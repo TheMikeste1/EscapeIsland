@@ -11,8 +11,8 @@ import control.MapControl;
  */
 public class MainMenuView extends View {
 
-    public MainMenuView() {
-
+    public MainMenuView(EscapeIsland mainGame) {
+        super(mainGame);
     }
 
     public String[] getInputs() {
@@ -65,7 +65,7 @@ public class MainMenuView extends View {
         
         int returnValue = GameControl.createNewGame(mainGame.getCurrentPlayer(), mainGame);
         
-        GameMenuView gameMenuView = new GameMenuView();
+        GameMenuView gameMenuView = new GameMenuView(mainGame);
         gameMenuView.display();
         
         if (returnValue < 0) {
@@ -78,7 +78,7 @@ public class MainMenuView extends View {
     }
 
     private void helpMenu() {
-        HelpMenuView help = new HelpMenuView();
+        HelpMenuView help = new HelpMenuView(mainGame);
         help.display();
 
     }
