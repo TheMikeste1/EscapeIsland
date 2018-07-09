@@ -30,6 +30,7 @@ public class Map implements Serializable{
             this.rowSize = 6;
             this.columnSize = 6;
                        
+            //rework map to promote story/gameplay (with actor enum)
             this.physicalMapView = new char[][]{
                      // 0   1   2   3   4   5   6   7   8   9
                 /*0*/ {'~','~','~','~','~','~','~','~','~','~'}

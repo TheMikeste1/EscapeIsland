@@ -60,6 +60,8 @@ public class EscapeIsland {
         StartProgramView startProgramView = new StartProgramView();
         startProgramView.display();
         
+        gameControl.riddleArrayList();
+        
 
 //        GameMenuView gameMenuView = new GameMenuView();
 //        gameMenuView.displayGameMenuView(player, map);

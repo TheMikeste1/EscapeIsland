@@ -1,5 +1,7 @@
 package view;
 
+import control.GameControl;
+import escapeIsland.EscapeIsland;
 import java.util.Scanner;
 import model.*;
 
@@ -11,7 +13,8 @@ public class InteractWithEnviromentView extends View {
 
     Actor max = Actor.MonsterZombie;
 
-    public InteractWithEnviromentView() {
+    public InteractWithEnviromentView(EscapeIsland mainGame) {
+        super(mainGame);
     }
 
     public boolean doAction(String[] inputs) {
@@ -35,7 +38,10 @@ public class InteractWithEnviromentView extends View {
                 puzzle();
                 break;
             case 'R':
-                riddle();
+                riddle(mainGame.getCurrentGame().getMapControl(). //Access the map
+  /*...at location:*/  getMap().getLocations()[(int) Actor.Hero.getActorcoordinates().getY()] //CoordY
+                        [(int) Actor.Hero.getActorcoordinates().getX()] // CoordX
+                        .getRiddle());
                 break;
             case 'Q':
                 return true;
@@ -178,17 +184,26 @@ public class InteractWithEnviromentView extends View {
         return;
     }
 
-    private void riddle() {
+    private void riddle(Riddle riddle) {
         System.out.println("\n***********************************************************"
                 + "\n***********************************************************"
                 + "\n*                                                         *"
                 + "\n*                                                         *"
-                + "\n*Riddle Text                                              *"
-                + "\n*                                                         *"
+                + riddle 
                 + "\n*                                                         *"
                 + "\n*                                                         *"
                 + "\n***********************************************************"
                 + "\n***********************************************************");
+        
+        Scanner riddleScanner = new Scanner(System.in);
+        String rScanner = riddleScanner.nextLine();
+        
+        if( rScanner == riddle.getAnswer()){
+            System.out.println("Correct!");
+            riddle.setRiddleDone(true);
+        } else {
+            System.out.println("Incorrect, try agian.");
+        }
         return;
     }
 

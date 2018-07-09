@@ -7,8 +7,11 @@ package control;
 
 import escapeIsland.*;
 import java.util.Set;
+import java.util.Collections;
 import model.*;
 import control.MapControl;
+import java.util.ArrayList;
+import java.util.List;
 import static control.MapControl.createLocations;
 /**
  *
@@ -69,7 +72,7 @@ public class GameControl {
 
         riddles[1].setRiddle("What always ends everything?");
         riddles[1].setAnswer("g");
-
+      
         riddles[2].setRiddle("What has four fingers and a thumb, but is not living");
         riddles[2].setAnswer("A glove");
 
@@ -81,5 +84,34 @@ public class GameControl {
 
         return riddles;
     }
+ 
+    public static void riddleArrayList(){
+        List<String> questionArrayList = new ArrayList();
+        List<String> answerArrayList = new ArrayList();
+        Riddle[] riddles = createRiddles();
+        
+        for(Riddle riddle : riddles){
+//            questionArrayList.add(riddle.getRiddle());//
+            answerArrayList.add(riddle.getAnswer());
+  //          Collections.sort(questionArrayList);
+            Collections.sort(answerArrayList);            
+        }
+        
+        for (int i = 0; i < riddles.length; i++){
+        //System.out.println(questionArrayList.get(i));
+        System.out.println(answerArrayList.get(i));
+    }
+     
+    
+    
+    }
+    
+    // get all the riddles
+    // dispaly all the riddles
+    // sort all the riddles in order by length
+    // have riddle Hints display the list by length
+    
+    
+   
     
 }

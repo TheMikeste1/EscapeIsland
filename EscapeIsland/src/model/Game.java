@@ -5,6 +5,7 @@
  */
 package model;
 
+import control.GameControl;
 import control.MapControl;
 import java.io.Serializable;
 import java.util.Arrays;
@@ -19,9 +20,18 @@ public class Game implements Serializable {
     public Player player;
     private Riddle[] riddle;
     private MapControl mapControl;
+    private GameControl gameControl;
 
     public Game() {
 
+    }
+
+    public GameControl getGameControl() {
+        return gameControl;
+    }
+
+    public void setGameControl(GameControl gameControl) {
+        this.gameControl = gameControl;
     }
 
     public MapControl getMapControl() {

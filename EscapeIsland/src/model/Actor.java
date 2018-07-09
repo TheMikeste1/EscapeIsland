@@ -15,6 +15,7 @@ import java.util.ArrayList;
  */
 public enum Actor implements Serializable {
     
+    // rework monster idea/stats to devolop gameplay
  MonsterZombie("Zombie" , new Point(1,1),"a frightful zombie", 3, 2, 2 ),
  MonsterSkeleton("Skeleton" , new Point(1,1),"a terrifying skeleton", 2, 3, 2 ),
  MonsterGoblin("Goblin" , new Point(1,1),"a spooky goblin", 2, 2, 3 ),

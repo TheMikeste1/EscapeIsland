@@ -13,6 +13,7 @@ import java.util.Objects;
  * @author collin
  */
 public class Riddle implements Serializable {
+    private Boolean riddleDone;
     
     private String riddle;
     private String answer;
@@ -20,7 +21,17 @@ public class Riddle implements Serializable {
     public Riddle() {
     }
 
+    public Boolean getRiddleDone() {
+        return riddleDone;
+    }
+
+    public void setRiddleDone(Boolean riddleDone) {
+        this.riddleDone = riddleDone;
+    }
+
+    
     public Riddle(String riddle, String answer) {
+        this.riddleDone = false;
         this.riddle = riddle;
         this.answer = answer;
     }
