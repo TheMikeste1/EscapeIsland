@@ -11,8 +11,8 @@ import escapeIsland.EscapeIsland;
  */
 public class StartProgramView extends View {
 
-    public StartProgramView(EscapeIsland mainGame) {
-        super(mainGame);
+    public StartProgramView() {
+        
     }
 
     public String[] getInputs() {
@@ -38,16 +38,16 @@ public class StartProgramView extends View {
         return inputs;
     }
 
-    public boolean doAction(String[] string) 
-    {return false;}
     
-    public boolean doAction(Player player) {
-
-        if (player == null) {
+    public boolean doAction(String[] inputs) {
+        
+        if (inputs[0] == null) {
             System.out.println("Could not create the player. "
                     + "Enter a diferent name.");
             return false;
         }
+        
+        Player player = GameControl.savePlayer(inputs[0]);
         System.out.println("==========================================================="
                 + "\n==========================================================="
                 + "\n                                                           "
@@ -56,28 +56,12 @@ public class StartProgramView extends View {
                 + "\n                                                           "
                 + "\n==========================================================="
                 + "\n===========================================================");
-
+        
         MainMenuView mainMenuView = new MainMenuView();
         mainMenuView.display();
+        
+     
         return true;
-    }
-
-    private static Player savePlayer(String playersName) {
-        System.out.println("*** calling savePlayer ***");
-        return null;
-    }
-
-    public void display(Player player) {
-
-        boolean endOfView = false;
-
-        do {
-            String[] playerName = getInputs();
-            player.setPlayersName(playerName[0]);
-            endOfView = doAction(player);
-
-        } while (endOfView != true);
-
     }
 
 }

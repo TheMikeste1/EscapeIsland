@@ -26,35 +26,37 @@ public class InventoryView extends View {
     public boolean doAction(String[] inputs) {
 
         String c = inputs[0].trim().toUpperCase();
-        int selection = Integer.parseInt(c);
         
-        Item item = Actor.PrisonGuard.getActorItems().get(selection);
-        if (item == null) {
+        Item itemSelected = null;
+//        int selection = Integer.parseInt(c);
+//        Item item = Actor.PrisonGuard.getActorItems().get(selection);
+        switch(c) {
+            case "1": itemSelected = Item.Bat; break;
+            case "2": itemSelected = Item.Bat; break;
+            case "G": InventoryControl.equipItem(EscapeIsland.getCurrentGame().getPlayer().getActor(),InventoryControl.checkBestItem(EscapeIsland.getCurrentGame().getPlayer().getActor()));
+                System.out.println(InventoryControl.checkBestItem(EscapeIsland.getCurrentGame().getPlayer().getActor()));
+                        break;
+            
+//                     
+        }
+        
+        if (!Actor.PrisonGuard.getActorItems().contains(itemSelected)) {
             System.out.println("Item does not exist in inventory");
             return false;
         }
         
-        int result = InventoryControl.equipItem(Actor.PrisonGuard, item);
+        int result = InventoryControl.equipItem(Actor.PrisonGuard, itemSelected);
          if (result < 0) {
              System.out.println("player or item does not exist");
              return false;
                 }
           
         
-         else System.out.println("You now have the " + item.getItemName() + " in your hands");
+         else System.out.println("You now have the " + itemSelected.getItemName() + " in your hands");
          
          
-         switch (getInput("pick an option").trim().toUpperCase()) {
-            case "G":
-                InventoryControl.equipItem(EscapeIsland.getCurrentGame().getPlayer().getActor(),InventoryControl.checkBestItem(EscapeIsland.getCurrentGame().getPlayer().getActor()));
-                System.out.println("penis");
-                break;
-            case "Q":
-                GameMenuView gv = new GameMenuView();
-                gv.display();
-                break;
-                
-        }
+//g
+
 
         return true;
     }
@@ -69,6 +71,7 @@ public class InventoryView extends View {
         inventory.add(Item.LeadPipe);
         inventory.add(Item.KiteShield);
         inventory.add(Item.Sword);
+       
         
 
         // --- End of to do later
@@ -80,7 +83,7 @@ public class InventoryView extends View {
        
         
         System.out.println("* ");
-        int num = -1;
+        int num = 0;
         for (Item item : inventory) {
 
             num++; // add one to item number

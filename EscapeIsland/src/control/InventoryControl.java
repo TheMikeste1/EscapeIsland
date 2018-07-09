@@ -43,7 +43,10 @@ public class InventoryControl {
     }
     
     public static Item checkBestItem(Actor mark) {
+        
+        // check for invalid Actor (input == null0
         ArrayList<Item> items = mark.getActorItems();
+        // check array list less than 1
         Item bestItem = items.get(0);
         for(int i = 0; i<items.size(); i++) {
             int power = items.get(i).getAttack() + items.get(i).getDefense();

@@ -55,13 +55,10 @@ public class EscapeIsland {
 //          }
 
 
-        Game newGame = new Game();
 
-        setCurrentGame(newGame);
-        setCurrentPlayer(new Player());
 
-        StartProgramView startProgramView = new StartProgramView(adidas);
-        startProgramView.display(currentPlayer);
+        StartProgramView startProgramView = new StartProgramView();
+        startProgramView.display();
         
 
 //        GameMenuView gameMenuView = new GameMenuView();

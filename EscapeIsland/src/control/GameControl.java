@@ -18,10 +18,14 @@ public class GameControl {
 
     public static Player savePlayer(String playersName) {
         // System.out.println("*** SavePlayer() called ***");
-        return new Player();
+        Player player1 = new Player();
+        player1.setPlayersName(playersName);
+        EscapeIsland.setCurrentPlayer(player1);
+        
+        return player1;
     }
 
-    public static int createNewGame(Player player, EscapeIsland mainGame) {
+    public static int createNewGame(Player player) {
         System.out.println("*** createNewGame called ***");
         if (player == null) {
             return -1;
@@ -30,13 +34,12 @@ public class GameControl {
         Game game = new Game();
         game.setPlayer(player);
         //Add the create game ot the game we're playing (EscapeIsland)
-        EscapeIsland adidas = new EscapeIsland();
-        adidas.setCurrentGame(game);
+        EscapeIsland.setCurrentGame(game);
         
-        player.setActor(Actor.Hero);
+        player.setActor(Actor.PrisonGuard);
         
         Riddle[] riddle = createRiddles();
-        Map map = MapControl.createMap(adidas.getCurrentGame(), 6, 6);
+        Map map = MapControl.createMap(game, 6, 6);
         if (map == null) {
             return -2;
         }
@@ -46,7 +49,7 @@ public class GameControl {
         new MapControl().assignActorsToLocations(new Map().getLocations());
         new MapControl().assignItemsToLocations(game.getMapControl().getMap().getLocations());
 
-        mainGame = adidas;
+
         
         return 1;
 
