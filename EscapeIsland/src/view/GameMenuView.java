@@ -14,14 +14,12 @@ import model.Location;
  */
 public class GameMenuView extends View {
 
-    public GameMenuView (EscapeIsland mainGame) {
-        super(mainGame);
-    }
+    
 
     public boolean doAction(String[] inputs) {
 
 //        Player player = EscapeIsland.getPlayer();
-        Map map = mainGame.getCurrentGame().getMapControl().getMap();
+        Map map = EscapeIsland.getCurrentGame().getMapControl().getMap();
 //
         char c = inputs[0].trim().toUpperCase().charAt(0);
 //
@@ -157,7 +155,7 @@ public class GameMenuView extends View {
     }
 
     private void interactWithEnvironment() {
-        InteractWithEnviromentView interactWithEnvironment = new InteractWithEnviromentView(mainGame);
+        InteractWithEnviromentView interactWithEnvironment = new InteractWithEnviromentView();
         interactWithEnvironment.display();
 
     }
@@ -187,7 +185,7 @@ public class GameMenuView extends View {
 
     private void riddleHints() {
         // display a list of all the riddles, and the answers.
-        mainGame.getCurrentGame().getGameControl().riddleArrayList();
+        EscapeIsland.getCurrentGame().getGameControl().riddleArrayList();
     }
 
 }
