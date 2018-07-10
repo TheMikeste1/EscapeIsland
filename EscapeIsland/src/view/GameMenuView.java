@@ -154,7 +154,7 @@ public class GameMenuView extends View {
     }
 
     private void interactWithEnvironment() {
-        InteractWithEnviromentView interactWithEnvironment = new InteractWithEnviromentView(mainGame);
+        InteractWithEnviromentView interactWithEnvironment = new InteractWithEnviromentView();
         interactWithEnvironment.display();
 
     }

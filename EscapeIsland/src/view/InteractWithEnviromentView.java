@@ -13,9 +13,6 @@ public class InteractWithEnviromentView extends View {
 
     Actor max = Actor.MonsterZombie;
 
-    public InteractWithEnviromentView(EscapeIsland mainGame) {
-        super(mainGame);
-    }
 
     public boolean doAction(String[] inputs) {
 
@@ -38,7 +35,7 @@ public class InteractWithEnviromentView extends View {
                 puzzle();
                 break;
             case 'R':
-                riddle(mainGame.getCurrentGame().getMapControl(). //Access the map
+                riddle(EscapeIsland.getCurrentGame().getMapControl(). //Access the map
   /*...at location:*/  getMap().getLocations()[(int) Actor.Hero.getActorcoordinates().getY()] //CoordY
                         [(int) Actor.Hero.getActorcoordinates().getX()] // CoordX
                         .getRiddle());

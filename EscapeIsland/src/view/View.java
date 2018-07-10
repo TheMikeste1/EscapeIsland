@@ -8,16 +8,12 @@ import escapeIsland.EscapeIsland;
  */
 public abstract class View implements ViewInterface {
 
-    protected String options;
-    protected EscapeIsland mainGame;
+  
 
     public View() {
     }
     
-    public View( EscapeIsland mainGame) {
-        this.mainGame = mainGame;
-    } 
-
+   
     public String getInput(String promptMessage) {
 
         Scanner sc = new Scanner(System.in);
