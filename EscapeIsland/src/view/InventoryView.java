@@ -11,6 +11,9 @@ import java.util.Scanner;
 import model.*;
 import control.InventoryControl;
 import escapeIsland.EscapeIsland;
+import exceptions.InventoryControlException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -25,40 +28,54 @@ public class InventoryView extends View {
     
     public boolean doAction(String[] inputs) {
 
-        String c = inputs[0].trim().toUpperCase();
-        
-        Item itemSelected = null;
+        try {
+            String c = inputs[0].trim().toUpperCase();
+            
+            Item itemSelected = null;
 //        int selection = Integer.parseInt(c);
 //        Item item = Actor.PrisonGuard.getActorItems().get(selection);
-        switch(c) {
-            case "1": itemSelected = Item.Bat; break;
-            case "2": itemSelected = Item.Bat; break;
-            case "G": InventoryControl.equipItem(EscapeIsland.getCurrentGame().getPlayer().getActor(),InventoryControl.checkBestItem(EscapeIsland.getCurrentGame().getPlayer().getActor()));
-                System.out.println(InventoryControl.checkBestItem(EscapeIsland.getCurrentGame().getPlayer().getActor()));
-                        break;
-            
-//                     
+switch(c) {
+    case "1": itemSelected = Item.Bat; break;
+    case "2": itemSelected = Item.Bat; break;
+    case "G": {
+        try {
+            InventoryControl.equipItem(EscapeIsland.getCurrentGame().getPlayer().getActor(),InventoryControl.checkBestItem(EscapeIsland.getCurrentGame().getPlayer().getActor()));
+        } catch (InventoryControlException ex) {
+            System.out.println(ex.getMessage());
         }
-        
-        if (!Actor.PrisonGuard.getActorItems().contains(itemSelected)) {
-            System.out.println("Item does not exist in inventory");
-            return false;
+    }
+    {
+        try {
+            System.out.println(InventoryControl.checkBestItem(EscapeIsland.getCurrentGame().getPlayer().getActor()));
+        } catch (InventoryControlException ex) {
+            System.out.println(ex.getMessage());
         }
-        
-        int result = InventoryControl.equipItem(Actor.PrisonGuard, itemSelected);
-         if (result < 0) {
-             System.out.println("player or item does not exist");
-             return false;
-                }
-          
-        
-         else System.out.println("You now have the " + itemSelected.getItemName() + " in your hands");
-         
-         
-//g
+    }
+    break;
+    case "Q": return true;
+    
+//
+}
+
+if (!Actor.Hero.getActorItems().contains(itemSelected)) {
+    System.out.println("Item does not exist in inventory");
+    return false;
+}
+
+int result = InventoryControl.equipItem(Actor.Hero, itemSelected);
+if (result < 0) {
+    System.out.println("player or item does not exist");
+    return false;
+}
 
 
-        return true;
+else System.out.println("You now have the " + itemSelected.getItemName() + " in your hands");
+return true;
+
+        } catch (InventoryControlException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return false;
     }
 
     public String[] getInputs() {

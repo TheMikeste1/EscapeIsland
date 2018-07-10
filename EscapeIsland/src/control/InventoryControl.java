@@ -5,6 +5,7 @@
  */
 package control;
 
+import exceptions.InventoryControlException;
 import java.util.ArrayList;
 import model.*;
 
@@ -15,8 +16,11 @@ import model.*;
 public class InventoryControl {
     
     
-    public static void displayInventory(Actor player) {
-        
+    public static void displayInventory(Actor player) 
+        throws InventoryControlException{
+        if (player == null) {
+            throw new InventoryControlException("actor is null");
+        }
         for(int i=0;i<player.getActorItems().size();i++)  {
             System.out.println(player.getActorItems().get(i).getItemName());
         } 
@@ -25,15 +29,16 @@ public class InventoryControl {
     
     
     
-    public static int equipItem(Actor player, Item thing) {
+    public static int equipItem(Actor player, Item thing)
+           throws InventoryControlException {
         // check for invalid inpuits
          if (player == null){
-             System.out.println("player does not exist");
-             return -1;}
+             throw new InventoryControlException("actor is null");
+             }
          
          if (thing == null) {
-             System.out.println("item does not exist");
-             return -2;}
+             throw new InventoryControlException("item does not exist");
+             }
          
         
         // set selected item to current item in the player actor
@@ -42,11 +47,16 @@ public class InventoryControl {
         
     }
     
-    public static Item checkBestItem(Actor mark) {
+    public static Item checkBestItem(Actor mark)
+        throws InventoryControlException {
         
-        // check for invalid Actor (input == null0
+        if (mark == null) {
+            throw new InventoryControlException ("actor is null");
+        }
         ArrayList<Item> items = mark.getActorItems();
-        // check array list less than 1
+        if (items.size() < 1) {
+            throw new InventoryControlException ("no items in inventory");
+        }
         Item bestItem = items.get(0);
         for(int i = 0; i<items.size(); i++) {
             int power = items.get(i).getAttack() + items.get(i).getDefense();

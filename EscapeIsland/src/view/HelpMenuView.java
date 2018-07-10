@@ -32,15 +32,6 @@ public class HelpMenuView extends View {
             case 'B':
                 battleSystem();
                 break;
-            case 'D':
-                InventoryView test1 = new InventoryView();
-                test1.display();
-                break;
-            case 'G':
-                GameMenuView test2 = new GameMenuView();
-                test2.display();
-                //test2.displayGameMenuView(player, map);
-                break;
             case 'Q':
                 return true;
             default:
@@ -63,8 +54,6 @@ public class HelpMenuView extends View {
                 + "\n* H - Hints                                               *"
                 + "\n* B - Battle System                                       *"
                 + "\n* Q - Quit to Main Menu                                   *"
-                + "\n* D - test inventory                                      *"
-                + "\n* G - test game menu                                      *"
                 + "\n*                                                         *"
                 + "\n***********************************************************"
                 + "\n***********************************************************");

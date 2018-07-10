@@ -13,6 +13,7 @@ import control.MapControl;
 import java.util.ArrayList;
 import java.util.List;
 import static control.MapControl.createLocations;
+import exceptions.GameControlException;
 /**
  *
  * @author Austin
@@ -28,10 +29,11 @@ public class GameControl {
         return player1;
     }
 
-    public static int createNewGame(Player player) {
+    public static int createNewGame(Player player)
+        throws GameControlException {
         System.out.println("*** createNewGame called ***");
         if (player == null) {
-            return -1;
+            throw new GameControlException("player is null");
         }
         //Create new Game
         Game game = new Game();

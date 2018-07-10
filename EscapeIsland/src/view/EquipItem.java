@@ -6,8 +6,11 @@
 package view;
 
 import control.*;
+import exceptions.InventoryControlException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.*;
 
 /**
@@ -74,7 +77,11 @@ public class EquipItem {
         inventory.add(Item.Sword);
         ralph.setActorItems(inventory);
         
-        inventorycontrol.displayInventory(ralph);
+        try {
+            inventorycontrol.displayInventory(ralph);
+        } catch (InventoryControlException ex) {
+            System.out.println(ex.getMessage());
+        }
      }
     
     private void equipItem() {
@@ -87,8 +94,16 @@ public class EquipItem {
         inventory.add(Item.Compass);
         inventory.add(Item.ToolKit);
         max.setActorItems(inventory);
-        inventorycontrol.displayInventory(max);
-        inventorycontrol.equipItem(max, Item.ToolKit);
+        try {
+            inventorycontrol.displayInventory(max);
+        } catch (InventoryControlException ex) {
+            System.out.println(ex.getMessage());
+        }
+        try {
+            inventorycontrol.equipItem(max, Item.ToolKit);
+        } catch (InventoryControlException ex) {
+            System.out.println(ex.getMessage());
+        }
         
         System.out.println("Item Currently Equipped:");
         System.out.println(max.getCurrentItem().getItemName());
