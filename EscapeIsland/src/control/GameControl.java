@@ -32,7 +32,7 @@ public class GameControl {
         return player1;
     }
 
-    public static int createNewGame(Player player)
+    public static void createNewGame(Player player)
         throws GameControlException {
         System.out.println("*** createNewGame called ***");
         if (player == null) {
@@ -48,23 +48,21 @@ public class GameControl {
         
         Riddle[] riddle = createRiddles();
         Map map;
+       
         try {
             map = MapControl.createMap(game, 6, 6);
+            if (map == null) {
+            throw new GameControlException("map is null");
+            
+            game.getMapControl().setMap(map);
+            
+            game.getMapControl().getMap().setLocations(createLocations(6, 6, riddle));
+            new MapControl().assignActorsToLocations(new Map().getLocations());
+            new MapControl().assignItemsToLocations(game.getMapControl().getMap().getLocations());
+            }
         } catch (MapControlException ex) {
             System.out.println(ex.getMessage());
         }
-        if (map == null) {
-            
-        }
-
-        game.getMapControl().setMap(map);
-        game.getMapControl().getMap().setLocations(createLocations(6, 6, riddle));
-        new MapControl().assignActorsToLocations(new Map().getLocations());
-        new MapControl().assignItemsToLocations(game.getMapControl().getMap().getLocations());
-
-
-        
-        return 1;
 
     }
 
