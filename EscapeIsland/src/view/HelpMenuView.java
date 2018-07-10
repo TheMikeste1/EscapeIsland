@@ -12,9 +12,6 @@ import model.*;
  */
 public class HelpMenuView extends View {
 
-    public HelpMenuView(EscapeIsland mainGame) {
-        super(mainGame);
-    }
 
     public boolean doAction(String[] inputs) {
 
@@ -40,7 +37,7 @@ public class HelpMenuView extends View {
                 test1.display();
                 break;
             case 'G':
-                GameMenuView test2 = new GameMenuView(mainGame);
+                GameMenuView test2 = new GameMenuView();
                 test2.display();
                 //test2.displayGameMenuView(player, map);
                 break;
