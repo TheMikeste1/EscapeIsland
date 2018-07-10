@@ -14,10 +14,6 @@ import model.Location;
  */
 public class GameMenuView extends View {
 
-    public GameMenuView (EscapeIsland mainGame) {
-        super(mainGame);
-    }
-
     public boolean doAction(String[] inputs) {
 
 //        Player player = EscapeIsland.getPlayer();

@@ -61,9 +61,9 @@ public class MainMenuView extends View {
     private void startNewGame() {
         
         
-        int returnValue = GameControl.createNewGame(mainGame.getCurrentPlayer());
+        int returnValue = GameControl.createNewGame(EscapeIsland.getCurrentPlayer());
         
-        GameMenuView gameMenuView = new GameMenuView(mainGame);
+        GameMenuView gameMenuView = new GameMenuView();
         gameMenuView.display();
         
         if (returnValue < 0) {
@@ -76,7 +76,7 @@ public class MainMenuView extends View {
     }
 
     private void helpMenu() {
-        HelpMenuView help = new HelpMenuView(mainGame);
+        HelpMenuView help = new HelpMenuView();
         help.display();
 
     }
