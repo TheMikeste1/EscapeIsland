@@ -1,5 +1,6 @@
 package control;
 
+import exceptions.MapControlException;
 import model.*;
 
 /**
@@ -11,13 +12,15 @@ public class MapControl {
 
     public MapControl() {
     }
-    public static Map createMap(Game game, int numOfRows, int numOfColumns) {
+    public static Map createMap(Game game, int numOfRows, int numOfColumns) 
+        throws MapControlException {
         System.out.println("*** createMap called ***");
 
         // check for invalid inputs
         if (game == null || numOfRows < 0 || numOfColumns < 0) {
-            return null;
+             throw new MapControlException("actor is null");
         }
+    
 
         // create the map object and assign values to it
         Map map = new Map();
@@ -30,13 +33,14 @@ public class MapControl {
     }
     // create a two-dimensional array of locations and assign array to the map
 
-    public static Location[][] createLocations(int rows, int columns, Riddle[] riddle) {
+    public static Location[][] createLocations(int rows, int columns, Riddle[] riddle) 
+        throws MapControlException {
         System.out.println("*** createLocations called ***");
 
         Location[][] locations = new Location[rows][columns];
 
         if (rows < 0 || columns < 0) {
-            return null;
+            throw new MapControlException("locations is null");
         }
 
         // Line 0
@@ -592,22 +596,24 @@ public class MapControl {
         return locations;
     }
 
-    public static int assignActorsToLocations(Location[][] hank) {
+    public static void assignActorsToLocations(Location[][] hank) 
+            throws MapControlException {
         System.out.println(" *** assignActorsToLocations called ***");
 
         if (hank == null) {
-            return -1;
+             System.out.println("hank is null");
         }
-        return 1;
+      
     }
 
-    public static int assignItemsToLocations(Location[][] locations) {
+    public static void assignItemsToLocations(Location[][] locations)
+        throws MapControlException {
         System.out.println(" *** assignItemToLocations called ***");
 
         if (locations == null) {
-            return -1;
+             System.out.println("locations is null");
         }
-        return 1;
+      
     }
 
     public static Map getMap() {

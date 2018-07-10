@@ -22,23 +22,23 @@ public class CombatControl {
      }
      
      if (actorEnemySpeed < 1 || actorEnemySpeed > 100){
-         throw new CombatControlException("");
+         throw new CombatControlException("invalid actorEnemySpeed1");
      }
      
      if (actorPlayerSpeed < 1){
-          throw new CombatControlException("");
+          throw new CombatControlException("invalid actorPlayerSpeed");
      }
      
      if(actorPlayerSpeed < 1 || actorPlayerSpeed > 100){
-         throw new CombatControlException("");
+         throw new CombatControlException("invalid actorPlayerSpeed1");
     }
      
      if(actorItem < 1){
-         throw new CombatControlException("");
+         throw new CombatControlException("invalid actorItem");
      }
      
      if(actorItem < 1 || actorItem > 100){
-         throw new CombatControlException("");
+         throw new CombatControlException("invalid actorItem1");
     }
      
         double playerSpeed = actorItem + actorPlayerSpeed;
@@ -54,27 +54,27 @@ public class CombatControl {
         throws CombatControlException{
         
         if (actorPlayerStrength < 1) {
-            throw new CombatControlException("");
+            throw new CombatControlException("invalid actorPlayerStrength");
         }	
         
         if (actorPlayerStrength < 1 || actorPlayerStrength > 100){
-            throw new CombatControlException("");
+            throw new CombatControlException("invalid actorPlayerStrength1");
         }
         
         if (actorWeapon < 1){
-           throw new CombatControlException("");
+           throw new CombatControlException(" invalid actorWeapon");
         }
         
         if (actorWeapon < 1 || actorWeapon > 100){
-          throw new CombatControlException("");
+          throw new CombatControlException(" invalid actorWeapon1");
         }
         
         if (actorEnemyDefense < 1){
-          throw new CombatControlException("");
+          throw new CombatControlException(" invalid actorEnemyDefense");
         }
         
         if (actorEnemyDefense < 1 || actorEnemyDefense > 100){
-          throw new CombatControlException("");
+          throw new CombatControlException(" invalid actorEnemyDefense1");
         }
         
         double playerDamageDealt = actorPlayerStrength + actorWeapon;
@@ -90,10 +90,10 @@ public class CombatControl {
         throws CombatControlException {
 
 	if (aa < 0 || as < 0 || ais < 0 || aia <0) {
-		throw new CombatControlException("");
+		throw new CombatControlException(" invalid CombatControlException");
     }
 	if (aa > 100 || as > 100 || ais > 100 || aia > 100) {
-		throw new CombatControlException("");
+		throw new CombatControlException(" invalid CombatControlException1");
     }
 
     double criticalHitChance = (aa + as + ais + aia) / 100;

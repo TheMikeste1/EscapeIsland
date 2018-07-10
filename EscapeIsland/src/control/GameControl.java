@@ -14,6 +14,9 @@ import java.util.ArrayList;
 import java.util.List;
 import static control.MapControl.createLocations;
 import exceptions.GameControlException;
+import exceptions.MapControlException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author Austin
@@ -44,9 +47,14 @@ public class GameControl {
         player.setActor(Actor.PrisonGuard);
         
         Riddle[] riddle = createRiddles();
-        Map map = MapControl.createMap(game, 6, 6);
+        Map map;
+        try {
+            map = MapControl.createMap(game, 6, 6);
+        } catch (MapControlException ex) {
+            System.out.println(ex.getMessage());
+        }
         if (map == null) {
-            return -2;
+            
         }
 
         game.getMapControl().setMap(map);
