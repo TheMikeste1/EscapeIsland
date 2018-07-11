@@ -18,7 +18,7 @@ public class MapView extends View {
 
         Scanner sc = new Scanner(System.in);
         Player player = EscapeIsland.getCurrentPlayer();
-        Map map = EscapeIsland.getCurrentGame().getMapControl().getMap();
+        Map map = EscapeIsland.getCurrentGame().getMap();
 
         while (true) {
 
@@ -122,10 +122,20 @@ public class MapView extends View {
 
     public void openMap(Map map, Player player) {
 
+        for (int mapZ = 0; mapZ < map.getRowSize(); mapZ++) {
+            for (int mapX = 0; mapX < map.getColumnSize(); mapX++) {
+                if(map.getLocations()[mapZ][mapX].getColumn() == player.getActor().getActorcoordinates().getX() &&
+                        map.getLocations()[mapZ][mapX].getRow() == player.getActor().getActorcoordinates().getY()) {
+                    map.getLocations()[mapZ][mapX].setVisited(true);
+                }
+            }
+        }
+        
         for (int mapR = 0; mapR < map.getRowSize(); mapR++) {
             for (int mapC = 0; mapC < map.getColumnSize(); mapC++) {
                 if (player.getActor().getActorcoordinates().x == mapR && player.getActor().getActorcoordinates().y == mapC) {
                     System.out.print("H");
+                    
                 }
                 System.out.print(map.physicalMapView[mapR][mapC]);
             }

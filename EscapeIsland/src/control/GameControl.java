@@ -38,28 +38,29 @@ public class GameControl {
         if (player == null) {
             throw new GameControlException("player is null");
         }
+        try {
         //Create new Game
         Game game = new Game();
         game.setPlayer(player);
         //Add the create game ot the game we're playing (EscapeIsland)
         EscapeIsland.setCurrentGame(game);
         
-        player.setActor(Actor.PrisonGuard);
+        player.setActor(Actor.Hero);
         
         Riddle[] riddle = createRiddles();
         Map map;
        
-        try {
+        
             map = MapControl.createMap(game, 6, 6);
             if (map == null) {
             throw new GameControlException("map is null");
-            
-            game.getMapControl().setMap(map);
-            
-            game.getMapControl().getMap().setLocations(createLocations(6, 6, riddle));
-            new MapControl().assignActorsToLocations(new Map().getLocations());
-            new MapControl().assignItemsToLocations(game.getMapControl().getMap().getLocations());
             }
+            game.setMap(map);
+            
+            game.getMap().setLocations(createLocations(6, 6, riddle));
+            new MapControl().assignActorsToLocations(new Map().getLocations());
+            new MapControl().assignItemsToLocations(game.getMap().getLocations());
+            
         } catch (MapControlException ex) {
             System.out.println(ex.getMessage());
         }

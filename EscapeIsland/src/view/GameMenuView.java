@@ -17,7 +17,7 @@ public class GameMenuView extends View {
     public boolean doAction(String[] inputs) {
 
 //        Player player = EscapeIsland.getPlayer();
-        Map map = EscapeIsland.getCurrentGame().getMapControl().getMap();
+        Map map = EscapeIsland.getCurrentGame().getMap();
 //
         char c = inputs[0].trim().toUpperCase().charAt(0);
 //
@@ -34,9 +34,9 @@ public class GameMenuView extends View {
             case 'M':
                 moveToNewLocation();
                 break;
-            case 'R':
-                riddleHints();
-                break;
+//            case 'R':
+//                riddleHints();
+//                break;
             case 'H':
                 HelpMenuView help = new HelpMenuView();
                 help.display();
@@ -66,7 +66,6 @@ public class GameMenuView extends View {
                     + "\n* I - Inventory                                           *"
                     + "\n* E - Interact With Enviroment                            *"
                     + "\n* M - Move to new location                                *"
-                    + "\n* R - Riddle Hints                                        *"
                     + "\n* H - Help                                                *"
                     + "\n* Q - Quit to Main Menu                                   *"
                     + "\n*                                                         *"
@@ -111,7 +110,7 @@ public class GameMenuView extends View {
 //
     public void displayMap(Map map) {
         Location[][] locations = map.getLocations();
-
+        
         System.out.println("*** displayMap called ***");
 
         map.getLocations();
@@ -129,8 +128,15 @@ public class GameMenuView extends View {
             System.out.print(i + 1);
 
             for (int j = 0; j < map.getColumnSize(); j++) {
-                if (locations[0][0].isVisited()) {
-                    System.out.print("| " + locations[0][0].getBackgroundType() + " ");
+                if (locations[i][j].isVisited()) {
+                    
+                    if (i == EscapeIsland.getCurrentPlayer().getActor().getActorcoordinates().x 
+                            && j == EscapeIsland.getCurrentPlayer().getActor().getActorcoordinates().y){
+                        System.out.println("H");
+                    }
+                    else {
+                        System.out.print("| " + locations[0][0].getBackgroundType() + " ");
+                    }
                 } else {
                     System.out.print("| ?? ");
                 }
@@ -182,9 +188,9 @@ public class GameMenuView extends View {
         return;
     }
 
-    private void riddleHints() {
-        // display a list of all the riddles, and the answers.
-        EscapeIsland.getCurrentGame().getGameControl().riddleArrayList();
-    }
+//    private void riddleHints() {
+//        // display a list of all the riddles, and the answers.
+//        EscapeIsland.getCurrentGame().riddleArrayList();
+//    }
 
 }

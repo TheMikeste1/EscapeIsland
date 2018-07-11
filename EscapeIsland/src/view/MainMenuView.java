@@ -8,6 +8,7 @@ import control.MapControl;
 import exceptions.GameControlException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.Game;
 /**
  *
  * @author Austin
@@ -65,14 +66,12 @@ public class MainMenuView extends View {
         
         
         try {
-            int returnValue = GameControl.createNewGame(EscapeIsland.getCurrentPlayer());
+           GameControl.createNewGame(EscapeIsland.getCurrentPlayer());
             
             GameMenuView gameMenuView = new GameMenuView();
             gameMenuView.display();
             
-            if (returnValue < 0) {
-                System.out.println("ERROR - Failed to create new game");
-            }
+
         } catch (GameControlException ex) {
             System.out.println(ex.getMessage());;
         }

@@ -24,10 +24,10 @@ public class MapControl {
 
         // create the map object and assign values to it
         Map map = new Map();
-        game.getMapControl().setMap(map);
-        game.getMapControl().getMap().setMapDescription("This is the map.");
-        game.getMapControl().getMap().setRowCount(numOfRows);
-        game.getMapControl().getMap().setColumnCount(numOfColumns);
+        game.setMap(map);
+        game.getMap().setMapDescription("This is the map.");
+        game.getMap().setRowCount(numOfRows);
+        game.getMap().setColumnCount(numOfColumns);
 
         return map;
     }

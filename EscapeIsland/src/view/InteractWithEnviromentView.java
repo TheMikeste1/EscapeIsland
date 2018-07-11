@@ -35,7 +35,7 @@ public class InteractWithEnviromentView extends View {
                 puzzle();
                 break;
             case 'R':
-                riddle(EscapeIsland.getCurrentGame().getMapControl(). //Access the map
+                riddle(EscapeIsland.getCurrentGame(). //Access the map
   /*...at location:*/  getMap().getLocations()[(int) Actor.Hero.getActorcoordinates().getY()] //CoordY
                         [(int) Actor.Hero.getActorcoordinates().getX()] // CoordX
                         .getRiddle());

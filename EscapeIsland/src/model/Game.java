@@ -19,27 +19,19 @@ public class Game implements Serializable {
 
     public Player player;
     private Riddle[] riddle;
-    private MapControl mapControl;
-    private GameControl gameControl;
+    private Map map;
 
     public Game() {
 
+
+}
+
+    public Player getPlayer() {
+        return player;
     }
 
-    public GameControl getGameControl() {
-        return gameControl;
-    }
-
-    public void setGameControl(GameControl gameControl) {
-        this.gameControl = gameControl;
-    }
-
-    public MapControl getMapControl() {
-        return mapControl;
-    }
-
-    public void setMapControl(MapControl mapControl) {
-        this.mapControl = mapControl;
+    public void setPlayer(Player player) {
+        this.player = player;
     }
 
     public Riddle[] getRiddle() {
@@ -50,29 +42,14 @@ public class Game implements Serializable {
         this.riddle = riddle;
     }
 
-    public Player getPlayer() {
-        return player;
+    public Map getMap() {
+        return map;
     }
 
-    public void setPlayer(Player player) {
-        this.player = player;
+    public void setMap(Map map) {
+        this.map = map;
     }
 
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Game other = (Game) obj;
-
-        return true;
-    }
-
+    
+    
 }
