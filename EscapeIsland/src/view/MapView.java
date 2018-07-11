@@ -9,6 +9,7 @@ import java.util.Scanner;
  *
  * @author Austin
  */
+import model.Location;
 public class MapView extends View {
 
     public MapView() {
@@ -20,31 +21,30 @@ public class MapView extends View {
         Player player = EscapeIsland.getCurrentPlayer();
         Map map = EscapeIsland.getCurrentGame().getMap();
 
+        
         while (true) {
 
+            displayMap(map);
             String mapInput;
             mapInput = sc.next();
-            char c = inputs[0].trim().toUpperCase().charAt(0);
+            char c = mapInput.trim().toUpperCase().charAt(0);
 
             switch (c) {
                 case 'W':
+                    System.out.println("moveNorth");
                     moveNorth(player, map);
-                    openMap(map, player);
                     break;
                 case 'A':
+                    System.out.println("moveWest");
                     moveWest(player, map);
-                    openMap(map, player);
                     break;
                 case 'S':
+                    System.out.println("moveSouth");
                     moveSouth(player, map);
-                    openMap(map, player);
                     break;
                 case 'D':
+                    System.out.println("moveEast");
                     moveEast(player, map);
-                    openMap(map, player);
-                    break;
-                case 'M':
-                    openMap(map, player);
                     break;
                 case 'E':
                     exploreScene();
@@ -59,6 +59,47 @@ public class MapView extends View {
 
     }
 
+        public void displayMap(Map map) {
+            System.out.println(EscapeIsland.getCurrentPlayer().getActor().getActorcoordinates().x);
+            System.out.println(EscapeIsland.getCurrentPlayer().getActor().getActorcoordinates().y);
+        Location[][] locations = map.getLocations();
+        
+        System.out.println("*** displayMap called ***");
+
+        map.getLocations();
+
+        System.out.println("     Mysterious Island");
+
+        System.out.print(" ");
+        for (int i = 0; i < map.getColumnSize(); i++) {
+            System.out.print((i + 1) + "    ");
+        }
+
+        System.out.println("\n -------------------------------");
+
+        for (int i = 0; i < map.getRowSize(); i++) {
+            System.out.print(i + 1);
+
+            for (int j = 0; j < map.getColumnSize(); j++) {
+                if (locations[i][j].isVisited()) {
+                    
+                    if (i == EscapeIsland.getCurrentPlayer().getActor().getActorcoordinates().x 
+                            && j == EscapeIsland.getCurrentPlayer().getActor().getActorcoordinates().y){
+                        System.out.print("H");
+                    }
+                    else {
+                        System.out.print("| " + locations[0][0].getBackgroundType() + " ");
+                    }
+                } else {
+                    System.out.print("| ?? ");
+                }
+            }
+                System.out.println("|\n -------------------------------");
+
+            }
+
+        }
+    
     public String[] getInputs() {
         {
 
@@ -70,7 +111,6 @@ public class MapView extends View {
                     + "\n* A - Move West                                           *"
                     + "\n* S - Move South                                          *"
                     + "\n* D - Move East                                           *"
-                    + "\n* M - Open Map                                            *"
                     + "\n* E - Explore Scene                                       *"
                     + "\n* Q - Quit to Main Menu                                   *"
                     + "\n*                                                         *"
@@ -87,7 +127,7 @@ public class MapView extends View {
         newPosition--;
         player.getActor().getActorcoordinates().y = newPosition;
         System.out.println("Move North One Tile");
-
+        map.getLocations()[player.getActor().getActorcoordinates().x][player.getActor().getActorcoordinates().y].setVisited(true);
     }
 
     private void moveEast(Player player, Map map) {
@@ -95,6 +135,7 @@ public class MapView extends View {
         newPosition++;
         player.getActor().getActorcoordinates().x = newPosition;
         System.out.println("Move East One Tile");
+        map.getLocations()[player.getActor().getActorcoordinates().x][player.getActor().getActorcoordinates().y].setVisited(true);
 
     }
 
@@ -102,8 +143,8 @@ public class MapView extends View {
         int newPosition = player.getActor().getActorcoordinates().y;
         newPosition++;
         player.getActor().getActorcoordinates().y = newPosition;
-
         System.out.println("Move South One Tile");
+        map.getLocations()[player.getActor().getActorcoordinates().x][player.getActor().getActorcoordinates().y].setVisited(true);
 
     }
 
@@ -112,6 +153,7 @@ public class MapView extends View {
         newPosition--;
         player.getActor().getActorcoordinates().x = newPosition;
         System.out.println("Move West One Tile");
+        map.getLocations()[player.getActor().getActorcoordinates().x][player.getActor().getActorcoordinates().y].setVisited(true);
 
     }
 

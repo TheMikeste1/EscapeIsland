@@ -22,9 +22,9 @@ public class GameMenuView extends View {
         char c = inputs[0].trim().toUpperCase().charAt(0);
 //
         switch (c) {
-            case 'V':
-                this.displayMap(map);
-                break;
+//            case 'V':
+//                viewMap();
+//                break;
             case 'I':
                 openInventory();
                 break;
@@ -108,44 +108,44 @@ public class GameMenuView extends View {
 //
 //    }
 //
-    public void displayMap(Map map) {
-        Location[][] locations = map.getLocations();
-        
-        System.out.println("*** displayMap called ***");
-
-        map.getLocations();
-
-        System.out.println("     Mysterious Island");
-
-        System.out.print(" ");
-        for (int i = 0; i < map.getColumnSize(); i++) {
-            System.out.print((i + 1) + "    ");
-        }
-
-        System.out.println("\n -------------------------------");
-
-        for (int i = 0; i < map.getRowSize(); i++) {
-            System.out.print(i + 1);
-
-            for (int j = 0; j < map.getColumnSize(); j++) {
-                if (locations[i][j].isVisited()) {
-                    
-                    if (i == EscapeIsland.getCurrentPlayer().getActor().getActorcoordinates().x 
-                            && j == EscapeIsland.getCurrentPlayer().getActor().getActorcoordinates().y){
-                        System.out.println("H");
-                    }
-                    else {
-                        System.out.print("| " + locations[0][0].getBackgroundType() + " ");
-                    }
-                } else {
-                    System.out.print("| ?? ");
-                }
-            }
-                System.out.println("|\n -------------------------------");
-
-            }
-
-        }
+//    public void displayMap(Map map) {
+//        Location[][] locations = map.getLocations();
+//        
+//        System.out.println("*** displayMap called ***");
+//
+//        map.getLocations();
+//
+//        System.out.println("     Mysterious Island");
+//
+//        System.out.print(" ");
+//        for (int i = 0; i < map.getColumnSize(); i++) {
+//            System.out.print((i + 1) + "    ");
+//        }
+//
+//        System.out.println("\n -------------------------------");
+//
+//        for (int i = 0; i < map.getRowSize(); i++) {
+//            System.out.print(i + 1);
+//
+//            for (int j = 0; j < map.getColumnSize(); j++) {
+//                if (locations[i][j].isVisited()) {
+//                    
+//                    if (i == EscapeIsland.getCurrentPlayer().getActor().getActorcoordinates().x 
+//                            && j == EscapeIsland.getCurrentPlayer().getActor().getActorcoordinates().y){
+//                        System.out.println("H");
+//                    }
+//                    else {
+//                        System.out.print("| " + locations[0][0].getBackgroundType() + " ");
+//                    }
+//                } else {
+//                    System.out.print("| ?? ");
+//                }
+//            }
+//                System.out.println("|\n -------------------------------");
+//
+//            }
+//
+//        }
      
 
     public void viewMap(Map map) {
