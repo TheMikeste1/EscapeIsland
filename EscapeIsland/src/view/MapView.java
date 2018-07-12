@@ -1,9 +1,12 @@
 package view;
 
+import control.MapControl;
 import model.Map;
 import escapeIsland.EscapeIsland;
+import exceptions.MapControlException;
 import model.Player;
 import java.util.Scanner;
+import model.Actor;
 
 /**
  *
@@ -46,6 +49,9 @@ public class MapView extends View {
                     System.out.println("moveEast");
                     moveEast(player, map);
                     break;
+                case 'V':
+                    viewMap(map);
+                    break;
                 case 'E':
                     exploreScene();
                     break;
@@ -55,13 +61,16 @@ public class MapView extends View {
                     System.out.println("Invalid Option.");
 
             }
+            map.getLocations()[player.getActor().getActorcoordinates().x]
+                   [player.getActor().getActorcoordinates().y].setVisited(true);
         }
 
     }
 
         public void displayMap(Map map) {
-            System.out.println(EscapeIsland.getCurrentPlayer().getActor().getActorcoordinates().x);
-            System.out.println(EscapeIsland.getCurrentPlayer().getActor().getActorcoordinates().y);
+        
+        System.out.println(EscapeIsland.getCurrentPlayer().getActor().getActorcoordinates().x);
+        System.out.println(EscapeIsland.getCurrentPlayer().getActor().getActorcoordinates().y);
         Location[][] locations = map.getLocations();
         
         System.out.println("*** displayMap called ***");
@@ -75,7 +84,7 @@ public class MapView extends View {
             System.out.print((i + 1) + "    ");
         }
 
-        System.out.println("\n -------------------------------");
+        System.out.println("\n ----------------------------");
 
         for (int i = 0; i < map.getRowSize(); i++) {
             System.out.print(i + 1);
@@ -85,16 +94,16 @@ public class MapView extends View {
                     
                     if (i == EscapeIsland.getCurrentPlayer().getActor().getActorcoordinates().x 
                             && j == EscapeIsland.getCurrentPlayer().getActor().getActorcoordinates().y){
-                        System.out.print("H");
+                        System.out.print("| H ");
                     }
                     else {
-                        System.out.print("| " + locations[0][0].getBackgroundType() + " ");
+                        System.out.print("| " + locations[i][j].getBackgroundType().getPrintValue() + " ");
                     }
                 } else {
-                    System.out.print("| ?? ");
+                    System.out.print("| ? ");
                 }
             }
-                System.out.println("|\n -------------------------------");
+                System.out.println("|\n ----------------------------");
 
             }
 
@@ -111,6 +120,7 @@ public class MapView extends View {
                     + "\n* A - Move West                                           *"
                     + "\n* S - Move South                                          *"
                     + "\n* D - Move East                                           *"
+                    + "\n* V - View Map                                            *"
                     + "\n* E - Explore Scene                                       *"
                     + "\n* Q - Quit to Main Menu                                   *"
                     + "\n*                                                         *"
@@ -122,39 +132,53 @@ public class MapView extends View {
     }
 
     private void moveNorth(Player player, Map map) {
-        
-        int newPosition = player.getActor().getActorcoordinates().y;
-        newPosition--;
-        player.getActor().getActorcoordinates().y = newPosition;
-        System.out.println("Move North One Tile");
-        map.getLocations()[player.getActor().getActorcoordinates().x][player.getActor().getActorcoordinates().y].setVisited(true);
+        Actor hero = player.getActor();
+        int newRow = hero.getActorcoordinates().x-1;
+        int newColumn = hero.getActorcoordinates().y;
+
+        try {
+            MapControl.moveActor(hero, newRow, newColumn);
+        } catch (MapControlException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
     private void moveEast(Player player, Map map) {
-        int newPosition = player.getActor().getActorcoordinates().x;
-        newPosition++;
-        player.getActor().getActorcoordinates().x = newPosition;
-        System.out.println("Move East One Tile");
-        map.getLocations()[player.getActor().getActorcoordinates().x][player.getActor().getActorcoordinates().y].setVisited(true);
-
+        Actor hero = player.getActor();
+        int newRow = hero.getActorcoordinates().x;
+        int newColumn = hero.getActorcoordinates().y+1;
+        try {
+            MapControl.moveActor(hero, newRow, newColumn);
+        } catch (MapControlException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
     private void moveSouth(Player player, Map map) {
-        int newPosition = player.getActor().getActorcoordinates().y;
-        newPosition++;
-        player.getActor().getActorcoordinates().y = newPosition;
-        System.out.println("Move South One Tile");
-        map.getLocations()[player.getActor().getActorcoordinates().x][player.getActor().getActorcoordinates().y].setVisited(true);
-
+        Actor hero = player.getActor();
+        int newRow = hero.getActorcoordinates().x+1;
+        int newColumn = hero.getActorcoordinates().y;
+        try {
+            MapControl.moveActor(hero, newRow, newColumn);
+        } catch (MapControlException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
     private void moveWest(Player player, Map map) {
-        int newPosition = player.getActor().getActorcoordinates().x;
-        newPosition--;
-        player.getActor().getActorcoordinates().x = newPosition;
-        System.out.println("Move West One Tile");
-        map.getLocations()[player.getActor().getActorcoordinates().x][player.getActor().getActorcoordinates().y].setVisited(true);
-
+         Actor hero = player.getActor();
+        int newRow = hero.getActorcoordinates().x;
+        int newColumn = hero.getActorcoordinates().y-1;
+        try {
+            MapControl.moveActor(hero, newRow, newColumn);
+        } catch (MapControlException ex) {
+            System.out.println(ex.getMessage());
+        
+        }
+    }
+    public void viewMap(Map map) {
+        MapView mapView = new MapView();
+        mapView.display();
     }
 
     private void exploreScene() {
@@ -186,10 +210,3 @@ public class MapView extends View {
     }
 
 }
-
-// display the heros current location on the map
-// allow the hero to move
-// update the map based on that
-// display scene based on map tile
-// call interactWithEnvironment
-
