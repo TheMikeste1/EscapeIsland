@@ -15,7 +15,7 @@ import java.util.ArrayList;
  */
 public enum Actor implements Serializable {
     
-    // rework monster idea/stats to devolop gameplay
+ 
  MonsterZombie("Zombie" , new Point(1,1),"a frightful zombie", 3, 2, 2 ),
  MonsterSkeleton("Skeleton" , new Point(1,1),"a terrifying skeleton", 2, 3, 2 ),
  MonsterGoblin("Goblin" , new Point(1,1),"a spooky goblin", 2, 2, 3 ),
@@ -24,7 +24,7 @@ public enum Actor implements Serializable {
  Inmate09("Inmate09" , new Point(2,2), "an enraged prison inmate", 2, 3, 1 ),
  Inmate08("Inmate08" , new Point(2,2), "an enraged prison inmate", 4, 1, 1 ),
  OldMan("Thomas" , new Point(1,1),"a lonesome old man trapped on the island", 0, 0, 0 ),
- Hero("Hero" , new Point(3,4), "The hero", 1, 1, 1);
+ Hero("Hero" , new Point(2,2), "The hero", 1, 1, 1);
 
 private String actorName;
 private Point actorcoordinates;

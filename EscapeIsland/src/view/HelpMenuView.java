@@ -1,9 +1,5 @@
 package view;
 
-import control.*;
-import escapeIsland.EscapeIsland;
-import java.util.ArrayList;
-import java.util.Scanner;
 import model.*;
 
 /**

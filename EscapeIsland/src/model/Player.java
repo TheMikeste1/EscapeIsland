@@ -10,8 +10,8 @@ public class Player implements Serializable {
 
     private Actor actor;
 
-    // Constructors
     public Player() {
+        actor = actor.Hero;
     }
 
     public String getPlayersName() {
@@ -22,13 +22,10 @@ public class Player implements Serializable {
         this.playersName = playersName;
     }
     
-    // Getters
     public Actor getActor() {
         return actor;
     }
 
-   
-    //Setters
     public void setActor(Actor actor) {
         this.actor = actor;
     }

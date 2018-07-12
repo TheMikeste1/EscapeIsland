@@ -1,12 +1,7 @@
 package view;
 
-import control.MapControl;
-import model.Player;
-import java.util.Scanner;
 import model.Map;
 import escapeIsland.EscapeIsland;
-import model.Game;
-import model.Location;
 
 /**
  *
@@ -16,15 +11,10 @@ public class GameMenuView extends View {
 
     public boolean doAction(String[] inputs) {
 
-//        Player player = EscapeIsland.getPlayer();
         Map map = EscapeIsland.getCurrentGame().getMap();
-//
         char c = inputs[0].trim().toUpperCase().charAt(0);
 //
         switch (c) {
-//            case 'V':
-//                viewMap();
-//                break;
             case 'I':
                 openInventory();
                 break;
@@ -58,11 +48,6 @@ public class GameMenuView extends View {
             inputs[0] = getInput("***********************************************************"
                     + "\n***********************************************************"
                     + "\n*                                                         *"
-                    //                    + "\n* W - Move North                                          *"
-                    //                    + "\n* A - Move West                                           *"
-                    //                    + "\n* S - Move South                                          *"
-                    //                    + "\n* D - Move East                                           *"
-                    + "\n* V - View Map                                            *"
                     + "\n* I - Inventory                                           *"
                     + "\n* E - Interact With Enviroment                            *"
                     + "\n* M - Move to new location                                *"
@@ -75,79 +60,7 @@ public class GameMenuView extends View {
             return inputs;
         }
     }
-
-//    private void moveNorth(Player player) {
-//        int newPosition = player.getPositionY();
-//        newPosition++;
-//        player.setPositionY(newPosition);
-//        System.out.println("Move North One Tile");
-//
-//    }
-//
-//    private void moveEast(Player player) {
-//        int newPosition = player.getPositionX();
-//        newPosition++;
-//        player.setPositionX(newPosition);
-//        System.out.println("Move East One Tile");
-//
-//    }
-//
-//    private void moveSouth(Player player) {
-//        int newPosition = player.getPositionY();
-//        newPosition--;
-//        player.setPositionY(newPosition);
-//        System.out.println("Move South One Tile");
-//
-//    }
-//
-//    private void moveWest(Player player) {
-//        int newPosition = player.getPositionX();
-//        newPosition--;
-//        player.setPositionX(newPosition);
-//        System.out.println("Move West One Tile");
-//
-//    }
-//
-//    public void displayMap(Map map) {
-//        Location[][] locations = map.getLocations();
-//        
-//        System.out.println("*** displayMap called ***");
-//
-//        map.getLocations();
-//
-//        System.out.println("     Mysterious Island");
-//
-//        System.out.print(" ");
-//        for (int i = 0; i < map.getColumnSize(); i++) {
-//            System.out.print((i + 1) + "    ");
-//        }
-//
-//        System.out.println("\n -------------------------------");
-//
-//        for (int i = 0; i < map.getRowSize(); i++) {
-//            System.out.print(i + 1);
-//
-//            for (int j = 0; j < map.getColumnSize(); j++) {
-//                if (locations[i][j].isVisited()) {
-//                    
-//                    if (i == EscapeIsland.getCurrentPlayer().getActor().getActorcoordinates().x 
-//                            && j == EscapeIsland.getCurrentPlayer().getActor().getActorcoordinates().y){
-//                        System.out.println("H");
-//                    }
-//                    else {
-//                        System.out.print("| " + locations[0][0].getBackgroundType() + " ");
-//                    }
-//                } else {
-//                    System.out.print("| ?? ");
-//                }
-//            }
-//                System.out.println("|\n -------------------------------");
-//
-//            }
-//
-//        }
      
-
     public void viewMap(Map map) {
         MapView mapView = new MapView();
         mapView.display();
