@@ -2,13 +2,8 @@ package view;
 
 import control.GameControl;
 import escapeIsland.EscapeIsland;
-import model.Player;
 import java.util.Scanner;
-import control.MapControl;
 import exceptions.GameControlException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import model.Game;
 /**
  *
  * @author Austin

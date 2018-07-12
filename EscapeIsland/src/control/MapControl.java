@@ -1,6 +1,8 @@
 package control;
 
+import escapeIsland.EscapeIsland;
 import exceptions.MapControlException;
+import java.awt.Point;
 import model.*;
 
 /**
@@ -8,19 +10,20 @@ import model.*;
  * @author Austin
  */
 public class MapControl {
+
     private static Map map;
 
     public MapControl() {
     }
-    public static Map createMap(Game game, int numOfRows, int numOfColumns) 
-        throws MapControlException {
+
+    public static Map createMap(Game game, int numOfRows, int numOfColumns)
+            throws MapControlException {
         System.out.println("*** createMap called ***");
 
         // check for invalid inputs
         if (game == null || numOfRows < 0 || numOfColumns < 0) {
-             throw new MapControlException("actor is null");
+            throw new MapControlException("actor is null");
         }
-    
 
         // create the map object and assign values to it
         Map map = new Map();
@@ -33,8 +36,8 @@ public class MapControl {
     }
     // create a two-dimensional array of locations and assign array to the map
 
-    public static Location[][] createLocations(int rows, int columns, Riddle[] riddle) 
-        throws MapControlException {
+    public static Location[][] createLocations(int rows, int columns, Riddle[] riddle)
+            throws MapControlException {
         System.out.println("*** createLocations called ***");
 
         Location[][] locations = new Location[rows][columns];
@@ -53,7 +56,7 @@ public class MapControl {
         location.setComplete(true);
         location.setVisited(false);
         location.setDescription("Ocean");
-        location.setEnemy(null);
+        location.setActor(null);
         location.setRiddle(null);
         location.setItemRequired(null);
         location.setObtainItem(null);
@@ -68,7 +71,7 @@ public class MapControl {
         location.setComplete(true);
         location.setVisited(false);
         location.setDescription("Ocean");
-        location.setEnemy(null);
+        location.setActor(null);
         location.setRiddle(null);
         location.setItemRequired(null);
         location.setObtainItem(null);
@@ -83,7 +86,7 @@ public class MapControl {
         location.setComplete(true);
         location.setVisited(false);
         location.setDescription("Ocean");
-        location.setEnemy(null);
+        location.setActor(null);
         location.setRiddle(null);
         location.setItemRequired(null);
         location.setObtainItem(null);
@@ -98,7 +101,7 @@ public class MapControl {
         location.setComplete(true);
         location.setVisited(false);
         location.setDescription("Ocean");
-        location.setEnemy(null);
+        location.setActor(null);
         location.setRiddle(null);
         location.setItemRequired(null);
         location.setObtainItem(null);
@@ -113,7 +116,7 @@ public class MapControl {
         location.setComplete(true);
         location.setVisited(false);
         location.setDescription("Ocean");
-        location.setEnemy(null);
+        location.setActor(null);
         location.setRiddle(null);
         location.setItemRequired(null);
         location.setObtainItem(null);
@@ -128,7 +131,7 @@ public class MapControl {
         location.setComplete(true);
         location.setVisited(false);
         location.setDescription("Ocean");
-        location.setEnemy(null);
+        location.setActor(null);
         location.setRiddle(null);
         location.setItemRequired(null);
         location.setObtainItem(null);
@@ -144,7 +147,7 @@ public class MapControl {
         location.setComplete(true);
         location.setVisited(false);
         location.setDescription("Ocean");
-        location.setEnemy(null);
+        location.setActor(null);
         location.setRiddle(null);
         location.setItemRequired(null);
         location.setObtainItem(null);
@@ -159,7 +162,7 @@ public class MapControl {
         location.setComplete(false);
         location.setVisited(false);
         location.setDescription("Forest");
-        location.setEnemy(Actor.MonsterZombie);
+        location.setActor(Actor.MonsterZombie);
         location.setRiddle(null);
         location.setItemRequired(null);
         location.setObtainItem(Item.KiteShield);
@@ -174,7 +177,7 @@ public class MapControl {
         location.setComplete(false);
         location.setVisited(false);
         location.setDescription("Beach");
-        location.setEnemy(Actor.MonsterSkeleton);
+        location.setActor(Actor.MonsterSkeleton);
         location.setRiddle(null);
         location.setItemRequired(null);
         location.setObtainItem(Item.Bat);
@@ -189,7 +192,7 @@ public class MapControl {
         location.setComplete(false);
         location.setVisited(false);
         location.setDescription("Mountain");
-        location.setEnemy(Actor.MonsterGoblin);
+        location.setActor(Actor.MonsterGoblin);
         location.setRiddle(null);
         location.setItemRequired(null);
         location.setObtainItem(Item.Buckler);
@@ -204,7 +207,7 @@ public class MapControl {
         location.setComplete(false);
         location.setVisited(false);
         location.setDescription("Camp");
-        location.setEnemy(null);
+        location.setActor(null);
         location.setRiddle(null);
         location.setItemRequired(null);
         location.setObtainItem(Item.Stick);
@@ -219,7 +222,7 @@ public class MapControl {
         location.setComplete(true);
         location.setVisited(false);
         location.setDescription("Ocean");
-        location.setEnemy(null);
+        location.setActor(null);
         location.setRiddle(null);
         location.setItemRequired(null);
         location.setObtainItem(null);
@@ -235,7 +238,7 @@ public class MapControl {
         location.setComplete(true);
         location.setVisited(false);
         location.setDescription("Ocean");
-        location.setEnemy(null);
+        location.setActor(null);
         location.setRiddle(null);
         location.setItemRequired(null);
         location.setObtainItem(null);
@@ -250,7 +253,7 @@ public class MapControl {
         location.setComplete(false);
         location.setVisited(false);
         location.setDescription("Mountain");
-        location.setEnemy(Actor.MonsterZombie);
+        location.setActor(Actor.MonsterZombie);
         location.setRiddle(riddle[1]);
         location.setItemRequired(Item.Lantern);
         location.setObtainItem(Item.Sword);
@@ -265,7 +268,7 @@ public class MapControl {
         location.setComplete(false);
         location.setVisited(false);
         location.setDescription("Forest");
-        location.setEnemy(Actor.Inmate02);
+        location.setActor(Actor.Inmate02);
         location.setRiddle(null);
         location.setItemRequired(null);
         location.setObtainItem(Item.Lantern);
@@ -280,7 +283,7 @@ public class MapControl {
         location.setComplete(false);
         location.setVisited(false);
         location.setDescription("Forest");
-        location.setEnemy(null);
+        location.setActor(null);
         location.setRiddle(riddle[2]);
         location.setItemRequired(null);
         location.setObtainItem(Item.CrockpotLid);
@@ -295,7 +298,7 @@ public class MapControl {
         location.setComplete(false);
         location.setVisited(false);
         location.setDescription("Beach");
-        location.setEnemy(Actor.MonsterGoblin);
+        location.setActor(Actor.MonsterGoblin);
         location.setRiddle(null);
         location.setItemRequired(null);
         location.setObtainItem(Item.Compass);
@@ -310,7 +313,7 @@ public class MapControl {
         location.setComplete(true);
         location.setVisited(false);
         location.setDescription("Ocean");
-        location.setEnemy(null);
+        location.setActor(null);
         location.setRiddle(null);
         location.setItemRequired(null);
         location.setObtainItem(null);
@@ -326,7 +329,7 @@ public class MapControl {
         location.setComplete(true);
         location.setVisited(false);
         location.setDescription("Ocean");
-        location.setEnemy(null);
+        location.setActor(null);
         location.setRiddle(null);
         location.setItemRequired(null);
         location.setObtainItem(null);
@@ -341,7 +344,7 @@ public class MapControl {
         location.setComplete(true);
         location.setVisited(false);
         location.setDescription("Ocean");
-        location.setEnemy(null);
+        location.setActor(null);
         location.setRiddle(null);
         location.setItemRequired(null);
         location.setObtainItem(null);
@@ -356,7 +359,7 @@ public class MapControl {
         location.setComplete(true);
         location.setVisited(false);
         location.setDescription("Ocean");
-        location.setEnemy(null);
+        location.setActor(null);
         location.setRiddle(null);
         location.setItemRequired(null);
         location.setObtainItem(null);
@@ -371,7 +374,7 @@ public class MapControl {
         location.setComplete(false);
         location.setVisited(false);
         location.setDescription("Forest");
-        location.setEnemy(Actor.MonsterSkeleton);
+        location.setActor(Actor.MonsterSkeleton);
         location.setRiddle(null);
         location.setItemRequired(null);
         location.setObtainItem(Item.Buckler);
@@ -386,7 +389,7 @@ public class MapControl {
         location.setComplete(false);
         location.setVisited(false);
         location.setDescription("Forest");
-        location.setEnemy(Actor.MonsterGoblin);
+        location.setActor(Actor.MonsterGoblin);
         location.setRiddle(null);
         location.setItemRequired(null);
         location.setObtainItem(Item.HamRadioManual);
@@ -401,7 +404,7 @@ public class MapControl {
         location.setComplete(true);
         location.setVisited(false);
         location.setDescription("Ocean");
-        location.setEnemy(null);
+        location.setActor(null);
         location.setRiddle(null);
         location.setItemRequired(null);
         location.setObtainItem(null);
@@ -417,7 +420,7 @@ public class MapControl {
         location.setComplete(true);
         location.setVisited(false);
         location.setDescription("Ocean");
-        location.setEnemy(null);
+        location.setActor(null);
         location.setRiddle(null);
         location.setItemRequired(null);
         location.setObtainItem(null);
@@ -432,7 +435,7 @@ public class MapControl {
         location.setComplete(false);
         location.setVisited(false);
         location.setDescription("Prison");
-        location.setEnemy(Actor.PrisonGuard);
+        location.setActor(Actor.PrisonGuard);
         location.setRiddle(riddle[3]);
         location.setItemRequired(null);
         location.setObtainItem(Item.HamRadioManual);
@@ -447,7 +450,7 @@ public class MapControl {
         location.setComplete(false);
         location.setVisited(false);
         location.setDescription("Bridge");
-        location.setEnemy(Actor.PrisonGuard);
+        location.setActor(Actor.PrisonGuard);
         location.setRiddle(riddle[4]);
         location.setItemRequired(Item.Key);
         location.setObtainItem(Item.Key);
@@ -462,7 +465,7 @@ public class MapControl {
         location.setComplete(false);
         location.setVisited(false);
         location.setDescription("Forest");
-        location.setEnemy(Actor.MonsterGoblin);
+        location.setActor(Actor.MonsterGoblin);
         location.setRiddle(null);
         location.setItemRequired(null);
         location.setObtainItem(Item.solderingIron);
@@ -477,7 +480,7 @@ public class MapControl {
         location.setComplete(false);
         location.setVisited(false);
         location.setDescription("Forest");
-        location.setEnemy(Actor.MonsterGoblin);
+        location.setActor(Actor.MonsterGoblin);
         location.setRiddle(null);
         location.setItemRequired(null);
         location.setObtainItem(Item.ToolKit);
@@ -492,7 +495,7 @@ public class MapControl {
         location.setComplete(true);
         location.setVisited(false);
         location.setDescription("Ocean");
-        location.setEnemy(null);
+        location.setActor(null);
         location.setRiddle(null);
         location.setItemRequired(null);
         location.setObtainItem(null);
@@ -508,7 +511,7 @@ public class MapControl {
         location.setComplete(true);
         location.setVisited(false);
         location.setDescription("Ocean");
-        location.setEnemy(null);
+        location.setActor(null);
         location.setRiddle(null);
         location.setItemRequired(null);
         location.setObtainItem(null);
@@ -523,7 +526,7 @@ public class MapControl {
         location.setComplete(true);
         location.setVisited(false);
         location.setDescription("Ocean");
-        location.setEnemy(null);
+        location.setActor(null);
         location.setRiddle(null);
         location.setItemRequired(null);
         location.setObtainItem(null);
@@ -538,7 +541,7 @@ public class MapControl {
         location.setComplete(true);
         location.setVisited(false);
         location.setDescription("Ocean");
-        location.setEnemy(null);
+        location.setActor(null);
         location.setRiddle(null);
         location.setItemRequired(null);
         location.setObtainItem(null);
@@ -553,7 +556,7 @@ public class MapControl {
         location.setComplete(true);
         location.setVisited(false);
         location.setDescription("Ocean");
-        location.setEnemy(null);
+        location.setActor(null);
         location.setRiddle(null);
         location.setItemRequired(null);
         location.setObtainItem(null);
@@ -568,7 +571,7 @@ public class MapControl {
         location.setComplete(true);
         location.setVisited(false);
         location.setDescription("Ocean");
-        location.setEnemy(null);
+        location.setActor(null);
         location.setRiddle(null);
         location.setItemRequired(null);
         location.setObtainItem(null);
@@ -583,7 +586,7 @@ public class MapControl {
         location.setComplete(true);
         location.setVisited(false);
         location.setDescription("Ocean");
-        location.setEnemy(null);
+        location.setActor(null);
         location.setRiddle(null);
         location.setItemRequired(null);
         location.setObtainItem(null);
@@ -596,24 +599,24 @@ public class MapControl {
         return locations;
     }
 
-    public static void assignActorsToLocations(Location[][] hank) 
+    public static void assignActorsToLocations(Location[][] hank)
             throws MapControlException {
         System.out.println(" *** assignActorsToLocations called ***");
 
         if (hank == null) {
-             System.out.println("hank is null");
+            System.out.println("hank is null");
         }
-      
+
     }
 
     public static void assignItemsToLocations(Location[][] locations)
-        throws MapControlException {
+            throws MapControlException {
         System.out.println(" *** assignItemToLocations called ***");
 
         if (locations == null) {
-             System.out.println("locations is null");
+            System.out.println("locations is null");
         }
-      
+
     }
 
     public static Map getMap() {
@@ -623,6 +626,33 @@ public class MapControl {
     public static void setMap(Map map) {
         MapControl.map = map;
     }
-    
-}
 
+    public static Location moveActor(Actor actor, int newRow, int newColumn) throws MapControlException {
+
+        if (actor == null) {
+            throw new MapControlException("Invalid actor");
+        }
+
+        Game currentGame = EscapeIsland.getCurrentGame();
+        Map map = currentGame.getMap();
+        Location[][] locations = map.getLocations();
+
+        if (newRow < 0 || newRow > (map.getRowCount() - 1) || newColumn < 0 || newColumn > (map.getColumnCount() - 1)) {
+            throw new MapControlException("Out of bounds");
+        }
+
+        Point currentCoordinates = actor.getActorcoordinates();
+        Location oldLocation = locations[currentCoordinates.x][currentCoordinates.y];
+        Location newLocation = locations[newRow][newColumn];
+        if (newLocation.isBlocked()) {
+            throw new MapControlException("location is blocked");
+        }
+
+        oldLocation.setActor(null);
+        newLocation.setActor(actor);
+        currentCoordinates.x = newRow;
+        currentCoordinates.y = newColumn;
+
+        return newLocation;
+    }
+}

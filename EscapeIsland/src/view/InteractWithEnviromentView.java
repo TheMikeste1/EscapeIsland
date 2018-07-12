@@ -1,6 +1,5 @@
 package view;
 
-import control.GameControl;
 import escapeIsland.EscapeIsland;
 import java.util.Scanner;
 import model.*;
@@ -35,9 +34,9 @@ public class InteractWithEnviromentView extends View {
                 puzzle();
                 break;
             case 'R':
-                riddle(EscapeIsland.getCurrentGame(). //Access the map
-  /*...at location:*/  getMap().getLocations()[(int) Actor.Hero.getActorcoordinates().getY()] //CoordY
-                        [(int) Actor.Hero.getActorcoordinates().getX()] // CoordX
+                riddle(EscapeIsland.getCurrentGame().getMap().getLocations()
+                        [(int) Actor.Hero.getActorcoordinates().getY()]
+                        [(int) Actor.Hero.getActorcoordinates().getX()]
                         .getRiddle());
                 break;
             case 'Q':

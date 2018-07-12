@@ -31,7 +31,8 @@ public class Game implements Serializable {
     }
 
     public void setPlayer(Player player) {
-        this.player = player;
+        this.player = player;  
+
     }
 
     public Riddle[] getRiddle() {
@@ -48,6 +49,10 @@ public class Game implements Serializable {
 
     public void setMap(Map map) {
         this.map = map;
+        System.out.println(this.map.getLocations());
+         //       [this.player.getActor().getActorcoordinates().x]
+           //     [this.player.getActor().getActorcoordinates().y]
+             //   .setVisited(true);
     }
 
     

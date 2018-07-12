@@ -6,17 +6,13 @@
 package control;
 
 import escapeIsland.*;
-import java.util.Set;
 import java.util.Collections;
 import model.*;
-import control.MapControl;
 import java.util.ArrayList;
 import java.util.List;
 import static control.MapControl.createLocations;
 import exceptions.GameControlException;
 import exceptions.MapControlException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 /**
  *
  * @author Austin
@@ -52,6 +48,7 @@ public class GameControl {
        
         
             map = MapControl.createMap(game, 6, 6);
+            
             if (map == null) {
             throw new GameControlException("map is null");
             }
@@ -61,10 +58,16 @@ public class GameControl {
             new MapControl().assignActorsToLocations(new Map().getLocations());
             new MapControl().assignItemsToLocations(game.getMap().getLocations());
             
+            game.getMap().getLocations()[game.getPlayer().getActor().getActorcoordinates().x]
+                  [game.getPlayer().getActor().getActorcoordinates().y].setVisited(true);
+            
         } catch (MapControlException ex) {
             System.out.println(ex.getMessage());
         }
 
+
+       
+        
     }
 
     public static Riddle[] createRiddles() {
@@ -114,13 +117,5 @@ public class GameControl {
     
     
     }
-    
-    // get all the riddles
-    // dispaly all the riddles
-    // sort all the riddles in order by length
-    // have riddle Hints display the list by length
-    
-    
-   
-    
+  
 }

@@ -5,15 +5,11 @@
  */
 package view;
 
-import control.*;
 import java.util.ArrayList;
-import java.util.Scanner;
 import model.*;
 import control.InventoryControl;
 import escapeIsland.EscapeIsland;
 import exceptions.InventoryControlException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *

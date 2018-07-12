@@ -7,7 +7,6 @@ package model;
 
 import java.io.Serializable;
 import java.util.Objects;
-import control.MapControl;
 
 /**
  *
@@ -23,7 +22,7 @@ public class Location implements Serializable{
     private BackgroundType backgroundType;
     private boolean blocked;
     
-    private Actor enemy;
+    private Actor actor;
     private Riddle riddle; 
     private Item itemRequired;
     private Item obtainItem;
@@ -89,12 +88,12 @@ public class Location implements Serializable{
         this.blocked = blocked;
     }
 
-    public Actor getEnemy() {
-        return enemy;
+    public Actor getActor() {
+        return actor;
     }
 
-    public void setEnemy(Actor enemy) {
-        this.enemy = enemy;
+    public void setActor(Actor actor) {
+        this.actor = actor;
     }
 
     public Riddle getRiddle() {
@@ -139,7 +138,7 @@ public class Location implements Serializable{
         hash = 23 * hash + Objects.hashCode(this.description);
         hash = 23 * hash + Objects.hashCode(this.backgroundType);
         hash = 23 * hash + (this.blocked ? 1 : 0);
-        hash = 23 * hash + Objects.hashCode(this.enemy);
+        hash = 23 * hash + Objects.hashCode(this.actor);
         hash = 23 * hash + Objects.hashCode(this.riddle);
         hash = 23 * hash + Objects.hashCode(this.itemRequired);
         hash = 23 * hash + Objects.hashCode(this.obtainItem);
@@ -179,7 +178,7 @@ public class Location implements Serializable{
         if (this.backgroundType != other.backgroundType) {
             return false;
         }
-        if (this.enemy != other.enemy) {
+        if (this.actor != other.actor) {
             return false;
         }
         if (!Objects.equals(this.riddle, other.riddle)) {
@@ -196,7 +195,7 @@ public class Location implements Serializable{
 
     @Override
     public String toString() {
-        return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", complete=" + complete + ", description=" + description + ", backgroundType=" + backgroundType + ", blocked=" + blocked + ", enemy=" + enemy + ", riddle=" + riddle + ", itemRequired=" + itemRequired + ", obtainItem=" + obtainItem + '}';
+        return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", complete=" + complete + ", description=" + description + ", backgroundType=" + backgroundType + ", blocked=" + blocked + ", enemy=" + actor + ", riddle=" + riddle + ", itemRequired=" + itemRequired + ", obtainItem=" + obtainItem + '}';
     }
 
     @Override

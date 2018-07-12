@@ -1,7 +1,6 @@
 package view;
 
 import java.util.Scanner;
-import escapeIsland.EscapeIsland;
 /**
  *
  * @author Austin
