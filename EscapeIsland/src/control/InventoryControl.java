@@ -25,7 +25,7 @@ public class InventoryControl {
     
     
     
-    public static int equipItem(Actor player, Item thing)
+    public static void equipItem(Actor player, Item thing)
            throws InventoryControlException {
         // check for invalid inpuits
          if (player == null){
@@ -35,11 +35,14 @@ public class InventoryControl {
          if (thing == null) {
              throw new InventoryControlException("item does not exist");
              }
-         
+         if (!player.getActorItems().contains(thing)) {
+             throw new InventoryControlException("item does not exist in inventory");
+         }
+                
         
         // set selected item to current item in the player actor
         player.setCurrentItem(thing);
-        return 1;
+        
         
     }
     
