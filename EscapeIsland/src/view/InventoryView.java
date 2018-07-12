@@ -36,7 +36,20 @@ public class InventoryView extends View {
 //        Item item = Actor.PrisonGuard.getActorItems().get(selection);
 switch(c) {
     case "1": itemSelected = Item.Bat; break;
-    case "2": itemSelected = Item.Bat; break;
+    case "2": itemSelected = Item.Buckler; break;
+    case "3": itemSelected = Item.Compass; break;
+    case "4": itemSelected = Item.CrockpotLid; break;
+    case "5": itemSelected = Item.HamRadioManual; break;
+    case "6": itemSelected = Item.Key; break;
+    case "7": itemSelected = Item.KiteShield; break;
+    case "8": itemSelected = Item.Lantern; break;
+    case "9": itemSelected = Item.LeadPipe; break;
+    case "10": itemSelected = Item.Microphone; break;
+    case "11": itemSelected = Item.PantryDoor; break;
+    case "12": itemSelected = Item.Stick; break;
+    case "13": itemSelected = Item.Sword; break;
+    case "14": itemSelected = Item.ToolKit; break;
+    case "15": itemSelected = Item.solderingIron; break;
     case "G": {
         try {
             InventoryControl.equipItem(EscapeIsland.getCurrentGame().getPlayer().getActor(),InventoryControl.checkBestItem(EscapeIsland.getCurrentGame().getPlayer().getActor()));
