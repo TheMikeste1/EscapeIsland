@@ -13,6 +13,7 @@ import model.Actor;
  * @author Austin
  */
 import model.Location;
+
 public class MapView extends View {
 
     public MapView() {
@@ -24,7 +25,6 @@ public class MapView extends View {
         Player player = EscapeIsland.getCurrentPlayer();
         Map map = EscapeIsland.getCurrentGame().getMap();
 
-        
         while (true) {
 
             displayMap(map);
@@ -61,54 +61,57 @@ public class MapView extends View {
                     System.out.println("Invalid Option.");
 
             }
-            map.getLocations()[player.getActor().getActorcoordinates().x]
-                   [player.getActor().getActorcoordinates().y].setVisited(true);
+            map.getLocations()[player.getActor().getActorcoordinates().x][player.getActor().getActorcoordinates().y].setVisited(true);
         }
 
     }
 
-        public void displayMap(Map map) {
-        
+    public void displayMap(Map map) {
+
         System.out.println(EscapeIsland.getCurrentPlayer().getActor().getActorcoordinates().x);
         System.out.println(EscapeIsland.getCurrentPlayer().getActor().getActorcoordinates().y);
         Location[][] locations = map.getLocations();
-        
+
         System.out.println("*** displayMap called ***");
 
         map.getLocations();
 
         System.out.println("     Mysterious Island");
 
-        System.out.print(" ");
-        for (int i = 0; i < map.getColumnSize(); i++) {
-            System.out.print((i + 1) + "    ");
+        System.out.print("  ");
+        for (int i = 0; i < map.getColumnCount(); i++) {
+            System.out.print((i + 1) + "   ");
         }
 
-        System.out.println("\n ----------------------------");
+        System.out.println("\n -------------------------------------------");
 
-        for (int i = 0; i < map.getRowSize(); i++) {
-            System.out.print(i + 1);
+        for (int i = 0; i < map.getRowCount(); i++) {
+            if (i < 9) {
+                System.out.print((i + 1) + " ");
+            }
+            else {
+                System.out.print(i + 1);
+            }
 
-            for (int j = 0; j < map.getColumnSize(); j++) {
+            for (int j = 0; j < map.getColumnCount(); j++) {
                 if (locations[i][j].isVisited()) {
-                    
-                    if (i == EscapeIsland.getCurrentPlayer().getActor().getActorcoordinates().x 
-                            && j == EscapeIsland.getCurrentPlayer().getActor().getActorcoordinates().y){
+
+                    if (i == EscapeIsland.getCurrentPlayer().getActor().getActorcoordinates().x
+                            && j == EscapeIsland.getCurrentPlayer().getActor().getActorcoordinates().y) {
                         System.out.print("| H ");
-                    }
-                    else {
+                    } else {
                         System.out.print("| " + locations[i][j].getBackgroundType().getPrintValue() + " ");
                     }
                 } else {
                     System.out.print("| ? ");
                 }
             }
-                System.out.println("|\n ----------------------------");
-
-            }
+            System.out.println("|\n -----------------------------------------");
 
         }
-    
+
+    }
+
     public String[] getInputs() {
         {
 
@@ -133,7 +136,7 @@ public class MapView extends View {
 
     private void moveNorth(Player player, Map map) {
         Actor hero = player.getActor();
-        int newRow = hero.getActorcoordinates().x-1;
+        int newRow = hero.getActorcoordinates().x - 1;
         int newColumn = hero.getActorcoordinates().y;
 
         try {
@@ -146,7 +149,7 @@ public class MapView extends View {
     private void moveEast(Player player, Map map) {
         Actor hero = player.getActor();
         int newRow = hero.getActorcoordinates().x;
-        int newColumn = hero.getActorcoordinates().y+1;
+        int newColumn = hero.getActorcoordinates().y + 1;
         try {
             MapControl.moveActor(hero, newRow, newColumn);
         } catch (MapControlException ex) {
@@ -156,7 +159,7 @@ public class MapView extends View {
 
     private void moveSouth(Player player, Map map) {
         Actor hero = player.getActor();
-        int newRow = hero.getActorcoordinates().x+1;
+        int newRow = hero.getActorcoordinates().x + 1;
         int newColumn = hero.getActorcoordinates().y;
         try {
             MapControl.moveActor(hero, newRow, newColumn);
@@ -166,16 +169,17 @@ public class MapView extends View {
     }
 
     private void moveWest(Player player, Map map) {
-         Actor hero = player.getActor();
+        Actor hero = player.getActor();
         int newRow = hero.getActorcoordinates().x;
-        int newColumn = hero.getActorcoordinates().y-1;
+        int newColumn = hero.getActorcoordinates().y - 1;
         try {
             MapControl.moveActor(hero, newRow, newColumn);
         } catch (MapControlException ex) {
             System.out.println(ex.getMessage());
-        
+
         }
     }
+
     public void viewMap(Map map) {
         MapView mapView = new MapView();
         mapView.display();
@@ -188,20 +192,20 @@ public class MapView extends View {
 
     public void openMap(Map map, Player player) {
 
-        for (int mapZ = 0; mapZ < map.getRowSize(); mapZ++) {
-            for (int mapX = 0; mapX < map.getColumnSize(); mapX++) {
-                if(map.getLocations()[mapZ][mapX].getColumn() == player.getActor().getActorcoordinates().getX() &&
-                        map.getLocations()[mapZ][mapX].getRow() == player.getActor().getActorcoordinates().getY()) {
+        for (int mapZ = 0; mapZ < map.getRowCount(); mapZ++) {
+            for (int mapX = 0; mapX < map.getColumnCount(); mapX++) {
+                if (map.getLocations()[mapZ][mapX].getColumn() == player.getActor().getActorcoordinates().getX()
+                        && map.getLocations()[mapZ][mapX].getRow() == player.getActor().getActorcoordinates().getY()) {
                     map.getLocations()[mapZ][mapX].setVisited(true);
                 }
             }
         }
-        
-        for (int mapR = 0; mapR < map.getRowSize(); mapR++) {
-            for (int mapC = 0; mapC < map.getColumnSize(); mapC++) {
+
+        for (int mapR = 0; mapR < map.getRowCount(); mapR++) {
+            for (int mapC = 0; mapC < map.getColumnCount(); mapC++) {
                 if (player.getActor().getActorcoordinates().x == mapR && player.getActor().getActorcoordinates().y == mapC) {
                     System.out.print("H");
-                    
+
                 }
                 System.out.print(map.physicalMapView[mapR][mapC]);
             }

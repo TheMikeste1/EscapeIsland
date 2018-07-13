@@ -15,8 +15,7 @@ public class Map implements Serializable{
     public Location[][] locations;
     public char[][]physicalMapView;
     public char[][]interactionMapView;
-    private int rowSize;
-    private int columnSize; 
+
     
     //Constructors
     public Map() {
@@ -27,20 +26,18 @@ public class Map implements Serializable{
             //C == Camp
             //P == Prision
             //= == Bridge
-            this.rowSize = 6;
-            this.columnSize = 6;
                        
             //rework map to promote story/gameplay (with actor enum)
             this.physicalMapView = new char[][]{
                      // 0   1   2   3   4   5   6   7   8   9
                 /*0*/ {'~','~','~','~','~','~','~','~','~','~'}
-                /*1*/,{'~','B','B','B','B','~','B','B','B','~'}
-                /*2*/,{'~','B','M','M','F','~','P','P','B','~'}
-                /*3*/,{'~','B','M','M','F','~','P','P','B','~'}
-                /*4*/,{'~','B','M','M','F','~','P','P','B','~'}
-                /*5*/,{'~','F','F','F','F','~','=','=','~','~'}
-                /*6*/,{'~','B','C','C','F','F','F','F','B','~'}
-                /*7*/,{'~','B','C','C','B','B','B','B','B','~'}
+                /*1*/,{'~','B','B','B','B','~','M','M','M','~'}
+                /*2*/,{'~','B','M','M','F','~','M','P','M','~'}
+                /*3*/,{'~','B','M','M','F','~','M','M','M','~'}
+                /*4*/,{'~','B','M','M','F','~','M','M','M','~'}
+                /*5*/,{'~','F','F','F','F','~','~','=','~','~'}
+                /*6*/,{'~','B','F','F','F','F','F','F','B','~'}
+                /*7*/,{'~','B','C','F','B','B','B','B','B','~'}
                 /*8*/,{'~','B','B','B','B','B','B','B','B','~'}
                 /*9*/,{'~','~','~','~','~','~','~','~','~','~'}};
              
@@ -68,8 +65,7 @@ public class Map implements Serializable{
         this.currentRow = currentRow;
         this.currentColumn = currentColumn;
         this.locations = locations;
-        this.rowSize = 6;
-        this.columnSize =6;
+
         
             //Legend
             //M == Mountain
@@ -79,13 +75,19 @@ public class Map implements Serializable{
             //P == Prision
             //= == Bridge
                        
-            this.physicalMapView = new char[][]{
-                 {'~','~','~','~','~','~'}
-                ,{'~','F','M','~','p','~'}
-                ,{'~','B','F','~','=','~'}
-                ,{'~','M','F','F','F','~'}
-                ,{'~','C','B','F','F','~'}
-                ,{'~','~','~','~','~','~'}};
+             this.physicalMapView = new char[][]{
+                     // 0   1   2   3   4   5   6   7   8   9
+                /*0*/ {'~','~','~','~','~','~','~','~','~','~'}
+                /*1*/,{'~','B','B','B','B','~','M','M','M','~'}
+                /*2*/,{'~','B','M','M','F','~','M','P','M','~'}
+                /*3*/,{'~','B','M','M','F','~','M','M','M','~'}
+                /*4*/,{'~','B','M','M','F','~','M','M','M','~'}
+                /*5*/,{'~','F','F','F','F','~','~','=','~','~'}
+                /*6*/,{'~','B','F','F','F','F','F','F','B','~'}
+                /*7*/,{'~','B','C','F','B','B','B','B','B','~'}
+                /*8*/,{'~','B','B','B','B','B','B','B','B','~'}
+                /*9*/,{'~','~','~','~','~','~','~','~','~','~'}};
+           
              
             //Legend
             //! = Interaction
@@ -137,13 +139,7 @@ public class Map implements Serializable{
         return interactionMapView;
     }
 
-    public int getRowSize() {
-        return rowSize;
-    }
 
-    public int getColumnSize() {
-        return columnSize;
-    }
     
     
     //Setters
@@ -247,22 +243,5 @@ public class Map implements Serializable{
         return super.clone(); //To change body of generated methods, choose Tools | Templates.
     }
 
-//TO DO:
-//Fog:
-//Character Location:
-//Character Vision:
-//Interact with Enviroment:
-//    Scenes:
-//        Explored Scene
-//        Unexplored Scene
-//        Completed Scene
-//        Uncompleted Scene
-//            Combat Scene
-//            Item Pickup Scene
-//            Item Required Scene        
-//            NPC Scene
-//            Puzzle / Riddle Scene
-
-    
 }
    

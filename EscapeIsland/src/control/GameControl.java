@@ -47,14 +47,14 @@ public class GameControl {
         Map map;
        
         
-            map = MapControl.createMap(game, 6, 6);
+            map = MapControl.createMap(game, 10, 10);
             
             if (map == null) {
             throw new GameControlException("map is null");
             }
             game.setMap(map);
             
-            game.getMap().setLocations(createLocations(6, 6, riddle));
+            game.getMap().setLocations(createLocations(10, 10, riddle));
             new MapControl().assignActorsToLocations(new Map().getLocations());
             new MapControl().assignItemsToLocations(game.getMap().getLocations());
             
